@@ -1,0 +1,10 @@
+.cbs__page-pricing__container {
+  height: 100vh;
+}
+.cbs__page-pricing__body {
+  width: 100%;
+  text-align: center;
+}
+.cbs__page-pricing__body h2 {
+  color: var(--color-accent);
+}

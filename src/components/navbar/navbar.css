@@ -109,7 +109,7 @@
 }
 
 .cbs__navbar-links_container p,
-.cbs__navbar-sign p,
+.cbs__navbar-sign a,
 .cbs__navbar-menu_container {
   color: var(--color-text);
   font-weight: 500;
@@ -117,7 +117,6 @@
   line-height: 25px;
   text-transform: capitalize;
   margin: 0 1rem;
-  cursor: pointer;
 }
 
 .cbs__navbar-sign button,
@@ -131,7 +130,6 @@
   font-size: 18px;
   background: var(--color-text);
   border-radius: 50px;
-  cursor: pointer;
 }
 
 .cbs__navbar-menu {

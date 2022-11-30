@@ -52,8 +52,8 @@ const Navbar = () => {
         </div>
       </div>
       <div className="cbs__navbar-sign">
-        <p>Sign in</p>
-        <button type="button" className="glow-on-hover">
+        <a className="disabled">Sign in</a>
+        <button type="button" className="glow-on-hover disabled">
           Sign up
         </button>
       </div>

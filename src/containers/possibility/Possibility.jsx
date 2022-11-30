@@ -15,7 +15,11 @@ const Possibility = () => {
         <div className="cbs__possibility-form gradient__bg">
           <img src={emailIcon} alt="email icon" />
           <h1>Request for a Demo</h1>
-          <form action="POST">
+          <form
+            action="POST"
+            data-netlify="true"
+            onClick={(e) => e.preventDefault()}
+          >
             <input
               type="text"
               name="name"

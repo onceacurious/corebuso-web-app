@@ -9,7 +9,12 @@ const Pricing = () => {
   DocumentTitle("Pricing | Corebuso");
   return (
     <>
-      <Navbar />
+      <div className="cbs__page-pricing__container">
+        <Navbar />
+        <div className="cbs__page-pricing__body">
+          <h2>Welcome to Pricing Page!</h2>
+        </div>
+      </div>
     </>
   );
 };
