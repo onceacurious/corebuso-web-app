@@ -7,6 +7,7 @@ const EmailForm = () => {
   return (
     <>
       <form
+        data-netlify="true"
         className="cbs__form-container"
         onSubmit={(e) => e.preventDefault()}
       >
