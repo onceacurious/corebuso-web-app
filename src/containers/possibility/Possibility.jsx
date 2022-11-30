@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./possibility.css";
 import contactImage from "../../assets/contact_possibility.png";
 import emailIcon from "../../assets/email_icon.svg";
 import { Link } from "react-router-dom";
 
 const Possibility = () => {
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, contact, email, company);
+    setName("");
+    setContact("");
+    setEmail("");
+    setCompany("");
+  };
   return (
     <>
       <div className="cbs__possibility section__padding" id="possibility">
@@ -16,15 +29,18 @@ const Possibility = () => {
           <img src={emailIcon} alt="email icon" />
           <h1>Request for a Demo</h1>
           <form
+            name="request_demo"
             action="POST"
             data-netlify="true"
-            onClick={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <input
               type="text"
               name="name"
               id="name"
               placeholder="Complete Name*"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
             <input
@@ -32,12 +48,16 @@ const Possibility = () => {
               name="email"
               id="email"
               placeholder="Email Address*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
               type="text"
               name="contact"
               id="contact"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
               placeholder="Contact Number"
             />
             <input
@@ -45,6 +65,8 @@ const Possibility = () => {
               name="company"
               id="company"
               placeholder="Company Name"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
             />
 
             <div className="cbs__possibility-form_button">
