@@ -1,0 +1,28 @@
+.cbs__brand {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cbs__brand-container {
+  max-width: 33%;
+  min-width: 200px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cbs__brand-container p {
+  margin: 0.5rem 0;
+  color: var(--color-text);
+  text-align: center;
+}
+
+@media screen and (max-width: 990px) {
+  .cbs__brand {
+    justify-content: center;
+  }
+}

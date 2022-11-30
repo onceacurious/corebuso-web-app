@@ -1,0 +1,134 @@
+.cbs__header {
+  display: flex;
+  font-family: var(--font);
+  flex-direction: row;
+}
+
+.cbs__header-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 5rem;
+}
+
+.cbs__header-content h1 {
+  font-weight: 800;
+  font-size: 62px;
+  line-height: 75px;
+  letter-spacing: -0.04em;
+}
+
+.cbs__header-content p {
+  font-size: 20px;
+  line-height: 27px;
+
+  color: var(--color-accent);
+}
+
+.cbs__header-excerpt {
+  min-width: 360px;
+  width: 50vw;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.cbs__header-excerpt p {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 38px;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.cbs__header-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cbs__header-image img {
+  width: 80%;
+  height: 90%;
+}
+
+.slide-right {
+  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.focus-in-expand {
+  -webkit-animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 500ms;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 1330px) {
+  .cbs__header {
+    flex-direction: column;
+  }
+
+  .cbs__header-content {
+    margin: 0 0 3rem;
+  }
+
+  .cbs__header-content h1,
+  .cbs__header-content p,
+  .cbs__header-excerpt {
+    text-align: center;
+  }
+
+  .cbs__header-excerpt {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .cbs__header h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .cbs__header p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .cbs__header-content__people {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 499px) {
+}
+
+/* KEYFRAME QUERY */
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}

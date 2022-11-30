@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+:root {
+  --light: #fff;
+  --dark: #000;
+  --color-bg: #350c25;
+  --color-bg-2: #0f4c5c;
+  --color-footer: #350c25;
+
+  --color-text: #ff7c03;
+  --color-subtext: #2cba83;
+  --color-accent: #99db21;
+
+  --gradient-bar: linear-gradient(
+    99deg,
+    #ff7c03 30%,
+    #2cba83 71%,
+    #99db21 100%
+  );
+  --gradient-text: linear-gradient(
+    99deg,
+    #ff7c03 30%,
+    #2cba83 71%,
+    #99db21 100%
+  );
+
+  --font: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  font-family: var(--font);
+  user-select: none;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}

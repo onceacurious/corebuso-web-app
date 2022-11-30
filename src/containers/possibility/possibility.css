@@ -1,0 +1,199 @@
+.cbs__possibility {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cbs__possibility-image img {
+  height: 400px;
+}
+
+.cbs__possibility-form {
+  flex: 1;
+
+  max-width: 700px;
+  margin: 0 3rem;
+  padding: 2rem 4rem;
+  border-radius: 50px;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.75);
+
+  position: relative;
+  z-index: 1;
+}
+
+.cbs__possibility-form h1 {
+  color: var(--color-accent);
+  margin: 2rem 0;
+}
+
+.cbs__possibility-form img {
+  position: absolute;
+  width: 120px;
+  top: -10%;
+}
+
+.cbs__possibility-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cbs__possibility-form form input[type="text"],
+.cbs__possibility-form form input[type="email"] {
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 18px;
+  padding: 15px 10px;
+
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.cbs__possibility-form_button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+}
+
+.cbs__possibility-form_button input {
+  padding: 5px;
+  border: none;
+  width: 100px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+
+  transition: all 100ms ease-in-out;
+}
+
+.cbs__possibility-form_button :nth-child(1) {
+  --color: rgb(216, 86, 86);
+  border: 2px solid var(--color);
+  color: var(--color);
+  background-color: transparent;
+}
+
+.cbs__possibility-form_button :nth-child(1):hover,
+.cbs__possibility-form_button :nth-child(1):focus {
+  --color: rgba(216, 86, 86, 0.75);
+  background-color: var(--color);
+  border: var(--color);
+  color: #fff;
+  outline: none;
+
+  transform: scale(0.95);
+}
+
+.cbs__possibility-form_button :nth-child(2) {
+  --color: rgb(22, 74, 188);
+  border: 2px solid var(--color);
+  color: #fff;
+  background-color: var(--color);
+}
+.cbs__possibility-form_button :nth-child(2):hover,
+.cbs__possibility-form_button :nth-child(2):focus {
+  --color: rgb(56, 109, 223);
+  border: 2px solid var(--color);
+  color: #fff;
+  background-color: var(--color);
+  outline: none;
+
+  transform: scale(0.95);
+}
+
+.cbs__possibility-form_privacy p {
+  color: var(--color-subtext);
+  font-size: 12px;
+}
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: var(--color-text);
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Poppins";
+  text-transform: uppercase;
+}
+
+.btn-flip:hover:after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+.btn-flip:hover:before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: var(--color-accent);
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  background: transparent;
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+}
+
+.btn-flip:before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: var(--color-text);
+  display: block;
+  /* padding: 0 px; */
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  background: transparent;
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 1190px) {
+  .cbs__possibility {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .cbs__possibility-image {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cbs__possibility-form h1 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cbs__possibility-form {
+    margin: 0 1rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+  }
+
+  .cbs__possibility-image {
+    display: none;
+  }
+}

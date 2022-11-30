@@ -1,0 +1,68 @@
+.cbs__pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem 1rem;
+}
+
+.cbs__pricing-content {
+  width: 100%;
+}
+
+/* Override Standard Card template */
+._standard {
+  position: relative;
+  z-index: 1;
+}
+
+.cbs__pricing-best-value {
+  width: fit-content;
+  padding: 2px 10px;
+  background-color: var(--color-text);
+  color: var(--light);
+  border-radius: 8px;
+  font-size: 28px;
+
+  position: absolute;
+  z-index: 2;
+  top: -30px;
+  transform: translateX(23%);
+}
+
+.cbs__pricing-learn-more {
+  margin-top: 1rem;
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cbs__pricing-learn-more:hover {
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
+
+.cbs__pricing-learn-more:after {
+  content: "";
+}
+
+.cbs__pricing-learn-more:hover:after {
+  content: " \00BB";
+}
+
+._show-more {
+  height: fit-content !important;
+}
+
+._show-less {
+  display: none;
+}
+
+@media screen and (max-width: 550px) {
+  .cbs__pricing h1 {
+    text-align: center;
+    transform: scale(0.9);
+  }
+}
+
+/* KEYFRAME ANIMATION */

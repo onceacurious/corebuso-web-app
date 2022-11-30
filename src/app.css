@@ -1,0 +1,139 @@
+/* Using BEM Css naming Block Content Modifier */
+
+.app {
+  height: 100vh;
+}
+
+/* Angry Tools */
+.gradient__bg {
+  /* ff 3.6+ */
+  background: -moz-radial-gradient(circle at 0% 19%, #0f4c5c 0%, #350c25 53%);
+
+  /* safari 5.1+,chrome 10+ */
+  background: -webkit-radial-gradient(
+    circle at 0% 19%,
+    #0f4c5c 0%,
+    #350c25 53%
+  );
+
+  /* opera 11.10+ */
+  background: -o-radial-gradient(circle at 0% 19%, #0f4c5c 0%, #350c25 53%);
+
+  /* ie 10+ */
+  background: -ms-radial-gradient(circle at 0% 19%, #0f4c5c 0%, #350c25 53%);
+
+  /* global 92%+ browsers support */
+  background: radial-gradient(circle at 0% 19%, #0f4c5c 0%, #350c25 53%);
+}
+
+.gradient__text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input[type="button"]:disabled,
+.disabled,
+button:disabled {
+  cursor: not-allowed;
+}
+
+.section__padding {
+  padding: 4rem 6rem;
+}
+
+.section__margin {
+  margin: 4rem 6rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* Animista.net */
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 760px) {
+  /* Table */
+  .section__padding {
+    padding: 4rem;
+  }
+
+  .section__margin {
+    margin: 4rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section__padding {
+    padding: 2rem 3rem;
+  }
+  .section__margin {
+    margin: 2rem 3rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section__padding {
+    padding: 1rem 0.5rem;
+  }
+  .section__margin {
+    margin: 1rem 0.5rem;
+  }
+}
+
+/* KEYFRAMES */
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}

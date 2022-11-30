@@ -1,0 +1,42 @@
+/* Font Sizes */
+._title {
+  font-size: 3rem;
+}
+._heading1 {
+  font-size: 2.5rem;
+}
+._heading2 {
+  font-size: 2rem;
+}
+._heading3 {
+  font-size: 1.5rem;
+}
+._paragraph {
+  font-size: 1rem;
+}
+
+._sub-para > * {
+  font-size: 0.75rem;
+  padding-block: 4px;
+}
+
+._bolder {
+  font-weight: bolder;
+}
+._bold {
+  font-weight: bold;
+}
+._normal {
+  font-weight: normal;
+}
+
+/* Text Align */
+._text-start {
+  text-align: start;
+}
+._text-center {
+  text-align: center;
+}
+._text-end {
+  text-align: end;
+}

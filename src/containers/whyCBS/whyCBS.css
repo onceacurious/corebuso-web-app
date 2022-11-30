@@ -1,0 +1,134 @@
+.cbs__whyCBS {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  /* ff 3.6+ */
+  background: -moz-radial-gradient(circle at 75% 71%, #0f4c5c 0%, #350c25 53%);
+
+  /* safari 5.1+,chrome 10+ */
+  background: -webkit-radial-gradient(
+    circle at 75% 71%,
+    #0f4c5c 0%,
+    #350c25 53%
+  );
+
+  /* opera 11.10+ */
+  background: -o-radial-gradient(circle at 75% 71%, #0f4c5c 0%, #350c25 53%);
+
+  /* ie 10+ */
+  background: -ms-radial-gradient(circle at 75% 71%, #0f4c5c 0%, #350c25 53%);
+
+  /* global 92%+ browsers support */
+  background: radial-gradient(circle at 75% 71%, #0f4c5c 0%, #350c25 53%);
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  box-shadow: 6px 6px 6px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cbs__whyCBS-feature {
+  display: flex;
+}
+
+.cbs__whyCBS-feature .cbs__features-container__feature {
+  margin: 0;
+}
+
+.cbs__whyCBS-feature .cbs__features-container_feature-text {
+  max-width: 700px;
+}
+
+.cbs__whyCBS-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 4rem 0 2rem;
+}
+
+.cbs__whyCBS-heading h1 {
+  font-size: 34px;
+  line-height: 45px;
+  font-weight: 800;
+  font-family: var(--font-family);
+  max-width: 510px;
+}
+
+.cbs__whyCBS-heading_CTA {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  color: var(--color-subtext);
+  position: relative;
+  padding: 5px;
+  /* letter-spacing: 0.1em; */
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: all ease-in-out 0.5s;
+}
+
+.cbs__whyCBS-heading_CTA:hover {
+  /* letter-spacing: 0.15em; */
+  border: 2px solid var(--color-subtext);
+  box-shadow: 0 0 35px var(--color-subtext);
+  transform: scale(0.95);
+}
+
+.cbs__whyCBS-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  margin-top: 2rem;
+}
+
+.cbs__whyCBS-container .cbs__features-container__feature {
+  flex: 1;
+  margin: 1rem;
+  min-width: 210px;
+  display: unset;
+  flex-direction: column;
+}
+
+.cbs__whyCBS-container .cbs__features-container_feature-text {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 850px) {
+  .cbs__whyCBS-heading {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0rem;
+  }
+
+  .cbs__whyCBS-heading p {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .cbs__whyCBS-feature .cbs__features-container__feature {
+    flex-direction: column;
+  }
+
+  .cbs__whyCBS-feature .cbs__features-container_feature-text {
+    margin-top: 0.5rem;
+  }
+
+  .cbs__whyCBS-heading h1 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .cbs__whyCBS-container .cbs__features-container__feature {
+    margin: 1rem 0;
+    min-width: 100%;
+  }
+}

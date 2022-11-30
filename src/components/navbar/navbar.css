@@ -1,0 +1,269 @@
+.cbs__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 6rem;
+}
+
+.cbs__navbar-links {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cbs__navbar-links_logo {
+  margin-right: 2rem;
+  width: 225px;
+}
+
+.cbs__navbar-links_logo h1 {
+  font-size: 40px;
+  line-height: 44px;
+
+  background: radial-gradient(
+    153.86% 1436.38% at 14.1% -0.89%,
+    #ff7c03 0%,
+    #2cba83 56.25%,
+    #99db21 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cbs__navbar-links_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.cbs__navbar-sign {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: var(--color-text);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: var(--color-text);
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-text);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.cbs__navbar-links_container p,
+.cbs__navbar-sign p,
+.cbs__navbar-menu_container {
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: capitalize;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.cbs__navbar-sign button,
+.cbs__navbar-menu_container button {
+  border: none;
+  outline: none;
+  font-weight: 700;
+  width: 152px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 18px;
+  background: var(--color-text);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.cbs__navbar-menu {
+  margin-left: 1rem;
+  display: none;
+  position: relative;
+}
+
+.cbs__navbar-menu svg {
+  cursor: pointer;
+}
+
+.cbs__navbar-menu_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: end;
+  background: var(--color-footer);
+  padding: 2rem;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  margin-top: 1rem;
+  min-width: 210px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cbs__navbar-menu_container p {
+  margin: 1rem 0;
+}
+
+.cbs__navbar-links_container-links-sign {
+  display: none;
+}
+
+.cbs__navbar-separator {
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.tracking-in-expand {
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
+    both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation-delay: 500ms;
+}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 1331px) {
+  .cbs__navbar-separator {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1330px) {
+  .cbs__navbar-links_container,
+  .cbs__navbar-menu_container-links-sign {
+    display: none;
+  }
+
+  .cbs__navbar-menu {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cbs__navbar {
+    padding: 2rem 4rem;
+  }
+  .cbs__navbar-sign {
+    display: none;
+  }
+  .cbs__navbar-menu_container-links-sign {
+    display: block;
+  }
+
+  .cbs__navbar-menu_container {
+    padding-block: 1rem;
+    margin: 1rem;
+  }
+  .cbs__navbar-links_logo {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cbs__navbar {
+    padding: 2rem;
+  }
+  .cbs__navbar-menu_container {
+    top: 20px;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* KEYFRAME QUERY */
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

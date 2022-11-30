@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+._container {
+  --max-width: 1140px;
+  --padding: 2rem;
+
+  width: min(var(--max-width), 100% - var(--padding));
+  min-height: 100vh;
+  margin-inline: auto;
+}
+
+/* Display */
+._flex {
+  display: flex;
+
+  transition: flex-direction 350ms ease-in-out;
+}
+._d-hide {
+  display: none;
+}
+
+._flex-column {
+  flex-direction: column;
+}
+
+._flex-row {
+  flex-direction: row;
+}
+
+._jc-center {
+  justify-content: center;
+}
+._jc-between {
+  justify-content: space-between;
+}
+._jc-around {
+  justify-content: space-around;
+}
+._jc-evenly {
+  justify-content: space-evenly;
+}
+
+._ai-center {
+  align-items: center;
+}
+._ai-start {
+  align-items: start;
+}
+._ai-end {
+  align-items: end;
+}
+._ai-stretch {
+  align-items: stretch;
+}
+
+/* Height */
+._h-100 {
+  height: 100vh;
+}
+._h-90 {
+  height: 90vh;
+}
+._h-75 {
+  height: 75vh;
+}
+._h-50 {
+  height: 50vh;
+}
+._h-25 {
+  height: 25vh;
+}
+
+/* Background Color */
+._bg-light {
+  background: #fff;
+}
+._bg-dark {
+  background: #777;
+}
+
+/* Grid */
+._grid {
+  display: grid;
+}
+._col {
+  grid-template-columns: auto;
+}
+
+._col6 {
+  grid-template-columns: 1fr 1fr;
+}
+._col6 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Margin */
+._m1 {
+  margin: 8px;
+}
+._m2 {
+  margin: 16px;
+}
+._m3 {
+  margin: 24px;
+}
+._m4 {
+  margin: 32px;
+}
+._m5 {
+  margin: 40px;
+}
+
+._mt1 {
+  margin-top: 8px;
+}
+._mt2 {
+  margin-top: 16px;
+}
+._mt3 {
+  margin-top: 24px;
+}
+._mt4 {
+  margin-top: 32px;
+}
+._mt5 {
+  margin-top: 40px;
+}
+
+._mx1 {
+  margin: 0 8px;
+}
+._mx2 {
+  margin: 0 16px;
+}
+._mx3 {
+  margin: 0 24px;
+}
+._mx4 {
+  margin: 0 32px;
+}
+._mx5 {
+  margin: 0 40px;
+}
+
+._my1 {
+  margin: 8px 0;
+}
+._my2 {
+  margin: 16px 0;
+}
+._my3 {
+  margin: 24px 0;
+}
+._my4 {
+  margin: 32px 0;
+}
+._my5 {
+  margin: 40px 0;
+}
+
+/* Padding */
+._p1 {
+  padding: 8px;
+}
+._p2 {
+  padding: 16px;
+}
+._p3 {
+  padding: 24px;
+}
+._p4 {
+  padding: 32px;
+}
+._p5 {
+  padding: 40px;
+}
+
+._pt1 {
+  padding-top: 8px;
+}
+._pt2 {
+  padding-top: 16px;
+}
+._pt3 {
+  padding-top: 24px;
+}
+._pt4 {
+  padding-top: 32px;
+}
+._pt5 {
+  padding-top: 40px;
+}
+
+._px1 {
+  padding: 0 8px;
+}
+._px2 {
+  padding: 0 16px;
+}
+._px3 {
+  padding: 0 24px;
+}
+._px4 {
+  padding: 0 32px;
+}
+._px5 {
+  padding: 0 40px;
+}
+
+._py1 {
+  padding: 8px 0;
+}
+._py2 {
+  padding: 16px 0;
+}
+._py3 {
+  padding: 24px 0;
+}
+._py4 {
+  padding: 32px 0;
+}
+._py5 {
+  padding: 40px 0;
+}
+
+/* Button */
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+._btn {
+  cursor: pointer;
+  opacity: 1;
+  transition: 300ms;
+  outline: none;
+}
+
+._btn-primary {
+  background-color: rgb(4, 170, 109);
+  color: #fff;
+}
+
+._btn-warning {
+  background-color: rgb(207, 204, 10);
+  color: #fff;
+}
+
+._btn-danger {
+  background-color: rgb(207, 33, 10);
+  color: #fff;
+}
+
+._btn-secondary {
+  background-color: rgb(172, 177, 182);
+  color: #000;
+}
+
+._btn:hover {
+  opacity: 0.6;
+}
+
+._btn:focus {
+  box-shadow: 0 0 8px 4px rgb(172, 177, 182);
+}
+
+._btn:disabled {
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 879px) {
+  ._container {
+    flex-direction: column;
+  }
+
+  ._flex-column {
+    flex-direction: column;
+  }
+
+  ._jc-center {
+    justify-content: start;
+  }
+}

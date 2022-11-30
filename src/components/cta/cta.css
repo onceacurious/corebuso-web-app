@@ -1,0 +1,153 @@
+.cbs__cta {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 1rem 10rem 1rem 0.5rem;
+  padding: 0.5rem;
+
+  background-image: var(--gradient-bar);
+}
+
+.cbs__cta > p {
+  font-size: 12px !important;
+  border-radius: 2px;
+  margin-block: 1rem;
+  letter-spacing: 1px;
+  transition: all 350ms ease-in-out;
+}
+
+.cbs__cta > p:hover {
+  box-shadow: 0 0 4px var(--light);
+  letter-spacing: 3px;
+}
+
+.cbs__cta-tools {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 75%;
+  flex-wrap: wrap;
+}
+
+.cbs__cta-tools p {
+  margin: 0 1rem;
+}
+
+.cbs__cta-container {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 2rem;
+}
+
+.cbs__cta-content {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+
+.cbs__cta-content p,
+.cbs__cta-content h2 {
+  color: var(--light);
+}
+
+.cbs__cta-content p,
+.cbs__cta > p {
+  color: var(--light);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  border: 1px solid var(--light);
+  padding: 1px 3px;
+  width: fit-content;
+}
+
+.cbs__cta-button {
+  margin-right: 4rem;
+}
+
+/* GET STARTED ANIMATION */
+
+.cbs__cta-button a {
+  display: block;
+  width: 150px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  /* color: var(); */
+  /* border: 2px solid var(--accent); */
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cbs__cta-button a span {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+  z-index: 2;
+}
+
+.cbs__cta-button a:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--color-bg-2);
+  transition: all 0.35s;
+}
+
+.cbs__cta-button a:hover:after {
+  border-radius: 8px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1300px) {
+  .cbs__cta {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .cbs__cta-container {
+    flex-direction: column;
+  }
+  .cbs__cta-button {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cbs__cta {
+    margin: 0.5rem;
+  }
+  .cbs__cta-content {
+    max-width: max-content;
+  }
+
+  .cbs__cta-content h2,
+  .cbs__cta-button {
+    font-size: 16px;
+  }
+
+  .cbs__cta-button {
+    margin-right: unset;
+  }
+}
