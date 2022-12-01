@@ -40,6 +40,7 @@ const Possibility = () => {
             name="request-demo"
             action="POST"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="request-demo" />
