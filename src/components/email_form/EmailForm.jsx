@@ -16,6 +16,8 @@ const EmailForm = ({ scale }) => {
     <>
       <form
         method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
         name="email-inquiry"
         className="cbs__form-container"
         onSubmit={handleSubmit}
