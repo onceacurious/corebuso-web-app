@@ -9,9 +9,29 @@
 </head>
 
 <body>
-  <form name="email-inquiry" netlify netlify-honeypot="bot-field" hidden>
+
+  <form method="POST" name="email-inquiry" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
     <input name="client-email" type="email" />
   </form>
+
+
+  <form name="request-demo" action="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <input type="text" name="name" id="name" />
+    <input type="email" name="email" id="email" />
+    <input type="text" name="contact" id="contact" />
+    <input type="text" name="company" id="company" />
+  </form>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

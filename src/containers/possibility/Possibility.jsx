@@ -37,11 +37,12 @@ const Possibility = () => {
           <img src={emailIcon} alt="email icon" />
           <h1>Request for a Demo</h1>
           <form
-            name="request_demo"
+            name="request-demo"
             action="POST"
             data-netlify="true"
             onSubmit={handleSubmit}
           >
+            <input type="hidden" name="form-name" value="request-demo" />
             <input
               type="text"
               name="name"
