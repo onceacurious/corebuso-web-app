@@ -16,12 +16,11 @@ const EmailForm = ({ scale }) => {
     <>
       <form
         method="POST"
-        name="email form"
-        data-netlify="true"
+        name="email-inquiry"
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="email form" />
+        <input type="hidden" name="form-name" value="email-inquiry" />
         <input
           name="client-email"
           type="email"
