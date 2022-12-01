@@ -1,25 +1,41 @@
 .cbs__cta {
-  border-radius: 8px;
+  --margin: 5rem;
+  margin-right: 5rem;
+  background-image: var(--gradient-bar);
+  width: calc(100vw - var(--margin));
+  height: 30vh;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.cbs__cta-frame {
+  width: 100%;
+  /* border-radius: 8px; */
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  margin: 1rem 10rem 1rem 0.5rem;
-  padding: 0.5rem;
+  padding-inline: 5rem;
 
-  background-image: var(--gradient-bar);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.cbs__cta > p {
-  font-size: 12px !important;
-  border-radius: 2px;
+.cbs__cta-frame > p {
+  font-size: 24px !important;
+  color: var(--light);
+  font-weight: 700;
   margin-block: 1rem;
   letter-spacing: 1px;
   transition: all 350ms ease-in-out;
 }
 
-.cbs__cta > p:hover {
-  box-shadow: 0 0 4px var(--light);
+.cbs__cta-frame > p:hover {
   letter-spacing: 3px;
 }
 
@@ -56,8 +72,7 @@
   color: var(--light);
 }
 
-.cbs__cta-content p,
-.cbs__cta > p {
+.cbs__cta-content p {
   color: var(--light);
   font-size: 10px;
   font-weight: 600;
@@ -68,20 +83,17 @@
   width: fit-content;
 }
 
-.cbs__cta-button {
-  margin-right: 4rem;
-}
-
 /* GET STARTED ANIMATION */
 
 .cbs__cta-button a {
-  display: block;
-  width: 150px;
-  height: 32px;
+  display: flex;
+  width: max-content;
+  height: 48px;
   line-height: 32px;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   text-decoration: none;
+  padding-inline: 1rem;
   /* color: var(); */
   /* border: 2px solid var(--accent); */
   letter-spacing: 2px;
@@ -99,6 +111,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+  margin: auto;
   position: relative;
   z-index: 2;
 }
@@ -121,25 +134,42 @@
 
 @media screen and (max-width: 1300px) {
   .cbs__cta {
-    margin: 1rem;
+    margin-right: 3rem !important;
   }
 }
 
 @media screen and (max-width: 990px) {
-  .cbs__cta-container {
+  .cbs__cta {
+    margin-right: 0;
+    width: 100%;
+    border-radius: 0;
+    height: max-content;
+  }
+
+  .cbs__cta-frame {
+    position: relative;
+    padding-inline: 1rem;
+  }
+
+  .cbs__cta .cbs__cta-container {
     flex-direction: column;
   }
+
+  .cbs__cta-container {
+    padding: 0.5rem;
+  }
+
   .cbs__cta-button {
     margin-top: 1rem;
+    transform: scale(0.8);
   }
 }
 
 @media screen and (max-width: 550px) {
-  .cbs__cta {
-    margin: 0.5rem;
-  }
   .cbs__cta-content {
     max-width: max-content;
+    align-items: center;
+    text-align: center;
   }
 
   .cbs__cta-content h2,

@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 6rem;
+  padding: 1rem 6rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 }
 
 .cbs__navbar-links {
@@ -185,6 +191,9 @@
   .cbs__navbar-separator {
     display: none;
   }
+  .cbs__navbar {
+    padding-inline: 2rem;
+  }
 }
 
 @media screen and (max-width: 1330px) {
@@ -198,10 +207,13 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 990px) {
   .cbs__navbar {
-    padding: 2rem 4rem;
+    padding-inline: 2rem;
   }
+}
+
+@media screen and (max-width: 700px) {
   .cbs__navbar-sign {
     display: none;
   }
@@ -219,9 +231,6 @@
 }
 
 @media screen and (max-width: 550px) {
-  .cbs__navbar {
-    padding: 2rem;
-  }
   .cbs__navbar-menu_container {
     top: 20px;
   }

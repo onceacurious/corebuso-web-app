@@ -2,6 +2,12 @@
   display: flex;
   font-family: var(--font);
   flex-direction: row;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 1;
 }
 
 .cbs__header-content {
@@ -11,13 +17,15 @@
   align-items: flex-start;
   flex-direction: column;
   margin-right: 5rem;
+  max-width: 50%;
 }
 
 .cbs__header-content h1 {
   font-weight: 800;
-  font-size: 62px;
-  line-height: 75px;
+  font-size: 48px;
+  line-height: 52px;
   letter-spacing: -0.04em;
+  margin-bottom: 1rem;
 }
 
 .cbs__header-content p {
@@ -30,7 +38,7 @@
 .cbs__header-excerpt {
   min-width: 360px;
   width: 50vw;
-  height: 80px;
+  height: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -42,7 +50,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 18px;
-  line-height: 38px;
+  line-height: 24px;
   color: var(--color-accent);
   text-align: center;
 }
@@ -75,10 +83,12 @@
 @media screen and (max-width: 1330px) {
   .cbs__header {
     flex-direction: column;
+    padding-top: 400px !important;
   }
 
   .cbs__header-content {
     margin: 0 0 3rem;
+    max-width: 100%;
   }
 
   .cbs__header-content h1,
@@ -102,8 +112,9 @@
     line-height: 24px;
   }
 
-  .cbs__header-content__people {
-    flex-direction: column;
+  .cbs__header-excerpt {
+    justify-content: center;
+    height: 80px;
   }
 }
 

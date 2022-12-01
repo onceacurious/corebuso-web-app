@@ -3,7 +3,7 @@ import "./emailForm.css";
 
 import { GrSend } from "react-icons/gr";
 
-const EmailForm = () => {
+const EmailForm = ({ scale }) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,12 +16,14 @@ const EmailForm = () => {
     <>
       <form
         method="POST"
-        name="email"
+        name="email form"
         data-netlify="true"
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >
+        <input type="hidden" name="form-name" value="email form" />
         <input
+          name="client-email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
