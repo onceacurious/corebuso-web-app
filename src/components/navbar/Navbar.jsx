@@ -40,7 +40,7 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <div className="cbs__navbar">
+    <div className="cbs__navbar gradient__bg">
       <div className="cbs__navbar-links">
         <div className="cbs__navbar-links_logo">
           <h1 className="tracking-in-expand">

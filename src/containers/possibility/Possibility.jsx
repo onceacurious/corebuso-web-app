@@ -18,6 +18,14 @@ const Possibility = () => {
     setEmail("");
     setCompany("");
   };
+
+  const handleCancel = () => {
+    setName("");
+    setContact("");
+    setEmail("");
+    setCompany("");
+  };
+
   return (
     <>
       <div className="cbs__possibility section__padding" id="possibility">
@@ -75,6 +83,7 @@ const Possibility = () => {
                 type="reset"
                 value="cancel"
                 tabIndex="-1"
+                onClick={handleCancel}
               />
               <input type="submit" value="Send" className="pointer" />
             </div>
