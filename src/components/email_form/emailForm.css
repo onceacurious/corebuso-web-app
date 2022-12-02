@@ -1,4 +1,4 @@
-form.cbs__form-container{
+.cbs__form-container {
   height: 42px;
 }
 
@@ -7,70 +7,81 @@ form.cbs__form-container{
   margin: 2rem 0 1rem;
 
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.cbs__form-container > input {
-  --font-size: 18px;
+#email,
+#emailSend,
+#emailStart {
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  outline: none;
+  height: 42px;
+}
 
+#email,
+.cbs__form-button__container {
+  height: 42px;
+  border: 2px solid var(--color-text);
+}
+
+/* main input */
+.cbs__form-container #email {
   background: rgba(255, 255, 255, 0.2);
-  border: 2px solid #ff7c03;
-  padding: 0.5rem 1rem;
   font-size: var(--font-size);
-  line-height: calc(var(--font-size) + 4px);
   outline: none;
   color: #fff;
   font-family: var(--font);
+  padding-inline: 15px;
 }
 
-.cbs__form-button__container{
+.cbs__form-button__container {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
   overflow: hidden;
-
   outline: none;
   border: none;
-  border-top: 2px solid var(--color-text);
-  border-right: 2px solid var(--color-text);
-  border-bottom: 2px solid var(--color-text);
+  background-color: var(--color-text);
+  border: 2px solid var(--color-text);
 }
 
-.cbs__form-button__container > input,
-.cbs__form-button__container > button{
-  height: 42px;
+/* buttons */
+.cbs__form-button__container > input {
   outline: none;
   border: none;
+  text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-size: 20px;
   color: var(--light);
-  background-color: #ff7c03;
   letter-spacing: 2px;
+  background: transparent;
 
   transition: all 500ms ease;
 }
-.cbs__form-button__container > button{
+
+#emailSend {
+  letter-spacing: 5px !important;
+}
+
+.inactive-emailStart {
+  margin-bottom: 0;
+}
+
+.inactive-emailSend {
   margin-top: -42px;
 }
 
-.button-style{
-  margin-top: 0;
-  background-color: transparent;
-  color: var(--color-text);
+.focus-emailStart {
+  margin-bottom: -42px;
 }
 
-.input-stye{
-  /* margin-bottom: -42px; */
-  display: none;
-}
-/* Button */
-.roll-down{
-}
-/* Button */
-.roll-up{
+.focus-emailSend {
   margin-top: 0;
-  background-color: transparent;
-  color: var(--color-text);
 }
 
 /* MEDIA QUERY */
@@ -78,13 +89,15 @@ form.cbs__form-container{
 }
 
 @media screen and (max-width: 650px) {
-
-
+  .cbs__email-form {
+    transform: scale(0.7);
+  }
 }
 
 @media screen and (max-width: 499px) {
-
-
+  #email {
+    width: 200px;
+  }
 }
 
 /* KEYFRAME QUERY */

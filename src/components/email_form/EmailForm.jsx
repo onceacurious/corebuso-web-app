@@ -3,35 +3,32 @@ import "./emailForm.css";
 
 const EmailForm = ({ scale }) => {
   const [email, setEmail] = useState("");
-  const [buttonStyle, setButtonStyle] = useState("")
-  const [inputStyle, setInputStyle] = useState("")
+  const [sendStyle, setSendStyle] = useState("inactive-emailSend");
+  const [startStyle, setStartStyle] = useState("inactive-emailStart");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
     setEmail("");
-
+    setStartStyle("inactive-emailStart");
+    setSendStyle("inactive-emailSend");
   };
 
   const handleChange = (e) => {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
     if (email.length > 0) {
-      console.log(email);
-      setInputStyle("input-style")
-      setButtonStyle("button-style")
+      setStartStyle("focus-emailStart");
+      setSendStyle("focus-emailSend");
     }
-    // setButtonStyle("roll-up")
-
-  }
+  };
 
   return (
-    <>
+    <div className="cbs__email-form">
       <form
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         name="email-inquiry"
-
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >
@@ -42,18 +39,25 @@ const EmailForm = ({ scale }) => {
           type="email"
           value={email}
           onChange={(e) => handleChange(e)}
-          onBlur={(e) => handleChange(e)}
-
+          // onBlur={(e) => handleChange(e)}
           placeholder="Your Email Address"
         />
         <div className="cbs__form-button__container">
-          <button type="submit" className={buttonStyle}>
-            Submit
-          </button>
-          <input type="submit" value="Get Started" className={inputStyle} />
+          <input
+            type="submit"
+            value="Send"
+            id="emailSend"
+            className={sendStyle}
+          />
+          <input
+            type="submit"
+            value="Get Started"
+            id="emailStart"
+            className={startStyle}
+          />
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

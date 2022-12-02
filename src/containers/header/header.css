@@ -14,7 +14,6 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
   margin-right: 5rem;
   max-width: 50%;
@@ -89,6 +88,7 @@
   .cbs__header-content {
     margin: 0 0 3rem;
     max-width: 100%;
+    align-items: center;
   }
 
   .cbs__header-content h1,
