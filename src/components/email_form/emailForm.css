@@ -1,3 +1,7 @@
+form.cbs__form-container{
+  height: 42px;
+}
+
 .cbs__form-container {
   width: 100%;
   margin: 2rem 0 1rem;
@@ -5,112 +9,82 @@
   display: flex;
 }
 
-.cbs__form-container input {
-  --font-size: 24px;
+.cbs__form-container > input {
+  --font-size: 18px;
 
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid #ff7c03;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
   padding: 0.5rem 1rem;
   font-size: var(--font-size);
   line-height: calc(var(--font-size) + 4px);
   outline: none;
   color: #fff;
   font-family: var(--font);
-
-  max-width: 300px;
 }
 
-.cbs__form-container button {
-  --color: #ff7c03;
+.cbs__form-button__container{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  overflow: hidden;
 
   outline: none;
-  display: inline;
-  border: 2px solid var(--color);
-  background: var(--color);
-  font-size: 24px;
-  font-weight: bold;
-  font-family: var(--font);
-  padding: 0.5rem;
-
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  letter-spacing: 1px;
-
-  overflow: hidden;
+  border: none;
+  border-top: 2px solid var(--color-text);
+  border-right: 2px solid var(--color-text);
+  border-bottom: 2px solid var(--color-text);
 }
 
-.cbs__form-container button svg {
-  transform: translateX(-50px);
-  margin: 0 -10px;
+.cbs__form-button__container > input,
+.cbs__form-button__container > button{
+  height: 42px;
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--light);
+  background-color: #ff7c03;
+  letter-spacing: 2px;
+
+  transition: all 500ms ease;
+}
+.cbs__form-button__container > button{
+  margin-top: -42px;
 }
 
-.cbs__form-container input:focus + button svg {
-  margin: 0 10px 0 5px;
-  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.button-style{
+  margin-top: 0;
+  background-color: transparent;
+  color: var(--color-text);
 }
 
-.cbs__form-container button:active {
-  letter-spacing: normal;
+.input-stye{
+  /* margin-bottom: -42px; */
+  display: none;
+}
+/* Button */
+.roll-down{
+}
+/* Button */
+.roll-up{
+  margin-top: 0;
+  background-color: transparent;
+  color: var(--color-text);
 }
 
 /* MEDIA QUERY */
 @media screen and (max-width: 1330px) {
-  .cbs__header {
-    flex-direction: column;
-  }
-
-  .cbs__header-content {
-    margin: 0 0 3rem;
-  }
-
-  .cbs__header-content h1,
-  .cbs__header-content p,
-  .cbs__header-excerpt {
-    text-align: center;
-  }
-
-  .cbs__form-container,
-  .cbs__header-excerpt {
-    justify-content: center;
-  }
-
-  .cbs__form-container input,
-  .cbs__form-container button {
-    font-size: 18px;
-    line-height: 22px;
-  }
 }
 
 @media screen and (max-width: 650px) {
-  .cbs__form-container input {
-    width: 200px;
-  }
 
-  .cbs__form-container input,
-  .cbs__form-container button {
-    font-size: 16px;
-    line-height: 18px;
-  }
+
 }
 
 @media screen and (max-width: 499px) {
-  .cbs__form-container button svg {
-    display: none;
-  }
 
-  .cbs__form-container input {
-    width: 190px;
-  }
 
-  .cbs__form-container button {
-    padding: 0.25rem;
-  }
 }
 
 /* KEYFRAME QUERY */
