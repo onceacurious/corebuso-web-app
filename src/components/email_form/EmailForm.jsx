@@ -19,6 +19,19 @@ const EmailForm = ({ scale }) => {
     if (email.length > 0) {
       setStartStyle("focus-emailStart");
       setSendStyle("focus-emailSend");
+    } else {
+      setStartStyle("inactive-emailStart");
+      setSendStyle("inactive-emailSend");
+    }
+  };
+
+  const handleBlur = () => {
+    if (email.length > 0) {
+      setStartStyle("focus-emailStart");
+      setSendStyle("focus-emailSend");
+    } else {
+      setStartStyle("inactive-emailStart");
+      setSendStyle("inactive-emailSend");
     }
   };
 
@@ -34,12 +47,12 @@ const EmailForm = ({ scale }) => {
       >
         <input type="hidden" name="form-name" value="email-inquiry" />
         <input
-          id="email"
+          id="emailGetStarted"
           name="client-email"
           type="email"
           value={email}
           onChange={(e) => handleChange(e)}
-          // onBlur={(e) => handleChange(e)}
+          onBlur={() => handleBlur()}
           placeholder="Your Email Address"
         />
         <div className="cbs__form-button__container">

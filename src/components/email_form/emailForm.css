@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-#email,
+#emailGetStarted,
 #emailSend,
 #emailStart {
   font-size: 16px;
@@ -21,14 +21,14 @@
   height: 42px;
 }
 
-#email,
+#emailGetStarted,
 .cbs__form-button__container {
   height: 42px;
   border: 2px solid var(--color-text);
 }
 
 /* main input */
-.cbs__form-container #email {
+.cbs__form-container #emailGetStarted {
   background: rgba(255, 255, 255, 0.2);
   font-size: var(--font-size);
   outline: none;
@@ -95,7 +95,7 @@
 }
 
 @media screen and (max-width: 499px) {
-  #email {
+  #emailGetStarted {
     width: 200px;
   }
 }
