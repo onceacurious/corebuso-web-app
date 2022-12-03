@@ -15,7 +15,7 @@ const Header = () => {
           Build a MODERN, REACTIVE, RESPONSIVE website from scratch with an
           affordable price range.
         </p>
-        <EmailForm />
+        <EmailForm name="emailInquiry" />
         <div className="cbs__header-excerpt">
           <p className="focus-in-expand">
             web development and accounting services

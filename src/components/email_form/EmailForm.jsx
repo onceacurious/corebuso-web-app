@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./emailForm.css";
 
-const EmailForm = ({ scale }) => {
+const EmailForm = ({ scale, name }) => {
   const [email, setEmail] = useState("");
   const [sendStyle, setSendStyle] = useState("inactive-emailSend");
   const [startStyle, setStartStyle] = useState("inactive-emailStart");
@@ -41,7 +41,7 @@ const EmailForm = ({ scale }) => {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        name="email-inquiry"
+        name={name}
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >

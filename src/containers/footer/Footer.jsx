@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="cbs__footer-main__sub-contacts">
             <div className="cbs__footer-main__sub">
               <h3>Subscribe to Our News Letter</h3>
-              <EmailForm />
+              <EmailForm name="emailSubscription" />
             </div>
             <div className="cbs__footer-main__contacts">
               <div className="cbs__footer-contact">
