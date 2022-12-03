@@ -45,7 +45,8 @@ const EmailForm = ({ scale, name }) => {
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="email-inquiry" />
+        <input type="hidden" name="form-name" value={name} />
+        <input type="hidden" name="bot-field" />
         <input
           id="emailGetStarted"
           name="client-email"
