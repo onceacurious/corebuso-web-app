@@ -35,7 +35,6 @@
 }
 
 body {
-  background: var(--color-bg);
   font-family: var(--font);
   user-select: none;
 }
@@ -43,4 +42,8 @@ body {
 a {
   color: unset;
   text-decoration: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

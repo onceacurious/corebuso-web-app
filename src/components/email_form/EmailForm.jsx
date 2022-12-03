@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import api from "../../helpers/api/inquiry";
+
 import "./emailForm.css";
 
 const EmailForm = ({ scale, name }) => {
@@ -8,7 +10,9 @@ const EmailForm = ({ scale, name }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
+
+    postData();
+
     setEmail("");
     setStartStyle("inactive-emailStart");
     setSendStyle("inactive-emailSend");
@@ -32,6 +36,20 @@ const EmailForm = ({ scale, name }) => {
     } else {
       setStartStyle("inactive-emailStart");
       setSendStyle("inactive-emailSend");
+    }
+  };
+
+  const postData = () => {
+    try {
+      api.post("/", { email: email });
+    } catch (err) {
+      if (err.response) {
+        console.log(err.responses.data);
+        console.log(err.response.status);
+        console.log(err.response.header);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
     }
   };
 

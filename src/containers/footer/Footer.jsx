@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
           <div className="cbs__footer-col-3">
             <div className="cbs__footer-site-map">
-              <a href="#">Home</a>
+              <Link to="/admin">Admin</Link>
             </div>
           </div>
         </div>
