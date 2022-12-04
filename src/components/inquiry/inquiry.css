@@ -81,6 +81,7 @@
   float: left;
   height: 75vh;
   overflow-y: auto;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .cbs__inquiry-list__item {

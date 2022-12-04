@@ -47,3 +47,16 @@ a {
 .capitalize {
   text-transform: capitalize;
 }
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: inline !important;
+}
+
+.small {
+  font-size: 12px !important;
+  padding: 2px !important;
+}

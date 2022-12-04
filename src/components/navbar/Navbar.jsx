@@ -116,8 +116,8 @@ const Navbar = () => {
         <Link to="/admin" className="nav-link">
           Sign in
         </Link>
-        <button type="button" className="glow-on-hover disabled">
-          Sign up
+        <button type="button" className="glow-on-hover">
+          <Link to="/auth/register">Sign up</Link>
         </button>
       </div>
       <div className="cbs__navbar-menu">
@@ -144,7 +144,7 @@ const Navbar = () => {
                   Sign in
                 </Link>
                 <button type="button" className="glow-on-hover">
-                  Sign up
+                  <Link to="/auth/register">Sign up</Link>
                 </button>
               </div>
             </div>

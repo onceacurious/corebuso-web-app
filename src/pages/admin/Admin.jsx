@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Routes, Route } from "react-router-dom";
-import api from "../../helpers/api/inquiry";
-import DocumentTitle from "../../helpers/DocumentTitle";
+
 import { Sidebar, Inquiry, AdminPricing } from "../../components";
+import DocumentTitle from "../../helpers/DocumentTitle";
+import api from "../../helpers/api/inquiry";
 import logo from "../../assets/corebuso_footer_logo.png";
 import "./admin.css";
 

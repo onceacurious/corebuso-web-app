@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { About, Home, NotFound, Pricing, Admin } from "./pages";
+import { About, Home, NotFound, Pricing, Admin, Auth } from "./pages";
 import "./app.css";
 import "./assets/css/utilities.css";
 import "./assets/css/typography.css";
 import "./assets/css/card.css";
-import { Inquiry } from "./components";
 
 const App = () => {
   return (
@@ -17,6 +16,7 @@ const App = () => {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/admin/*" element={<Admin />} />
+          <Route path="/auth/*" element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </div>

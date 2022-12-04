@@ -55,7 +55,7 @@ const Inquiry = ({ inquiry }) => {
     <>
       <div className="cbs__inquiry">
         <div className="cbs__inquiry-search">
-          <p>{count}</p>
+          <p>{count > 1 ? `${count} inquiries` : `${count} inquiry`}</p>
           <div className="cbs__inquiry-search__form-container">
             <form action="POST" onSubmit={handleSearchSubmit}>
               <input
