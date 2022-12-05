@@ -1,115 +1,104 @@
 .cbs__form-container {
+  height: 42px;
+}
+
+.cbs__form-container {
   width: 100%;
   margin: 2rem 0 1rem;
 
   display: flex;
-}
-
-.cbs__form-container input {
-  --font-size: 24px;
-
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid #ff7c03;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-  padding: 0.5rem 1rem;
-  font-size: var(--font-size);
-  line-height: calc(var(--font-size) + 4px);
-  outline: none;
-  color: #fff;
-  font-family: var(--font);
-
-  max-width: 300px;
-}
-
-.cbs__form-container button {
-  --color: #ff7c03;
-
-  outline: none;
-  display: inline;
-  border: 2px solid var(--color);
-  background: var(--color);
-  font-size: 24px;
-  font-weight: bold;
-  font-family: var(--font);
-  padding: 0.5rem;
-
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  cursor: pointer;
-  display: flex;
+  flex-direction: row;
   align-items: center;
-  letter-spacing: 1px;
 
   overflow: hidden;
 }
 
-.cbs__form-container button svg {
-  transform: translateX(-50px);
-  margin: 0 -10px;
+#emailGetStarted,
+#emailSend,
+#emailStart {
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  outline: none;
+  height: 42px;
 }
 
-.cbs__form-container input:focus + button svg {
-  margin: 0 10px 0 5px;
-  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+#emailGetStarted,
+.cbs__form-button__container {
+  height: 42px;
+  border: 2px solid var(--color-text);
 }
 
-.cbs__form-container button:active {
-  letter-spacing: normal;
+/* main input */
+.cbs__form-container #emailGetStarted {
+  background: rgba(255, 255, 255, 0.2);
+  font-size: var(--font-size);
+  outline: none;
+  color: #fff;
+  font-family: var(--font);
+  padding-inline: 15px;
+}
+
+.cbs__form-button__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  background-color: var(--color-text);
+  border: 2px solid var(--color-text);
+}
+
+/* buttons */
+.cbs__form-button__container > input {
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 2px;
+  background: transparent;
+
+  transition: all 500ms ease;
+}
+
+#emailSend {
+  letter-spacing: 5px !important;
+}
+
+.inactive-emailStart {
+  margin-bottom: 0;
+}
+
+.inactive-emailSend {
+  margin-top: -42px;
+}
+
+.focus-emailStart {
+  margin-bottom: -42px;
+}
+
+.focus-emailSend {
+  margin-top: 0;
 }
 
 /* MEDIA QUERY */
 @media screen and (max-width: 1330px) {
-  .cbs__header {
-    flex-direction: column;
-  }
-
-  .cbs__header-content {
-    margin: 0 0 3rem;
-  }
-
-  .cbs__header-content h1,
-  .cbs__header-content p,
-  .cbs__header-excerpt {
-    text-align: center;
-  }
-
-  .cbs__form-container,
-  .cbs__header-excerpt {
-    justify-content: center;
-  }
-
-  .cbs__form-container input,
-  .cbs__form-container button {
-    font-size: 18px;
-    line-height: 22px;
-  }
 }
 
 @media screen and (max-width: 650px) {
-  .cbs__form-container input {
-    width: 200px;
-  }
-
-  .cbs__form-container input,
-  .cbs__form-container button {
-    font-size: 16px;
-    line-height: 18px;
+  .cbs__email-form {
+    transform: scale(0.7);
   }
 }
 
 @media screen and (max-width: 499px) {
-  .cbs__form-container button svg {
-    display: none;
-  }
-
-  .cbs__form-container input {
-    width: 190px;
-  }
-
-  .cbs__form-container button {
-    padding: 0.25rem;
+  #emailGetStarted {
+    width: 200px;
   }
 }
 

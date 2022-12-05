@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./possibility.css";
+import { Link } from "react-router-dom";
 import contactImage from "../../assets/contact_possibility.png";
 import emailIcon from "../../assets/email_icon.svg";
-import { Link } from "react-router-dom";
+import api from "../../helpers/api/inquiry";
+import "./possibility.css";
 
 const Possibility = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const Possibility = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, contact, email, company);
+    postData();
     setName("");
     setContact("");
     setEmail("");
@@ -24,6 +25,25 @@ const Possibility = () => {
     setContact("");
     setEmail("");
     setCompany("");
+  };
+
+  const postData = () => {
+    try {
+      api.post("/", {
+        email: email,
+        name: name ? name : "",
+        contact: contact ? contact : "",
+        company: company ? company : "",
+      });
+    } catch (err) {
+      if (err.response) {
+        console.log(err.responses.data);
+        console.log(err.response.status);
+        console.log(err.response.header);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
+    }
   };
 
   return (
@@ -44,6 +64,7 @@ const Possibility = () => {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="request-demo" />
+            <input type="hidden" name="bot-field" />
             <input
               type="text"
               name="name"

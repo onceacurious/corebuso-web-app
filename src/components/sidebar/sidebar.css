@@ -1,0 +1,17 @@
+ul,
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.cbs__sidebar {
+  padding: 2rem 1rem 2rem 2rem;
+}
+
+.cbs__sidebar-list__item {
+  margin-bottom: 0.5rem;
+}
+
+.cbs__sidebar-list__item a:hover {
+  color: var(--color-accent);
+}

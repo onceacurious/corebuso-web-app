@@ -1,5 +1,6 @@
 .cbs__page-pricing__container {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 20%;
 }
 .cbs__page-pricing__body {
   width: 100%;

@@ -261,6 +261,19 @@ button,
   color: #000;
 }
 
+._btn {
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+._btn-rounded {
+  border-radius: 4px;
+}
+
 ._btn:hover {
   opacity: 0.6;
 }

@@ -47,6 +47,11 @@
   flex-wrap: wrap;
 }
 
+.cbs__cta-tools p svg {
+  font-size: 40px;
+  color: var(--color-accent);
+}
+
 .cbs__cta-tools p {
   margin: 0 1rem;
 }

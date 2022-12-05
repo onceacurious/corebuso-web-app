@@ -7,28 +7,44 @@ const Menu = ({ setToggleMenu }) => {
   return (
     <>
       <p>
-        <Link to="/" onClick={() => setToggleMenu(false)}>
+        <Link to="/" onClick={() => setToggleMenu(false)} className="nav-link">
           Home
         </Link>
       </p>
       <p>
-        <a onClick={() => setToggleMenu(false)} href="#wCBS">
+        <a
+          onClick={() => setToggleMenu(false)}
+          href="#wCBS"
+          className="nav-link"
+        >
           About
         </a>
       </p>
       <p>
-        <a onClick={() => setToggleMenu(false)} href="#features">
+        <a
+          onClick={() => setToggleMenu(false)}
+          href="#features"
+          className="nav-link"
+        >
           Case Studies
         </a>
       </p>
       <div className="cbs__navbar-separator"></div>
       <p>
-        <a href="#pricing" onClick={() => setToggleMenu(false)}>
+        <a
+          href="#pricing"
+          onClick={() => setToggleMenu(false)}
+          className="nav-link"
+        >
           Pricing
         </a>
       </p>
       <p>
-        <Link to="/not-found" onClick={() => setToggleMenu(false)}>
+        <Link
+          to="/not-found"
+          onClick={() => setToggleMenu(false)}
+          className="nav-link"
+        >
           Library
         </Link>
       </p>
@@ -36,7 +52,7 @@ const Menu = ({ setToggleMenu }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ setClose, close }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -48,12 +64,63 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="cbs__navbar-links_container">
-          <Menu />
+          <p>
+            <Link
+              to="/"
+              onClick={() => setToggleMenu(false)}
+              className="nav-link"
+            >
+              Home
+            </Link>
+          </p>
+          <p>
+            <a
+              onClick={() => setToggleMenu(false)}
+              href="#wCBS"
+              className="nav-link"
+            >
+              About
+            </a>
+          </p>
+          <p>
+            <a
+              onClick={() => setToggleMenu(false)}
+              href="#features"
+              className="nav-link"
+            >
+              Case Studies
+            </a>
+          </p>
+          <div className="cbs__navbar-separator"></div>
+          <p>
+            <a
+              href="#pricing"
+              onClick={() => setToggleMenu(false)}
+              className="nav-link"
+            >
+              Pricing
+            </a>
+          </p>
+          <p>
+            <Link
+              to="/not-found"
+              onClick={() => setToggleMenu(false)}
+              className="nav-link"
+            >
+              Library
+            </Link>
+          </p>
         </div>
       </div>
       <div className="cbs__navbar-sign">
-        <a className="disabled">Sign in</a>
-        <button type="button" className="glow-on-hover disabled">
+        <Link to="/admin" className="nav-link">
+          Sign in
+        </Link>
+        <button
+          type="button"
+          className="glow-on-hover"
+          onClick={() => setClose(!close)}
+        >
           Sign up
         </button>
       </div>
@@ -77,8 +144,14 @@ const Navbar = () => {
               <Menu setToggleMenu={setToggleMenu} />
               <div className="cbs__navbar-menu_container-links-sign">
                 <div className="cbs__navbar-separator"></div>
-                <p>Sign in</p>
-                <button type="button" className="glow-on-hover">
+                <Link to="/admin" className="nav-link">
+                  Sign in
+                </Link>
+                <button
+                  type="button"
+                  className="glow-on-hover"
+                  onClick={() => setClose(!close)}
+                >
                   Sign up
                 </button>
               </div>

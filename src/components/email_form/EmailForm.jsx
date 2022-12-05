@@ -1,41 +1,95 @@
 import React, { useState } from "react";
+import api from "../../helpers/api/inquiry";
+
 import "./emailForm.css";
 
-import { GrSend } from "react-icons/gr";
-
-const EmailForm = ({ scale }) => {
+const EmailForm = ({ scale, name }) => {
   const [email, setEmail] = useState("");
+  const [sendStyle, setSendStyle] = useState("inactive-emailSend");
+  const [startStyle, setStartStyle] = useState("inactive-emailStart");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
+
+    postData();
+
     setEmail("");
+    setStartStyle("inactive-emailStart");
+    setSendStyle("inactive-emailSend");
+  };
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+    if (email.length > 0) {
+      setStartStyle("focus-emailStart");
+      setSendStyle("focus-emailSend");
+    } else {
+      setStartStyle("inactive-emailStart");
+      setSendStyle("inactive-emailSend");
+    }
+  };
+
+  const handleBlur = () => {
+    if (email.length > 0) {
+      setStartStyle("focus-emailStart");
+      setSendStyle("focus-emailSend");
+    } else {
+      setStartStyle("inactive-emailStart");
+      setSendStyle("inactive-emailSend");
+    }
+  };
+
+  const postData = () => {
+    try {
+      api.post("/", { email: email });
+    } catch (err) {
+      if (err.response) {
+        console.log(err.responses.data);
+        console.log(err.response.status);
+        console.log(err.response.header);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
+    }
   };
 
   return (
-    <>
+    <div className="cbs__email-form">
       <form
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        name="email-inquiry"
+        name={name}
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="email-inquiry" />
+        <input type="hidden" name="form-name" value={name} />
+        <input type="hidden" name="bot-field" />
         <input
+          id="emailGetStarted"
           name="client-email"
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => handleChange(e)}
+          onBlur={() => handleBlur()}
           placeholder="Your Email Address"
         />
-        <button type="submit">
-          <GrSend />
-          Get Started
-        </button>
+        <div className="cbs__form-button__container">
+          <input
+            type="submit"
+            value="Send"
+            id="emailSend"
+            className={sendStyle}
+          />
+          <input
+            type="submit"
+            value="Get Started"
+            id="emailStart"
+            className={startStyle}
+          />
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 
