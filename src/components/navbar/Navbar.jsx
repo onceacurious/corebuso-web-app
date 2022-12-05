@@ -52,7 +52,7 @@ const Menu = ({ setToggleMenu }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ setClose, close }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -116,8 +116,12 @@ const Navbar = () => {
         <Link to="/admin" className="nav-link">
           Sign in
         </Link>
-        <button type="button" className="glow-on-hover">
-          <Link to="/auth/register">Sign up</Link>
+        <button
+          type="button"
+          className="glow-on-hover"
+          onClick={() => setClose(!close)}
+        >
+          Sign up
         </button>
       </div>
       <div className="cbs__navbar-menu">
@@ -143,8 +147,12 @@ const Navbar = () => {
                 <Link to="/admin" className="nav-link">
                   Sign in
                 </Link>
-                <button type="button" className="glow-on-hover">
-                  <Link to="/auth/register">Sign up</Link>
+                <button
+                  type="button"
+                  className="glow-on-hover"
+                  onClick={() => setClose(!close)}
+                >
+                  Sign up
                 </button>
               </div>
             </div>

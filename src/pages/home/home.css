@@ -1,4 +1,7 @@
 .cbs__home {
   background: var(--color-bg);
   overflow-x: hidden;
+
+  position: relative;
+  z-index: 1;
 }
