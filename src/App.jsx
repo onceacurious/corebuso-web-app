@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as BrowserRouter, Routes, Route } from "react-router-dom";
 import { About, Home, NotFound, Pricing, Admin, Auth } from "./pages";
 import "./app.css";
 import "./assets/css/utilities.css";
@@ -12,11 +12,11 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />} index />
-          <Route path="/not-found" element={<NotFound />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="/auth/*" element={<Auth />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
