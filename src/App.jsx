@@ -19,8 +19,8 @@ const App = () => {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/admin" element={<Admin />} >
-            <Route exact path="/admin/" element={<Inquiry/>}/>
-            </Route>
+            <Route path="/admin/inquiry" element={<Inquiry/>}/>
+          </Route>
           <Route path="/auth/*" element={<Auth />} />
         </Routes>
       </BrowserRouter>
