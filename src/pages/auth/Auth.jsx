@@ -8,8 +8,8 @@ const Auth = () => {
     <>
       <div className="cbs__auth">
         <Routes>
+          <Route exact path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Routes, Route } from "react-router-dom";
+import { useParams, Routes, Route, Outlet } from "react-router-dom";
 
 import { Sidebar, Inquiry, AdminPricing } from "../../components";
 import DocumentTitle from "../../helpers/DocumentTitle";
-import api from "../../helpers/api/inquiry";
+import { getInquiries } from "../../helpers/api/inquiryApi";
 import logo from "../../assets/corebuso_footer_logo.png";
 import "./admin.css";
 
@@ -21,8 +21,9 @@ const Admin = () => {
 
   const getData = async () => {
     try {
-      const response = await api.get("");
-      setInquiry(response.data);
+      const data = await getInquiries();
+      console.log(data);
+      setInquiry(data);
     } catch (err) {
       console.log(err.response.data);
       console.log(err.response.status);
@@ -43,7 +44,7 @@ const Admin = () => {
         </div>
         <div className="cbs__admin-body">
           <Routes>
-            <Route path="/" element={<Inquiry inquiry={inquiry} />} exact />
+            <Route exact path="/" element={<Inquiry inquiry={inquiry} />} />
             <Route path="/pricing" element={<AdminPricing />} />
           </Routes>
         </div>

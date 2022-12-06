@@ -13,12 +13,17 @@ import { Brand, Cta, Navbar } from "../../components";
 
 import "./home.css";
 
-const Home = () => {
-  const [close, setClose] = useState(false);
-
+const Home = ({ close, setClose }) => {
   return (
     <div className="cbs__home">
-      <Signup close={close} setClose={setClose} />
+      <Signup
+        close={close}
+        setClose={setClose}
+        emailId="home"
+        usernameId="home"
+        pwdId="home"
+        pwdId2="home"
+      />
       <div className="gradient__bg">
         <Navbar close={close} setClose={setClose} />
         <Header />

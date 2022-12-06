@@ -1,6 +1,9 @@
 .cbs__page-pricing__container {
   min-height: 100vh;
   padding-top: 20%;
+
+  position: relative;
+  z-index: 1;
 }
 .cbs__page-pricing__body {
   width: 100%;
