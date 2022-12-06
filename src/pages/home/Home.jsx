@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Outlet} from 'react-router-dom'
 import {
   Footer,
   Pricing,
@@ -18,6 +19,7 @@ const Home = () => {
 
   return (
     <div className="cbs__home">
+      <Outlet/>
       <Signup close={close} setClose={setClose} />
       <div className="gradient__bg">
         <Navbar close={close} setClose={setClose} />

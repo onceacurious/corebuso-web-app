@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Routes, Route } from "react-router-dom";
+import { useParams, Routes, Route, Outlet } from "react-router-dom";
 
 import { Sidebar, Inquiry, AdminPricing } from "../../components";
 import DocumentTitle from "../../helpers/DocumentTitle";
@@ -33,6 +33,7 @@ const Admin = () => {
   return (
     <>
       <div className="cbs__admin-container gradient__bg">
+      <Outlet/>
         <Sidebar />
         <div className="cbs__admin-header">
           <div className="cbs__admin-header__brand">

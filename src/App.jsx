@@ -41,6 +41,7 @@ const App = () => {
 
   return (
     <div className="app">
+      
       <RouterProvider router={router} />
       {/* <BrowserRouter>
         <Routes>

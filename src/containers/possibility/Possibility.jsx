@@ -54,7 +54,7 @@ const Possibility = () => {
         </div>
 
         <div className="cbs__possibility-form gradient__bg">
-          <img src={emailIcon} alt="email icon" />
+          <img src={emailIcon} alt="email icon" loading="lazy" />
           <h1>Request for a Demo</h1>
           <form
             name="request-demo"
