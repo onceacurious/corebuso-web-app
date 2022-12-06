@@ -4,13 +4,13 @@ import { Feature } from "../../components";
 import { Link } from "react-router-dom";
 
 const featuresData = [
-  {
+  { 
     title: "Eco-Friendly Design",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, illum!",
+    text: "Optimizing website by reducing image size. Strategically plan videos. Use lazy loading for images and media. Improve site navigation to find information easier. Choose a green web host. Finally, set up web caching.",
   },
   {
     title: "Search Engine Optimization",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, illum!",
+    text: "By implementing best SEO checklist and ",
   },
   {
     title: "Minimalist",
@@ -26,10 +26,9 @@ const Features = () => {
   return (
     <div className="cbs__features section__padding" id="features">
       <div className="cbs__features-heading">
-        <h1 className="gradient__text">
-          Be the first to avail of our modern, affordable, and responsive
-          website templates, created by an expert just for you.
-        </h1>
+        <h2 className="gradient__text">
+        Practice the most efficient and effective way of developing a website from scratch without compromising the features and scalability.
+        </h2>
         <Link to="/" className="pointer">
           <span>Find Out More About Our Products</span>
         </Link>

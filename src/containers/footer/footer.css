@@ -75,10 +75,16 @@
   width: 50%;
 }
 
+.cbs__footer-main__sub {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .cbs__footer-main__sub .cbs__form-container {
   margin-block: 1rem;
   justify-content: center;
-  /* transform: scale(0.8); */
 }
 
 .cbs__footer-main__sub-contacts h3 {

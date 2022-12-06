@@ -9,7 +9,7 @@ const Feature = ({ css, title, text }) => {
         <h1>{title}</h1>
       </div>
       <div className="cbs__features-container_feature-text">
-        <p>{text}</p>
+        <p>{text.length > 150 ? `${text.substring(0, 150)}...` : text}</p>
       </div>
     </div>
   );

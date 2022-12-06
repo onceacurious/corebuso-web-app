@@ -89,48 +89,12 @@ const Inquiry = ({ inquiry }) => {
                 </div>
               </button>
             ))}
-            {/* {search?.length >= 1 ? (
-              <>
-                {newData.map((inquiry, index) => (
-                  <button
-                    className="cbs__inquiry-list__item pointer"
-                    key={index}
-                    onClick={() => getData(inquiry.id)}
-                  >
-                    <p>{inquiry.name === null ? "Unknown" : inquiry.name}</p>
-                    <div className="cbs__inquiry-list__info">
-                      <div>{inquiry.email}</div>
-                      <div>
-                        {moment(inquiry.inquiry_at).startOf("hour").fromNow()}
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </>
-            ) : (
-              <>
-                {inquiry.map((inquiry, index) => (
-                  <button
-                    className="cbs__inquiry-list__item pointer"
-                    key={index}
-                    onClick={() => getData(inquiry.id)}
-                  >
-                    <p>{inquiry.name === null ? "Unknown" : inquiry.name}</p>
-                    <div className="cbs__inquiry-list__info">
-                      <div>{inquiry.email}</div>
-                      <div>
-                        {moment(inquiry.inquiry_at).startOf("hour").fromNow()}
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </>
-            )} */}
+            
           </div>
           <div className="cbs__inquiry-details">
             {_data?.length == 0 ? (
               <>
-                <p>Please a data to show details</p>
+                <p>Please select a data to show details</p>
               </>
             ) : (
               <>
