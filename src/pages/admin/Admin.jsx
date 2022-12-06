@@ -33,7 +33,6 @@ const Admin = () => {
   return (
     <>
       <div className="cbs__admin-container gradient__bg">
-      <Outlet/>
         <Sidebar />
         <div className="cbs__admin-header">
           <div className="cbs__admin-header__brand">
