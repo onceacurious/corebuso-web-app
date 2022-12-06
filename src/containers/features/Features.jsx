@@ -30,7 +30,7 @@ const Features = () => {
         Practice the most efficient and effective way of developing a website from scratch without compromising the features and scalability.
         </h2>
         <Link to="/" className="pointer">
-          <span>Find Out More About Our Products</span>
+          <span>Learn more</span>
         </Link>
       </div>
       <div className="cbs__features-container">

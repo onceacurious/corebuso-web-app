@@ -43,7 +43,7 @@ const Admin = () => {
         </div>
         <div className="cbs__admin-body">
           <Routes>
-            <Route exact path="/" element={<Inquiry inquiry={inquiry} />} />
+            <Route exact path="admin/" element={<Inquiry inquiry={inquiry} />} />
             <Route path="/pricing" element={<AdminPricing />} />
           </Routes>
         </div>

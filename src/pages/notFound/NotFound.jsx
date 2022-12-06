@@ -8,8 +8,15 @@ const NotFound = () => {
 
   return (
     <>
-      <div className="cbs__notfound">NotFound</div>
-      <Link to="/">Home</Link>
+      <div className="cbs__notfound _flex _flex-column  _jc-center _ai-center _h-100">
+        <Link to="/" className="gradient__text">
+          <h1>
+            Home
+          </h1>
+            </Link>
+        <h2 className="gradient__text">Oppss.. Page not found</h2>
+      </div>
+
     </>
   );
 };
