@@ -1,14 +1,15 @@
 #signupContainer {
   position: fixed;
   z-index: 9999999;
+
   background-color: #fff;
   top: 0;
   right: 0;
   bottom: 0;
   width: 500px;
-  display: flex !important;
+  /* display: none; */
   opacity: 0;
-  margin-right: -500px;
+  margin-right: -700px;
 
   transition: all 700ms ease-in-out;
 }
@@ -16,6 +17,7 @@
 #signupContainer.show {
   opacity: 1;
   margin-right: 0;
+  display: flex !important;
 }
 
 .cbs__client-signup__close {

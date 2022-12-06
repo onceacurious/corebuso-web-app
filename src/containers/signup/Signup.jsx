@@ -122,12 +122,11 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   type="text"
                   id={`${usernameId}-client_username`}
                   placeholder="Username*"
-                  autoComplete="false"
+                  autoComplete="off"
                   required
                   value={user}
                   onChange={(e) => setUser(e.target.value)}
                 />
-                <TiInfoLarge />
               </div>
               <label
                 className="gradient__text"
@@ -141,12 +140,11 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   type="email"
                   id={`${emailId}-client_email`}
                   placeholder="Email Address*"
-                  autoComplete="false"
+                  autoComplete="off"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <TiInfoLarge />
               </div>
               <label
                 className="gradient__text"
@@ -176,6 +174,7 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
               <div className="cbs__input-container">
                 <Information target="password" />
                 <input
+                  autoComplete="off"
                   type="password"
                   id={`${pwdId2}-client_password2`}
                   placeholder="Confirm Password*"
