@@ -7,7 +7,7 @@ const Auth = () => {
   return (
     <>
       <div className="cbs__auth">
-        <Routes path="auth">
+        <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
