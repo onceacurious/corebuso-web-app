@@ -6,7 +6,7 @@ import { RiEmotionHappyFill, RiEyeCloseFill } from "react-icons/ri";
 import { BiInfoCircle } from "react-icons/bi";
 import { ImEye } from "react-icons/im";
 
-import api from "../../helpers/api/inquiry";
+import api from "../../helpers/api/inquiryApi";
 import "./register.css";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{6,23}$/;

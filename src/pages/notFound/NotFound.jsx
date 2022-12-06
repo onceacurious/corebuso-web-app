@@ -1,27 +1,23 @@
 import React from "react";
-import { Link, useRouteError } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ImConfused } from "react-icons/im";
+
 import DocumentTitle from "../../helpers/DocumentTitle";
 import "./notFound.css";
 
 const NotFound = () => {
   DocumentTitle("Page Not Found | Corebuso");
-
-  const error = useRouteError()
-
   return (
     <>
-      <div id="error-page" className="cbs__notfound _flex _flex-column  _jc-center _ai-center _h-100">
+      <div className="cbs__notfound">
         <Link to="/" className="gradient__text">
-          <h1>
-            Home
-          </h1>
-            </Link>
-        <h2 className="gradient__text">Oppss.. Page not found</h2>
-        <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+          <p className="gradient__text ">Back To Home</p>
+          <div className="cbs__notFound-link"></div>
+        </Link>
+        <h2 className="gradient__text">
+          Ops! Page not found <ImConfused />
+        </h2>
       </div>
-
     </>
   );
 };

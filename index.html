@@ -9,44 +9,6 @@
 </head>
 
 <body>
-  <div data-netlify-recaptcha="true" hidden="true">
-
-    <form method="POST" name="emailInquiry" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-      <p class="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
-      <input type="hidden" name="form-name" value="email-inquiry">
-      <input name="client-email" type="email" />
-    </form>
-
-    <form method="POST" name="emailSubscription" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-      <p class="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
-      <input type="hidden" name="form-name" value="email-inquiry">
-      <input name="client-email" type="email" />
-    </form>
-
-
-    <form name="request-demo" action="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-      <p class="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
-      <input type="hidden" name="form-name" value="request-demo">
-
-      <input type="text" name="name" id="name" />
-      <input type="email" name="email" id="email" />
-      <input type="text" name="contact" id="contact" />
-      <input type="text" name="company" id="company" />
-    </form>
-  </div>
-
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

@@ -2,6 +2,9 @@
 
 .app {
   height: 100vh;
+
+  position: relative;
+  z-index: 1;
 }
 
 /* Angry Tools */

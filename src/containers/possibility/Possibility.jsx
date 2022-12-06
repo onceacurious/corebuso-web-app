@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import contactImage from "../../assets/contact_possibility.png";
 import emailIcon from "../../assets/email_icon.svg";
-import api from "../../helpers/api/inquiry";
+import api from "../../helpers/api/inquiryApi";
 import "./possibility.css";
 
 const Possibility = () => {
@@ -56,19 +56,11 @@ const Possibility = () => {
         <div className="cbs__possibility-form gradient__bg">
           <img src={emailIcon} alt="email icon" loading="lazy" />
           <h1>Request for a Demo</h1>
-          <form
-            name="request-demo"
-            action="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="request-demo" />
-            <input type="hidden" name="bot-field" />
+          <form action="POST" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
-              id="name"
+              id="request_name"
               placeholder="Complete Name*"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -77,7 +69,7 @@ const Possibility = () => {
             <input
               type="email"
               name="email"
-              id="email"
+              id="request_email"
               placeholder="Email Address*"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -86,7 +78,7 @@ const Possibility = () => {
             <input
               type="text"
               name="contact"
-              id="contact"
+              id="request_contact"
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               placeholder="Contact Number"
@@ -94,7 +86,7 @@ const Possibility = () => {
             <input
               type="text"
               name="company"
-              id="company"
+              id="request_company"
               placeholder="Company Name"
               value={company}
               onChange={(e) => setCompany(e.target.value)}

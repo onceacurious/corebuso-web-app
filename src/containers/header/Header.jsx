@@ -16,7 +16,7 @@ const Header = () => {
           affordable price range.
         </p>
         <div className="cbs__header-email__form">
-        <EmailForm name="emailInquiry" />
+          <EmailForm name="emailInquiry" emailId="header" />
         </div>
         <div className="cbs__header-excerpt">
           <p className="focus-in-expand">

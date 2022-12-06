@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+import App from "./App";
 import "./index.css";
+
+const queryClient = new QueryClient();
 
 if (process.env.NODE_ENV === "production") {
   disableReactDevTools();
@@ -10,6 +14,8 @@ if (process.env.NODE_ENV === "production") {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>
 );

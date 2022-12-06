@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { ImSearch } from "react-icons/im";
-import api from "../../helpers/api/inquiry";
+import { getInquiry } from "../../helpers/api/inquiryApi";
+
 import "./inquiry.css";
 
 const Inquiry = ({ inquiry }) => {
@@ -12,8 +13,8 @@ const Inquiry = ({ inquiry }) => {
 
   const getData = async (id) => {
     try {
-      const response = await api.get(`/${id}`);
-      set_Data(response.data);
+      const data = await getInquiry(id);
+      set_Data(data);
     } catch (err) {
       if (err.response) {
         console.log(err.responses.data);
@@ -89,7 +90,6 @@ const Inquiry = ({ inquiry }) => {
                 </div>
               </button>
             ))}
-            
           </div>
           <div className="cbs__inquiry-details">
             {_data?.length == 0 ? (

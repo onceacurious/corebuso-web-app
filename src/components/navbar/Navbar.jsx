@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import Signup from "../../containers/signup/Signup";
 import "./navbar.css";
 
 const Menu = ({ setToggleMenu }) => {
@@ -41,7 +42,7 @@ const Menu = ({ setToggleMenu }) => {
       </p>
       <p>
         <Link
-          to="/not-found"
+          to="/404"
           onClick={() => setToggleMenu(false)}
           className="nav-link"
         >
@@ -57,6 +58,7 @@ const Navbar = ({ setClose, close }) => {
 
   return (
     <div className="cbs__navbar gradient__bg">
+      <Signup />
       <div className="cbs__navbar-links">
         <div className="cbs__navbar-links_logo">
           <h1 className="tracking-in-expand">
@@ -103,7 +105,7 @@ const Navbar = ({ setClose, close }) => {
           </p>
           <p>
             <Link
-              to="/not-found"
+              to="404"
               onClick={() => setToggleMenu(false)}
               className="nav-link"
             >

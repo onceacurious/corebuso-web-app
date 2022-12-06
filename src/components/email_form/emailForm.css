@@ -17,9 +17,12 @@
   overflow: hidden;
 }
 
-#emailGetStarted,
-#emailSend,
-#emailStart {
+#header-emailGetStarted,
+#header-emailSend,
+#header-emailStart,
+#footer-emailGetStarted,
+#footer-emailSend,
+#footer-emailStart {
   font-size: 16px;
   line-height: 20px;
   border: none;
@@ -27,14 +30,16 @@
   height: 42px;
 }
 
-#emailGetStarted,
+#header-emailGetStarted,
+#footer-emailGetStarted,
 .cbs__form-button__container {
   height: 42px;
   border: 2px solid var(--color-text);
 }
 
 /* main input */
-.cbs__form-container #emailGetStarted {
+.cbs__form-container #header-emailGetStarted,
+.cbs__form-container #footer-emailGetStarted {
   background: rgba(255, 255, 255, 0.2);
   font-size: var(--font-size);
   outline: none;
@@ -70,7 +75,8 @@
   transition: all 500ms ease;
 }
 
-#emailSend {
+#header-emailSend,
+#footer-emailSend {
   letter-spacing: 5px !important;
 }
 
@@ -104,7 +110,9 @@
   .cbs__email-form {
     width: 350px;
   }
-  #emailGetStarted {
+  
+  #footer-emailGetStarted,
+  #header-emailGetStarted {
     width: 200px;
   }
 }

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import api from "../../helpers/api/inquiry";
+// import api from "../../helpers/api/inquiryApi";
 
 import "./emailForm.css";
 
-const EmailForm = ({ scale, name }) => {
+const EmailForm = ({ emailId }) => {
   const [email, setEmail] = useState("");
   const [sendStyle, setSendStyle] = useState("inactive-emailSend");
   const [startStyle, setStartStyle] = useState("inactive-emailStart");
+  const [isFocus, setIsFocus] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,17 +40,20 @@ const EmailForm = ({ scale, name }) => {
     }
   };
 
-  const postData = () => {
-    try {
-      api.post("/", { email: email });
-    } catch (err) {
-      if (err.response) {
-        console.log(err.responses.data);
-        console.log(err.response.status);
-        console.log(err.response.header);
-      } else {
-        console.log(`Error: ${err.message}`);
+  const postData = async () => {
+    if (email) {
+      try {
+        // await api.post("/", { email: email });
+      } catch (err) {
+        if (err.response) {
+          console.log(err.responses.data);
+          console.log(err.response.status);
+          console.log(err.response.header);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
       }
+    } else {
     }
   };
 
@@ -57,16 +61,11 @@ const EmailForm = ({ scale, name }) => {
     <div className="cbs__email-form">
       <form
         method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        name={name}
         className="cbs__form-container"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value={name} />
-        <input type="hidden" name="bot-field" />
         <input
-          id="emailGetStarted"
+          id={`${emailId}-emailGetStarted`}
           name="client-email"
           type="email"
           value={email}
@@ -78,13 +77,13 @@ const EmailForm = ({ scale, name }) => {
           <input
             type="submit"
             value="Send"
-            id="emailSend"
+            id={`${emailId}-emailSend`}
             className={sendStyle}
           />
           <input
             type="submit"
             value="Get Started"
-            id="emailStart"
+            id={`${emailId}-emailStart`}
             className={startStyle}
           />
         </div>
