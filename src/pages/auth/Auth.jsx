@@ -9,7 +9,7 @@ const Auth = () => {
       <div className="cbs__auth">
         <Routes>
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route exact path="/" element={<Login />} />
         </Routes>
       </div>
     </>
