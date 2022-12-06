@@ -10,7 +10,7 @@ const featuresData = [
   },
   {
     title: "Search Engine Optimization",
-    text: "By implementing best SEO checklist and ",
+    text: "Guiding clients with a modern and updated step-by-step procedures on implementing SEO like Google Web Master (Google Console). A good site audit help's you understand how search engine index your website.",
   },
   {
     title: "Minimalist",
