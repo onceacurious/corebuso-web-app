@@ -6,6 +6,48 @@
 
   grid-template-columns: 170px auto;
   grid-template-rows: 70px auto;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Admin Alert Styling */
+.cbs__admin-alert__container {
+  position: absolute;
+  z-index: 999;
+  top: 2rem;
+  right: 2rem;
+
+  background: var(--color-subtext);
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 450px;
+}
+
+.cbs__admin-alert__close-btn {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  right: 4px;
+}
+
+.cbs__admin-alert__close-btn svg {
+  background: transparent;
+  color: #fff;
+  font-size: 18px !important;
+  cursor: pointer;
+}
+
+.cbs__admin-alert__close-btn svg:hover {
+  color: rgba(102, 102, 102, 0.5);
+}
+
+.cbs__admin-alert__title p {
+  font-weight: bold;
+}
+
+.cbs__admin-alert__body p {
+  font-size: 14px;
 }
 
 .cbs__admin-container .cbs__sidebar {

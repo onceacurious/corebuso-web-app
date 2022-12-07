@@ -1,11 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Routes, Route, Outlet } from "react-router-dom";
+import { useParams, Routes, Route } from "react-router-dom";
+import {IoCloseCircleOutline, IoCloseCircle} from 'react-icons/io5';
 
 import { Sidebar, Inquiry, AdminPricing } from "../../components";
 import DocumentTitle from "../../helpers/DocumentTitle";
 import { getInquiries } from "../../helpers/api/inquiryApi";
 import logo from "../../assets/corebuso_footer_logo.png";
 import "./admin.css";
+
+
+const Alert = () => {
+  const [show, setShow] = useState(true)
+
+  return (
+    <>
+    <div className={show ? "cbs__admin-alert__container": 'hide'}>
+      <div className="cbs__admin-alert__close-btn">
+        <IoCloseCircle onClick={()=> setShow(!show)}/>
+      </div>
+      <div className="cbs__admin-alert__title">
+      <p >Information</p>
+      </div>
+      <div className="cbs__admin-alert__body">
+      <p>Admin Panel doesn't support mobile display <i>(under 500px)</i></p>
+      </div>
+    </div>
+    </>
+  )
+};
 
 const Admin = () => {
   DocumentTitle("Corebuso | Admin Panel");
@@ -31,9 +53,11 @@ const Admin = () => {
     }
   };
 
+  
   return (
     <>
       <div className="cbs__admin-container gradient__bg">
+        <Alert/>
         <Sidebar />
         <div className="cbs__admin-header">
           <div className="cbs__admin-header__brand">
