@@ -7,11 +7,10 @@
   right: 0;
   bottom: 0;
   width: 500px;
-  /* display: none; */
   opacity: 0;
   margin-right: -700px;
 
-  transition: all 700ms ease-in-out;
+  transition: all 700ms ease;
 }
 
 #signupContainer.show {
@@ -169,11 +168,10 @@
   text-align: justify;
 
   transform: scale(0);
+  border-radius: 50px;
   opacity: 0;
-  /* width: 0;
-  height: 0; */
 
-  transition: all 700ms ease;
+  transition: transform 600ms ease-in-out;
 }
 
 #infoContainer p {
@@ -194,12 +192,13 @@
 
 .cbs__input-container:hover #infoContainer {
   transform: scale(1) !important;
-  opacity: 1;
-  min-width: 200px;
-  max-width: fit-content;
+  opacity: 0.9;
+  width: 350px;
   height: fit-content;
   bottom: 3rem;
+  right: -2rem;
   padding: 0.5rem;
+  border-radius: 0 !important;
 }
 
 .cbs__client-signup__form .cbs__input-container input[type="text"],

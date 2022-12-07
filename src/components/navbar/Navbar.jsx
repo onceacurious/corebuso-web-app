@@ -121,7 +121,7 @@ const Navbar = ({ setClose, close }) => {
         <button
           type="button"
           className="glow-on-hover"
-          onClick={() => setClose(!close)}
+          onClick={() =>setClose(!close)}
         >
           Sign up
         </button>
@@ -152,7 +152,7 @@ const Navbar = ({ setClose, close }) => {
                 <button
                   type="button"
                   className="glow-on-hover"
-                  onClick={() => setClose(!close)}
+                  onClick={() => (setClose(!close), setToggleMenu(!toggleMenu))}
                 >
                   Sign up
                 </button>
