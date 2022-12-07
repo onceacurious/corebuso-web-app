@@ -279,11 +279,13 @@ button,
 }
 
 ._btn:focus {
-  box-shadow: 0 0 8px 4px rgb(172, 177, 182);
+  outline: 1px solid #555;
+  /* box-shadow: 0 0 8px 1px rgb(172, 177, 182); */
 }
 
 ._btn:disabled {
   cursor: not-allowed;
+  opacity: .5;
 }
 
 @media screen and (max-width: 879px) {

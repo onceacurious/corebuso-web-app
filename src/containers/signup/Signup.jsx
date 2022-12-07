@@ -5,10 +5,6 @@ import { TiInfoLarge } from "react-icons/ti";
 
 import "./signup.css";
 
-const EMAIL_REGEX =
-  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{6,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Information = ({ target, show }) => {
   const info_target = [
@@ -18,7 +14,8 @@ const Information = ({ target, show }) => {
         0: "USERNAME",
         1: "Must start with a letter",
         2: "Must not include spaces",
-        3: "At least 6 characters",
+        3: "Accepts underscore and period",
+        4: "At least 6 characters",
       },
     },
     {
@@ -63,6 +60,14 @@ const Information = ({ target, show }) => {
   );
 };
 
+
+
+
+const EMAIL_REGEX =
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_.]{6,23}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
 const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
   const userRef = useRef();
 
@@ -91,6 +96,23 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
     setPwd("");
     setPwd2("");
   };
+
+  useEffect(()=> {
+    const result = USER_REGEX.test(user);
+    setValidUser(result);
+  }, [user])
+
+
+  useEffect(()=> {
+    const result = EMAIL_REGEX.test(email)
+    setValidEmail(result)
+  },[email])
+
+  useEffect(()=> {
+    const result = PWD_REGEX.test(pwd)
+    setValidPwd(result)
+    setValidPwd2(validPwd && pwd2 === pwd)
+  },[pwd, pwd2] )
 
   useEffect(() => {
     userRef.current.focus();
@@ -126,6 +148,9 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={user}
                   onChange={(e) => setUser(e.target.value)}
+                  onFocus={()=>setFocusUser(true)}
+                  onBlur = {()=> setFocusUser(false)}
+                  className={!validUser && focusUser ? "invalid":""}
                 />
               </div>
               <label
@@ -144,6 +169,9 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onFocus={()=>setFocusEmail(true)}
+                  onBlur = {()=> setFocusEmail(false)}
+                  className={!validEmail && focusEmail ? "invalid":""}
                 />
               </div>
               <label
@@ -162,7 +190,10 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={pwd}
                   onChange={(e) => setPwd(e.target.value)}
-                />
+                  onFocus={()=>setFocusPwd(true)}
+                  onBlur = {()=> setFocusPwd(false)}
+                  className={!validPwd && focusPwd ? "invalid":""}
+                  />
                 <TiInfoLarge />
               </div>
               <label
@@ -181,7 +212,10 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={pwd2}
                   onChange={(e) => setPwd2(e.target.value)}
-                />
+                  onFocus={()=>setFocusPwd2(true)}
+                  onBlur = {()=> setFocusPwd2(false)}
+                  className={!validPwd2 && focusPwd2 ? "invalid":""}
+                  />
                 <TiInfoLarge />
               </div>
               <div className="cbs__client-signup__form-btn">
@@ -196,6 +230,7 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                 <button
                   type="submit"
                   className="_btn _btn-rounded _btn-primary"
+                  disabled={validUser && validEmail && validPwd && validPwd2 ? false : true}
                 >
                   Submit
                 </button>
