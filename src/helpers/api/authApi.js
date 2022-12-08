@@ -1,11 +1,11 @@
 import axios, { Axios } from "axios";
 
 const authApi = axios.create({
-  baseURL: "http://localhost:8000/account",
+  baseURL: "https://corebuso.pythonanywhere.com/account",
 });
 
 const tokenApi = axios.create({
-  baseURL: "http://localhost:8000/token",
+  baseURL: "https://corebuso.pythonanywhere.com/token",
 });
 
 const getEmail = async (username) => {
@@ -36,6 +36,6 @@ export const getToken = async (username, password) => {
 };
 
 export const refreshToken = async (refresh) => {
-  const res = await tokenApi.post("/refresh/", {refresh});
+  const res = await tokenApi.post("/refresh/", { refresh });
   return res;
 };
