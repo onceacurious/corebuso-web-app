@@ -7,7 +7,7 @@ export const CBSContext = createContext({
   setSnackbarTimer: () => {},
 });
 
-export function CBSProvider({ children }) {
+export const CBSProvider = ({ children }) => {
   const [snackbarStatus, setSnackbarStatus] = useState(false);
 
   function getSnackbarStatus(status) {
@@ -15,9 +15,7 @@ export function CBSProvider({ children }) {
     return false;
   }
 
-  function setSnackbarTimer(time){
-    
-  }
+  function setSnackbarTimer(time) {}
 
   const contextValue = {
     getSnackbarStatus,
@@ -26,6 +24,6 @@ export function CBSProvider({ children }) {
   return (
     <CBSContext.Provider value={contextValue}>{children}</CBSContext.Provider>
   );
-}
+};
 
 export default CBSProvider;

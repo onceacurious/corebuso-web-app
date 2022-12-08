@@ -10,7 +10,17 @@ export const getInquiry = async (id) => {
 };
 
 export const getInquiries = async () => {
-  const response = await inquiryApi.get("/");
+  // const { token } = useContext(AuthContext);
+
+  const token = JSON.parse(sessionStorage.getItem("jwt"))
+    ? JSON.parse(sessionStorage.getItem("jwt"))
+    : null;
+
+  const response = await inquiryApi.get("/", {
+    headers: {
+      Authorization: "Bearer " + String(token.access),
+    },
+  });
   return response.data;
 };
 
