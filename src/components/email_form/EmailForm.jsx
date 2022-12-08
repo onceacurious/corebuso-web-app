@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { postInquiry } from "../../helpers/api/inquiryApi";
+import InquiryContext from "../../helpers/context/InquiryContext";
 // import api from "../../helpers/api/inquiryApi";
 
 import "./emailForm.css";
@@ -9,7 +11,9 @@ const EmailForm = ({ emailId }) => {
   const [startStyle, setStartStyle] = useState("inactive-emailStart");
   const [isFocus, setIsFocus] = useState(false);
 
-  const handleSubmit = (e) => {
+  const { addInquiry } = useContext(InquiryContext);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     postData();
@@ -43,17 +47,10 @@ const EmailForm = ({ emailId }) => {
   const postData = async () => {
     if (email) {
       try {
-        // await api.post("/", { email: email });
+        await addInquiry({ email: email });
       } catch (err) {
-        if (err.response) {
-          console.log(err.responses.data);
-          console.log(err.response.status);
-          console.log(err.response.header);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
+        // console.log(err);
       }
-    } else {
     }
   };
 

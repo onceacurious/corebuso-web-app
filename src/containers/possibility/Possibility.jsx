@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import contactImage from "../../assets/contact_possibility.png";
 import emailIcon from "../../assets/email_icon.svg";
-import api from "../../helpers/api/inquiryApi";
+import { postInquiry } from "../../helpers/api/inquiryApi";
 import "./possibility.css";
 
 const Possibility = () => {
@@ -27,19 +27,19 @@ const Possibility = () => {
     setCompany("");
   };
 
-  const postData = () => {
+  const postData = async () => {
     try {
-      api.post("/", {
+      const data = {
         email: email,
-        name: name ? name : "",
-        contact: contact ? contact : "",
-        company: company ? company : "",
-      });
+        name: name ? name : null,
+        contact: contact ? contact : null,
+        company: company ? company : null,
+      };
+      await postInquiry(data);
     } catch (err) {
       if (err.response) {
-        console.log(err.responses.data);
-        console.log(err.response.status);
-        console.log(err.response.header);
+        console.log(err.responses?.data);
+        console.log(err.response?.status);
       } else {
         console.log(`Error: ${err.message}`);
       }

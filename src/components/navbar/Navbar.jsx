@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Signup from "../../containers/signup/Signup";
+import AuthContext from "../../helpers/context/AuthContext";
 import "./navbar.css";
 
 const Menu = ({ setToggleMenu }) => {
@@ -54,6 +55,7 @@ const Menu = ({ setToggleMenu }) => {
 };
 
 const Navbar = ({ setClose, close }) => {
+  let { user, logoutUser, token } = useContext(AuthContext);
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -115,16 +117,33 @@ const Navbar = ({ setClose, close }) => {
         </div>
       </div>
       <div className="cbs__navbar-sign">
-        <Link to="/admin" className="nav-link">
-          Sign in
-        </Link>
-        <button
-          type="button"
-          className="glow-on-hover"
-          onClick={() =>setClose(!close)}
-        >
-          Sign up
-        </button>
+        {user && token ? (
+          <>
+            <Link to="/admin" className="nav-link">
+              {`Hello! ${user} `}
+            </Link>
+            <button
+              type="button"
+              className="glow-on-hover"
+              onClick={logoutUser}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/auth" className="nav-link">
+              Sign in
+            </Link>
+            <button
+              type="button"
+              className="glow-on-hover"
+              onClick={() => setClose(!close)}
+            >
+              Sign up
+            </button>
+          </>
+        )}
       </div>
       <div className="cbs__navbar-menu">
         {toggleMenu ? (
@@ -146,16 +165,35 @@ const Navbar = ({ setClose, close }) => {
               <Menu setToggleMenu={setToggleMenu} />
               <div className="cbs__navbar-menu_container-links-sign">
                 <div className="cbs__navbar-separator"></div>
-                <Link to="/admin" className="nav-link">
-                  Sign in
-                </Link>
-                <button
-                  type="button"
-                  className="glow-on-hover"
-                  onClick={() => (setClose(!close), setToggleMenu(!toggleMenu))}
-                >
-                  Sign up
-                </button>
+                {user && token ? (
+                  <>
+                    <Link to="/admin" className="nav-link">
+                      {`Hello! ${user} `}
+                    </Link>
+                    <button
+                      type="button"
+                      className="glow-on-hover"
+                      onClick={logoutUser}
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/auth" className="nav-link">
+                      Sign in
+                    </Link>
+                    <button
+                      type="button"
+                      className="glow-on-hover"
+                      onClick={() => (
+                        setClose(!close), setToggleMenu(!toggleMenu)
+                      )}
+                    >
+                      Sign up
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>

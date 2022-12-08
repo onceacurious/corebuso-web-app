@@ -102,6 +102,7 @@
   font-size: 16px;
   font-weight: 700;
   text-transform: capitalize;
+  text-align: justify;
 }
 
 .cbs__inquiry-list__info {

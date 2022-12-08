@@ -97,9 +97,25 @@
 }
 
 /* MEDIA QUERY */
+@media screen and (min-width: 1330px) {
+  .cbs__form-container > input {
+    width: 250px !important;
+  }
+}
 @media screen and (max-width: 1330px) {
+  .cbs__form-container {
+    justify-content: center !important;
+  }
 }
 
+@media screen and (max-width: 790px) {
+  .cbs__form-container > input {
+    max-width: 200px !important;
+  }
+  .cbs__email-form {
+    width: 400px;
+  }
+}
 @media screen and (max-width: 650px) {
   .cbs__email-form {
     width: 370px;
@@ -110,7 +126,7 @@
   .cbs__email-form {
     width: 350px;
   }
-  
+
   #footer-emailGetStarted,
   #header-emailGetStarted {
     width: 200px;

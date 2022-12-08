@@ -72,8 +72,7 @@
 
 .cbs__admin-header__user {
   width: 200px;
-  height: 50px;
-  background: #fff;
+  color: var(--color-text);
 }
 .cbs__admin-body {
   grid-column-start: 2;

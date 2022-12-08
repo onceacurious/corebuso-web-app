@@ -16,10 +16,8 @@ const Inquiry = ({ inquiry }) => {
       const data = await getInquiry(id);
       set_Data(data);
     } catch (err) {
-      if (err.response) {
-        console.log(err.responses.data);
-        console.log(err.response.status);
-        console.log(err.response.header);
+      if (err.response?.status === 401) {
+        alert("You don't have access credential to view the message");
       } else {
         console.log(`Error: ${err.message}`);
       }
