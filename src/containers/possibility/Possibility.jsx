@@ -1,10 +1,51 @@
-import React from "react";
-import "./possibility.css";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import contactImage from "../../assets/contact_possibility.png";
 import emailIcon from "../../assets/email_icon.svg";
-import { Link } from "react-router-dom";
+import { postInquiry } from "../../helpers/api/inquiryApi";
+import "./possibility.css";
 
 const Possibility = () => {
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postData();
+    setName("");
+    setContact("");
+    setEmail("");
+    setCompany("");
+  };
+
+  const handleCancel = () => {
+    setName("");
+    setContact("");
+    setEmail("");
+    setCompany("");
+  };
+
+  const postData = async () => {
+    try {
+      const data = {
+        email: email,
+        name: name ? name : null,
+        contact: contact ? contact : null,
+        company: company ? company : null,
+      };
+      await postInquiry(data);
+    } catch (err) {
+      if (err.response) {
+        console.log(err.responses?.data);
+        console.log(err.response?.status);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
+    }
+  };
+
   return (
     <>
       <div className="cbs__possibility section__padding" id="possibility">
@@ -13,34 +54,42 @@ const Possibility = () => {
         </div>
 
         <div className="cbs__possibility-form gradient__bg">
-          <img src={emailIcon} alt="email icon" />
+          <img src={emailIcon} alt="email icon" loading="lazy" />
           <h1>Request for a Demo</h1>
-          <form action="POST">
+          <form action="POST" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
-              id="name"
+              id="request_name"
               placeholder="Complete Name*"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
             <input
               type="email"
               name="email"
-              id="email"
+              id="request_email"
               placeholder="Email Address*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
               type="text"
               name="contact"
-              id="contact"
+              id="request_contact"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
               placeholder="Contact Number"
             />
             <input
               type="text"
               name="company"
-              id="company"
+              id="request_company"
               placeholder="Company Name"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
             />
 
             <div className="cbs__possibility-form_button">
@@ -49,6 +98,7 @@ const Possibility = () => {
                 type="reset"
                 value="cancel"
                 tabIndex="-1"
+                onClick={handleCancel}
               />
               <input type="submit" value="Send" className="pointer" />
             </div>

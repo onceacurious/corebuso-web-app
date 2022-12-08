@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Footer,
   Pricing,
@@ -6,17 +6,26 @@ import {
   Features,
   WhyCBS,
   Header,
+  Signup,
 } from "../../containers";
 
 import { Brand, Cta, Navbar } from "../../components";
 
 import "./home.css";
 
-const Home = () => {
+const Home = ({ close, setClose }) => {
   return (
-    <>
+    <div className="cbs__home">
+      <Signup
+        close={close}
+        setClose={setClose}
+        emailId="home"
+        usernameId="home"
+        pwdId="home"
+        pwdId2="home"
+      />
       <div className="gradient__bg">
-        <Navbar />
+        <Navbar close={close} setClose={setClose} />
         <Header />
       </div>
       <Brand />
@@ -26,7 +35,7 @@ const Home = () => {
       <Cta />
       <Pricing />
       <Footer />
-    </>
+    </div>
   );
 };
 

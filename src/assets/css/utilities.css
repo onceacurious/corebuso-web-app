@@ -261,16 +261,31 @@ button,
   color: #000;
 }
 
+._btn {
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+._btn-rounded {
+  border-radius: 4px;
+}
+
 ._btn:hover {
   opacity: 0.6;
 }
 
 ._btn:focus {
-  box-shadow: 0 0 8px 4px rgb(172, 177, 182);
+  outline: 1px solid #555;
+  /* box-shadow: 0 0 8px 1px rgb(172, 177, 182); */
 }
 
 ._btn:disabled {
   cursor: not-allowed;
+  opacity: .5;
 }
 
 @media screen and (max-width: 879px) {

@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 6rem;
+  padding: 1rem 6rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8888;
 }
 
 .cbs__navbar-links {
@@ -109,7 +115,7 @@
 }
 
 .cbs__navbar-links_container p,
-.cbs__navbar-sign p,
+.cbs__navbar-sign a,
 .cbs__navbar-menu_container {
   color: var(--color-text);
   font-weight: 500;
@@ -117,7 +123,6 @@
   line-height: 25px;
   text-transform: capitalize;
   margin: 0 1rem;
-  cursor: pointer;
 }
 
 .cbs__navbar-sign button,
@@ -127,13 +132,14 @@
   font-weight: 700;
   width: 152px;
   padding: 0.5rem 1rem;
-  color: #fff;
   font-size: 18px;
   background: var(--color-text);
   border-radius: 50px;
-  cursor: pointer;
 }
 
+.cbs__navbar-sign button a {
+  color: #fff;
+}
 .cbs__navbar-menu {
   margin-left: 1rem;
   display: none;
@@ -144,21 +150,21 @@
   cursor: pointer;
 }
 
-.cbs__navbar-menu_container {
+.cbs__navbar-menu .cbs__navbar-menu_container {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
   text-align: end;
   background: var(--color-footer);
-  padding: 2rem;
+  padding: 2rem 2.5rem;
+  min-width: 200px;
+
   position: absolute;
-  top: 40px;
+  top: 50px;
   right: 0;
-  margin-top: 1rem;
-  min-width: 210px;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 0 var(--color-text);
 }
 
 .cbs__navbar-menu_container p {
@@ -167,6 +173,16 @@
 
 .cbs__navbar-links_container-links-sign {
   display: none;
+}
+
+.cbs__navbar-menu_container-links-sign a {
+  width: fit-content;
+  align-self: end;
+}
+
+.cbs__navbar-menu_container-links-sign a,
+.cbs__navbar-menu_container-links-sign button {
+  margin-top: 1rem;
 }
 
 .cbs__navbar-separator {
@@ -182,10 +198,42 @@
   animation-delay: 500ms;
 }
 
+.nav-link {
+  transition: all 250ms ease;
+
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link:after {
+  content: "";
+  background-color: var(--color-accent);
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+
+  position: absolute;
+  z-index: 2;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
 /* MEDIA QUERY */
 @media screen and (min-width: 1331px) {
   .cbs__navbar-separator {
     display: none;
+  }
+  .cbs__navbar {
+    padding-inline: 2rem;
   }
 }
 
@@ -200,15 +248,22 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 990px) {
   .cbs__navbar {
-    padding: 2rem 4rem;
+    padding-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cbs__navbar-menu .cbs__navbar-menu_container {
+    top: 10px;
   }
   .cbs__navbar-sign {
     display: none;
   }
   .cbs__navbar-menu_container-links-sign {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .cbs__navbar-menu_container {
@@ -221,9 +276,6 @@
 }
 
 @media screen and (max-width: 550px) {
-  .cbs__navbar {
-    padding: 2rem;
-  }
   .cbs__navbar-menu_container {
     top: 20px;
   }

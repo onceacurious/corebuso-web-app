@@ -1,0 +1,224 @@
+#signupContainer {
+  position: fixed;
+  z-index: 9999999;
+
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  opacity: 0;
+  margin-right: -700px;
+
+  transition: all 700ms ease;
+}
+
+#signupContainer.show {
+  opacity: 1;
+  margin-right: 0;
+  display: flex !important;
+}
+
+.cbs__client-signup__close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+
+  /* ff 3.6+ */
+  background: -moz-linear-gradient(
+    127deg,
+    rgba(255, 124, 3, 1) 0%,
+    rgba(44, 186, 131, 1) 50%,
+    rgba(153, 219, 33, 1) 100%
+  );
+
+  /* safari 5.1+,chrome 10+ */
+  background: -webkit-linear-gradient(
+    127deg,
+    rgba(255, 124, 3, 1) 0%,
+    rgba(44, 186, 131, 1) 50%,
+    rgba(153, 219, 33, 1) 100%
+  );
+
+  /* opera 11.10+ */
+  background: -o-linear-gradient(
+    127deg,
+    rgba(255, 124, 3, 1) 0%,
+    rgba(44, 186, 131, 1) 50%,
+    rgba(153, 219, 33, 1) 100%
+  );
+
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99DB21', endColorstr='#FF7C03', GradientType=0 );
+
+  /* ie 10+ */
+  background: -ms-linear-gradient(
+    127deg,
+    rgba(255, 124, 3, 1) 0%,
+    rgba(44, 186, 131, 1) 50%,
+    rgba(153, 219, 33, 1) 100%
+  );
+
+  /* global 94%+ browsers support */
+  background: linear-gradient(
+    127deg,
+    rgba(255, 124, 3, 1) 0%,
+    rgba(44, 186, 131, 1) 50%,
+    rgba(153, 219, 33, 1) 100%
+  );
+
+  transition: all 500ms ease;
+}
+
+.cbs__client-signup__close svg {
+  color: var(--light);
+  font-size: 24px !important;
+  transform: rotate(180deg);
+  transition: transform 500ms ease;
+}
+
+.cbs__client-signup__close:hover {
+  background: var(--gradient-bg-radial);
+}
+
+.cbs__client-signup__close:hover svg {
+  color: var(--color-text);
+  transform: rotate(360deg);
+}
+.cbs__client-signup__close:hover + .cbs__client-signup__body {
+  box-shadow: inset 0 0 8px 2px rgb(54, 53, 53);
+}
+
+.cbs__client-signup__body {
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cbs__client-signup__form {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+  padding: 2rem;
+  width: 350px;
+  background: rgba(193, 190, 190, 0.5);
+  box-shadow: 6px 6px 4px #555;
+}
+
+.cbs__client-signup__form h1 {
+  margin-bottom: 1rem;
+}
+
+.cbs__client-signup__form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.cbs__client-signup__form form label,
+.cbs__client-signup__form form input {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cbs__client-signup__form form input {
+  line-height: 22px;
+  padding: 0.45rem 0.5rem;
+  outline: none;
+  border: none;
+  box-shadow: inset 0 0 6px #555;
+  margin-bottom: 0.5rem;
+}
+.cbs__client-signup__form-btn {
+  width: 100%;
+  display: flex;
+  padding-block: 1rem;
+  justify-content: space-around;
+}
+
+.cbs__input-container {
+  width: 100%;
+
+  position: relative;
+  z-index: 1;
+}
+
+#infoContainer {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+
+  background: rgb(118, 116, 116);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+
+  transform: scale(0);
+  border-radius: 50px;
+  opacity: 0;
+
+  transition: transform 600ms ease-in-out;
+}
+
+#infoContainer p {
+  width: 100%;
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.cbs__input-container svg {
+  position: absolute;
+  z-index: 2;
+  font-size: 24px !important;
+  color: var(--color-subtext);
+  cursor: pointer;
+  top: 5px;
+  right: 5px;
+}
+
+.cbs__input-container:hover #infoContainer {
+  transform: scale(1) !important;
+  opacity: 0.9;
+  width: 350px;
+  height: fit-content;
+  bottom: 3rem;
+  right: -2rem;
+  padding: 0.5rem;
+  border-radius: 0 !important;
+}
+
+.cbs__client-signup__form .cbs__input-container input[type="text"],
+.cbs__client-signup__form .cbs__input-container input[type="password"],
+.cbs__client-signup__form .cbs__input-container input[type="email"] {
+  padding-inline: 0.5rem;
+}
+
+.invalid {
+  outline: 1px solid rgba(255, 0, 0 0.5) !important;
+  box-shadow: inset 0 0 4px 2px rgba(223, 47, 47, 0.5) !important;
+}
+
+@media screen and (max-width: 650px) {
+  #signupContainer {
+    width: 100% !important;
+  }
+  .cbs__client-signup__form {
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+  }
+}
