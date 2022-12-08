@@ -8,56 +8,38 @@ import { getInquiries } from "../../helpers/api/inquiryApi";
 import logo from "../../assets/corebuso_footer_logo.png";
 import "./admin.css";
 import AuthContext from "../../helpers/context/AuthContext";
+import InquiryContext from "../../helpers/context/InquiryContext";
 
-const Alert = () => {
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShow(false);
-    }, 10000);
-  }, [show]);
-
-  return (
-    <>
-      <div className={show ? "cbs__admin-alert__container" : "hide"}>
-        <div className="cbs__admin-alert__close-btn">
-          <IoCloseCircle onClick={() => setShow(!show)} />
-        </div>
-        <div className="cbs__admin-alert__title">
-          <p>Information</p>
-        </div>
-        <div className="cbs__admin-alert__body">
-          <p>
-            Admin Panel doesn't support mobile display <i>(under 500px)</i>
-          </p>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const Admin = () => {
+const Admin = (props) => {
   DocumentTitle("Corebuso | Admin Panel");
 
   const params = useParams();
   const id = params.id;
 
   const [inquiry, setInquiry] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
+  const { contextInquiries } = useContext(InquiryContext);
 
   const getData = async () => {
     try {
-      const data = await getInquiries();
+      const data = await contextInquiries();
       setInquiry(data);
+      sessionStorage.setItem("inquiry", JSON.stringify(data));
     } catch (err) {
       console.log(err.response?.data);
       console.log(err.response?.status);
+
+      if (err.response?.status === 401) {
+        logoutUser();
+      }
     }
   };
 
   useEffect(() => {
-    getData();
+    const interval = setInterval(() => {
+      getData();
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
   return (
     <>
@@ -85,3 +67,33 @@ const Admin = () => {
 };
 
 export default Admin;
+
+const Alert = () => {
+  const [show, setShow] = useState(true);
+
+  // const {inquiries, }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(false);
+    }, 10000);
+  }, [show]);
+
+  return (
+    <>
+      <div className={show ? "cbs__admin-alert__container" : "hide"}>
+        <div className="cbs__admin-alert__close-btn">
+          <IoCloseCircle onClick={() => setShow(!show)} />
+        </div>
+        <div className="cbs__admin-alert__title">
+          <p>Information</p>
+        </div>
+        <div className="cbs__admin-alert__body">
+          <p>
+            Admin Panel doesn't support mobile display <i>(under 500px)</i>
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};
