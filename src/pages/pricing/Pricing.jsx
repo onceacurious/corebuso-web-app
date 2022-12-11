@@ -1,21 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useContext } from "react";
 
 import { Navbar } from "../../components";
 import { Signup } from "../../containers";
-import { useContext } from "react";
 
 import DocumentTitle from "../../helpers/DocumentTitle";
-import { UrlContext } from "../../helpers/context";
 import "./pricing.scss";
-import { useState } from "react";
-
-const current_url = window.location.href;
 
 const Pricing = ({ close, setClose }) => {
   DocumentTitle("Pricing | Corebuso");
-  const [isPricingPage, setIsPricingPage] = useState(
-    current_url.endsWith("pricing")
-  );
+  const page = "pricing";
 
   return (
     <>
@@ -28,11 +22,7 @@ const Pricing = ({ close, setClose }) => {
           pwdId="pricing"
           pwdId2="pricing"
         />
-        <Navbar
-          close={close}
-          setClose={setClose}
-          currentPage={isPricingPage ? "pricing" : null}
-        />
+        <Navbar close={close} setClose={setClose} currentPage={page} />
         <div className="cbs__page-pricing__body"></div>
       </div>
     </>

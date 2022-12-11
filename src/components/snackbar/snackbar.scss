@@ -1,0 +1,48 @@
+$width: 400px;
+
+.snackbar {
+  position: fixed;
+  z-index: 9999999;
+
+  bottom: 2rem;
+  width: $width;
+  height: 100px;
+  padding: 0.5rem;
+  border-radius: 4px;
+
+  opacity: 0;
+  transition: all 500ms ease;
+
+  &-btn-close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+
+    svg:hover {
+      color: #666;
+    }
+  }
+
+  &-success {
+    background: #379c4a;
+    color: #fff;
+  }
+  &-warning {
+    background: #c94f3e;
+    color: #fff;
+  }
+  &-alert {
+    background: #9a7f1c;
+    color: #fff;
+  }
+}
+
+.snackbar-show {
+  left: 4rem;
+  opacity: 1;
+}
+
+.snackbar-hide {
+  left: -100vw;
+  opacity: 0;
+}
