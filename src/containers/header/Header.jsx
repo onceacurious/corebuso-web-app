@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./header.scss";
 import dev from "../../assets/dev_3.png";
 
-import { EmailForm } from "../../components";
+import { Alert, EmailForm } from "../../components";
 import AnimatedLetters from "../../components/animatedLetters/AnimatedLetters";
 
 const Header = () => {
@@ -49,6 +49,9 @@ const Header = () => {
     "s",
   ];
 
+  const _content =
+    "Welcome to Corebuso Development Site. You can't submit any form here. Please use official site corebuso.com";
+
   useEffect(() => {
     setTimeout(() => {
       setLetterClass("text-animate-hover");
@@ -57,28 +60,31 @@ const Header = () => {
 
   // console.log(excerptArray);
   return (
-    <div className="cbs__header section__padding" id="home">
-      <div className="cbs__header-content">
-        <h1 className="gradient__text">
-          Your Core Business Solution - Let's make your dream come true
-        </h1>
-        <p>
-          Build a MODERN, REACTIVE, RESPONSIVE website from scratch with an
-          affordable price range.
-        </p>
-        <EmailForm name="emailInquiry" emailId="header" emailClass="header" />
-        <div className="cbs__header-excerpt">
-          <AnimatedLetters
-            letterClass={letterClass}
-            strArray={excerptArray}
-            idx={1}
-          />
+    <>
+      <Alert title="Information" content={_content} duration={15000} />
+      <div className="cbs__header section__padding" id="home">
+        <div className="cbs__header-content">
+          <h1 className="gradient__text">
+            Your Core Business Solution - Let's make your dream come true
+          </h1>
+          <p>
+            Build a MODERN, REACTIVE, RESPONSIVE website from scratch with an
+            affordable price range.
+          </p>
+          <EmailForm name="emailInquiry" emailId="header" emailClass="header" />
+          <div className="cbs__header-excerpt">
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={excerptArray}
+              idx={1}
+            />
+          </div>
+        </div>
+        <div className="cbs__header-image">
+          <img src={dev} alt="dev" />
         </div>
       </div>
-      <div className="cbs__header-image">
-        <img src={dev} alt="dev" />
-      </div>
-    </div>
+    </>
   );
 };
 

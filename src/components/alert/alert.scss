@@ -1,0 +1,72 @@
+$width: 450px;
+
+.alert-container {
+  position: absolute;
+  z-index: 999999;
+  top: 2rem;
+
+  background: var(--color-subtext);
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: $width;
+
+  color: #fff !important;
+}
+
+.alert-show {
+  animation: slideIn 500ms forwards;
+}
+
+.alert-hide {
+  animation: slideOut 500ms forwards;
+}
+
+.alert-close-btn {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  right: 4px;
+}
+
+.alert-close-btn svg {
+  background: transparent;
+  color: #fff;
+  font-size: 18px !important;
+  cursor: pointer;
+}
+
+.alert-close-btn svg:hover {
+  color: rgba(102, 102, 102, 0.5);
+}
+
+.alert-title p {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.alert-body p {
+  font-size: 14px;
+  user-select: text;
+}
+
+@keyframes slideIn {
+  from {
+    right: -450px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    right: 2rem;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    right: 2rem;
+  }
+  to {
+    right: -450px;
+    opacity: 0;
+  }
+}

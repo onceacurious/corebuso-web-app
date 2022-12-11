@@ -1,16 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, Routes, Route } from "react-router-dom";
-import { IoCloseCircleOutline, IoCloseCircle } from "react-icons/io5";
 
-import { Sidebar, Inquiry, AdminPricing } from "../../components";
+import { Sidebar, Inquiry, AdminPricing, Alert } from "../../components";
 import DocumentTitle from "../../helpers/DocumentTitle";
-import { getInquiries } from "../../helpers/api/inquiryApi";
 import logo from "../../assets/corebuso_footer_logo.png";
 import "./admin.css";
 import AuthContext from "../../helpers/context/AuthContext";
 import InquiryContext from "../../helpers/context/InquiryContext";
 
-const Admin = (props) => {
+const Admin = () => {
   DocumentTitle("Corebuso | Admin Panel");
 
   const params = useParams();
@@ -44,7 +42,11 @@ const Admin = (props) => {
   return (
     <>
       <div className="cbs__admin-container gradient__bg">
-        <Alert />
+        <Alert
+          title="Information"
+          content="Admin panel doesn't support mobile display, lower than 790px"
+          duration={10000}
+        />
         <Sidebar />
         <div className="cbs__admin-header">
           <div className="cbs__admin-header__brand">
@@ -67,33 +69,3 @@ const Admin = (props) => {
 };
 
 export default Admin;
-
-const Alert = () => {
-  const [show, setShow] = useState(true);
-
-  // const {inquiries, }
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShow(false);
-    }, 10000);
-  }, [show]);
-
-  return (
-    <>
-      <div className={show ? "cbs__admin-alert__container" : "hide"}>
-        <div className="cbs__admin-alert__close-btn">
-          <IoCloseCircle onClick={() => setShow(!show)} />
-        </div>
-        <div className="cbs__admin-alert__title">
-          <p>Information</p>
-        </div>
-        <div className="cbs__admin-alert__body">
-          <p>
-            Admin Panel doesn't support mobile display <i>(under 500px)</i>
-          </p>
-        </div>
-      </div>
-    </>
-  );
-};
