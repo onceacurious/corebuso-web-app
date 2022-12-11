@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const inquiryApi = axios.create({
-  baseURL: "http://127.0.0.1:8000/client/",
+  baseURL: "https://corebuso.pythonanywhere.com/client/",
 });
 
 export const getInquiry = async (id) => {
