@@ -1,0 +1,49 @@
+.text-animate {
+  opacity: 0;
+  animation: bounceIn 1s forwards;
+  min-width: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bolder;
+  color: var(--color-accent);
+  font-size: 24px !important;
+
+  &-hover {
+    min-width: 5px;
+    font-size: 24px !important;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: var(--color-accent);
+    display: inline-block;
+    animation-fill-mode: both;
+
+    &:hover {
+      animation: rubberBand 1s;
+      color: var(--color-text);
+    }
+  }
+}
+
+// .letter-animation-container {
+//   overflow: visible;
+//   height: 70px;
+// }
+
+// .text-animate-hover {
+//   height: 70px;
+//   overflow: visible;
+//   line-height: 20px;
+//   font-size: 16px;
+//   transition: all 500ms forwards;
+//   &:hover {
+//     color: var(--color-text);
+//     line-height: 18px !important;
+//     font-size: 18px !important;
+//   }
+// }
+
+@for $i from 1 through 39 {
+  .text-animate._#{$i} {
+    animation-delay: #{$i / 10}s;
+  }
+}

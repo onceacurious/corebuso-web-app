@@ -7,10 +7,8 @@ import {
 } from "react-router-dom";
 import { About, Home, NotFound, Pricing, Admin, Auth } from "./pages";
 
-import "./app.css";
-import "./assets/css/utilities.css";
-import "./assets/css/typography.css";
-import "./assets/css/card.css";
+import "./app.scss";
+import "../src/assets/scss/main.scss";
 import Snackbar from "./components/snackbar/Snackbar";
 import PrivateRoute from "./helpers/PrivateRoute";
 import { AuthProvider } from "./helpers/context/AuthContext";

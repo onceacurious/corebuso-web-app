@@ -3,7 +3,7 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Signup from "../../containers/signup/Signup";
 import AuthContext from "../../helpers/context/AuthContext";
-import "./navbar.css";
+import "./navbar.scss";
 
 const Menu = ({ setToggleMenu }) => {
   return (
@@ -63,7 +63,7 @@ const Navbar = ({ setClose, close }) => {
       <Signup />
       <div className="cbs__navbar-links">
         <div className="cbs__navbar-links_logo">
-          <h1 className="tracking-in-expand">
+          <h1 className="rotate-scale-up">
             <Link to="/">COREBUSO</Link>
           </h1>
         </div>
