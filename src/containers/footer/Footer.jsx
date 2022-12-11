@@ -1,19 +1,24 @@
 import React from "react";
-import "./footer.css";
+import "./footer.scss";
 import footer_logo from "../../assets/corebuso_footer_logo.png";
 import { EmailForm } from "../../components";
 import { Link } from "react-router-dom";
 
+import { SiFiverr, SiUpwork } from "react-icons/si";
+import { BsLinkedin } from "react-icons/bs";
+import { ImFacebook2 } from "react-icons/im";
+
 const Footer = () => {
   return (
     <>
-      <div className="cbs__footer">
-        <div className="cbs__footer-brand-lang">
-          <div className="cbs__footer-brand">
+      <div className="footer-container">
+        {/* Row 1 */}
+        <div className="footer-brand-lang-container">
+          <div className="footer-brand-container">
             <img src={footer_logo} alt="corebuso footer logo" />
             <p>&trade;</p>
           </div>
-          <div className="cbs__footer-lang">
+          <div className="footer-lang-container">
             <p>Language:</p>
             <select name="" id="" className="pointer">
               <option value="1">English</option>
@@ -22,51 +27,59 @@ const Footer = () => {
             </select>
           </div>
         </div>
-        <div className="cbs__footer-separator"></div>
-        <div className="cbs__footer-main">
-          <div className="cbs__footer-main__prod-service">
-            <div className="cbs__footer-main__products">
-              <h3>Products</h3>
-              <p>Website Design</p>
-              <p>Website Development</p>
+        <div className="footer-separator"></div>
+
+        {/* Row 2 */}
+        <div className="footer-main">
+          <div className="footer-main-container">
+            <div className="footer-main-prod-service">
+              <div className="footer-main-products">
+                <h3>Products</h3>
+                <p>Website Design</p>
+                <p>Website Development</p>
+              </div>
+              <div className="footer-main-services">
+                <h3>Services</h3>
+                <p>Bookkeeping</p>
+                <p>Auditing</p>
+                <p>Financial</p>
+              </div>
             </div>
-            <div className="cbs__footer-main__services">
-              <h3>Services</h3>
-              <p>Bookkeeping</p>
-              <p>Auditing</p>
-              <p>Financial</p>
+            <div className="footer-main-pricing">
+              <h3>Pricing</h3>
+              <p>Basic</p>
+              <p>Standard</p>
+              <p>Premium</p>
+              <p>Special Order</p>
+              <p>Special Offer</p>
+            </div>
+            <div className="footer-main-company">
+              <h3>Company</h3>
+              <p>About</p>
+              <p>Careers</p>
+              <p>Blog</p>
+              <p>Partners</p>
             </div>
           </div>
-          <div className="cbs__footer-main__pricing">
-            <h3>Pricing</h3>
-            <p>Basic</p>
-            <p>Standard</p>
-            <p>Premium</p>
-            <p>Special Order</p>
-            <p>Special Offer</p>
-          </div>
-          <div className="cbs__footer-main__company">
-            <h3>Company</h3>
-            <p>About</p>
-            <p>Careers</p>
-            <p>Blog</p>
-            <p>Partners</p>
-          </div>
-          <div className="cbs__footer-main__sub-contacts">
-            <div className="cbs__footer-main__sub">
+          <div className="footer-main-sub-contact-container">
+            <div className="footer-main-sub">
               <h3>Subscribe to Our News Letter</h3>
-              <EmailForm name="emailSubscription" emailId="footer" />
+              <EmailForm
+                name="emailSubscription"
+                emailId="footer"
+                emailClass="footer"
+              />
             </div>
-            <div className="cbs__footer-main__contacts">
-              <div className="cbs__footer-contact">
+            <div className="footer-main-contacts-container">
+              <div className="footer-main-contact">
                 <h4>Contact Number:</h4>
                 <p>+63 926-6554-047</p>
               </div>
-              <div className="cbs__footer-email">
+              <div className="footer-main-email">
                 <h4>Email Address:</h4>
                 <p>sales@corebuso.com</p>
               </div>
-              <div className="cbs__footer-page">
+              <div className="footer-main-page">
                 <h4>Facebook Page:</h4>
                 <a target="_blank" href="https://www.facebook.com/corebuso.ph">
                   @corebuso.com
@@ -75,10 +88,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="cbs__footer-separator"></div>
-        <div className="cbs__footer-rights-media-sitemap">
-          <div className="cbs__footer-col-1">
-            <div className="cbs__footer-rights-terms">
+        <div className="footer-separator"></div>
+
+        {/* Row 3 */}
+        <div className="footer-rms-container">
+          <div className="footer-rights-terms-container">
+            <div className="footer-rights-terms">
               <p>&copy; 2022 Corebuso</p>
               <ul>
                 <li>
@@ -96,17 +111,19 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="cbs__footer-col-2">
-            <div className="cbs__footer-social">
-              <p>FB</p>
-              <p>LI</p>
-              <p>FV</p>
-            </div>
-          </div>
-          <div className="cbs__footer-col-3">
-            <div className="cbs__footer-site-map">
-              <Link to="/admin">Admin</Link>
-            </div>
+          <div className="footer-social-container">
+            <span className="footer-social-icon pointer" title="Facebook">
+              <ImFacebook2 />
+            </span>
+            <span className="footer-social-icon pointer" title="Linked In">
+              <BsLinkedin />
+            </span>
+            <span className="footer-social-icon pointer" title="Upwork">
+              <SiUpwork />
+            </span>
+            <span className="footer-social-icon pointer" title="Fiverr">
+              <SiFiverr />
+            </span>
           </div>
         </div>
       </div>

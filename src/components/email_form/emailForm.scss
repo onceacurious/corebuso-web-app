@@ -1,8 +1,8 @@
 $height: 40px;
 $border: 2px solid var(--color-text);
 
-// Header
-.header-email {
+.header-email,
+.footer-email {
   &-container {
     margin-top: 1rem;
     width: 100%;
@@ -45,6 +45,8 @@ $border: 2px solid var(--color-text);
   }
 }
 
+#footer-emailSend,
+#footer-emailStart,
 #header-emailSend,
 #header-emailStart {
   border: none;
@@ -76,4 +78,14 @@ $offset: -40px;
 }
 .send-hide {
   margin-top: $offset;
+}
+
+@media screen and (max-width: 550px) {
+  .footer-email-form {
+    transform: scale(0.85);
+  }
+
+  .footer-email-form-input {
+    width: 165px;
+  }
 }

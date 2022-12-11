@@ -9,3 +9,4 @@ export { default as Inquiry } from "./inquiry/Inquiry";
 export { default as AdminPricing } from "./admin_pricing/AdminPricing";
 export { default as Register } from "./register/Register";
 export { default as Login } from "./login/Login";
+export { default as Alert } from "./alert/Alert";
