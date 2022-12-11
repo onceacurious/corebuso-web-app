@@ -50,7 +50,7 @@ const Header = () => {
   ];
 
   const _content =
-    "Welcome to Corebuso Development Site. You can't submit any form here. Please use official site corebuso.com";
+    "Welcome to Corebuso Official Site. To get an early access and new features. Please visit dev.corebuso.com";
 
   useEffect(() => {
     setTimeout(() => {
