@@ -13,6 +13,7 @@ import PrivateRoute from "./helpers/PrivateRoute";
 import { AuthProvider } from "./helpers/context/AuthContext";
 import { InquiryProvider } from "./helpers/context/InquiryContext";
 import { UrlProvider } from "./helpers/context/UrlContext";
+import { SnackbarProvider } from "./helpers/context/SnackbarContext";
 
 const App = () => {
   const [close, setClose] = useState(false);
@@ -24,34 +25,36 @@ const App = () => {
         <AuthProvider>
           <InquiryProvider>
             <UrlProvider>
-              <Routes>
-                <Route
-                  index
-                  path="/"
-                  element={<Home close={close} setClose={setClose} />}
-                />
-                <Route
-                  path="/pricing"
-                  element={<Pricing close={close} setClose={setClose} />}
-                />
-                <Route path="/about-us" element={<About />} />
-                <Route
-                  path="/admin/*"
-                  element={
-                    <PrivateRoute>
-                      <Admin />
-                    </PrivateRoute>
-                  }
-                  exact
-                  index
-                />
-                <Route path="/auth/*" element={<Auth />} exact index />
-                <Route
-                  path="*"
-                  element={<Navigate replace to="/you-are-lost" />}
-                />
-                <Route path="/you-are-lost" element={<NotFound />} />
-              </Routes>
+              <SnackbarProvider>
+                <Routes>
+                  <Route
+                    index
+                    path="/"
+                    element={<Home close={close} setClose={setClose} />}
+                  />
+                  <Route
+                    path="/pricing"
+                    element={<Pricing close={close} setClose={setClose} />}
+                  />
+                  <Route path="/about-us" element={<About />} />
+                  <Route
+                    path="/admin/*"
+                    element={
+                      <PrivateRoute>
+                        <Admin />
+                      </PrivateRoute>
+                    }
+                    exact
+                    index
+                  />
+                  <Route path="/auth/*" element={<Auth />} exact index />
+                  <Route
+                    path="*"
+                    element={<Navigate replace to="/you-are-lost" />}
+                  />
+                  <Route path="/you-are-lost" element={<NotFound />} />
+                </Routes>
+              </SnackbarProvider>
             </UrlProvider>
           </InquiryProvider>
         </AuthProvider>

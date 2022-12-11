@@ -84,7 +84,6 @@ const Navbar = ({ setClose, close, currentPage }) => {
     page_url();
   }, []);
 
-  console.log(urlList);
   return (
     <div className="cbs__navbar gradient__bg">
       <Signup />

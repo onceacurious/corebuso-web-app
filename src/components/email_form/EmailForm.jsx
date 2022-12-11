@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
-import { useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
+
 import InquiryContext from "../../helpers/context/InquiryContext";
+import SnackbarContext from "../../helpers/context/SnackbarContext";
 
 import "./emailForm.scss";
 
@@ -11,6 +12,8 @@ const EmailForm = ({ emailId, emailClass }) => {
   const [isFocus, setIsFocus] = useState(false);
 
   const { addInquiry } = useContext(InquiryContext);
+  const { setShow, setTitle, setContent, set_Status, setDuration } =
+    useContext(SnackbarContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,10 +27,30 @@ const EmailForm = ({ emailId, emailClass }) => {
 
   const postData = async () => {
     if (email) {
-      try {
-        await addInquiry({ email: email });
-      } catch (err) {
-        console.log(err?.status);
+      const res = await addInquiry({ email: email });
+
+      if (res?.code == "ERR_NETWORK") {
+        setShow(true);
+        setTitle("Email Inquiry");
+        setContent(
+          "Error incurred during submission. Please check you internet connection."
+        );
+        set_Status("warning");
+        setDuration(10000);
+      } else if (res?.code == "ERR_BAD_REQUEST") {
+        setShow(true);
+        setTitle("Email Inquiry");
+        setContent(
+          "Bad request. Maybe you have been submitted a request previously."
+        );
+        set_Status("alert");
+        setDuration(10000);
+      } else {
+        setShow(true);
+        setTitle("Email Inquiry");
+        setContent("Email inquiry successfully submitted");
+        set_Status("success");
+        setDuration(5000);
       }
     }
   };
