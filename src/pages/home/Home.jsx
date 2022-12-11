@@ -12,6 +12,7 @@ import {
 import { Brand, Cta, Navbar } from "../../components";
 
 import "./home.css";
+import Search from "../../components/search/Search";
 
 const Home = ({ close, setClose }) => {
   return (
@@ -25,7 +26,8 @@ const Home = ({ close, setClose }) => {
         pwdId2="home"
       />
       <div className="gradient__bg">
-        <Navbar close={close} setClose={setClose} />
+        <Navbar close={close} setClose={setClose} currentPage="home" />
+        {/* <Search /> */}
         <Header />
       </div>
       <Brand />

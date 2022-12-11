@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import "./pricing.css";
+
+import { UrlContext } from "../../helpers/context";
+
+import "./pricing.scss";
+
 const Pricing = () => {
   const [showMoreStandard, setShowMoreStandard] = useState(false);
   const [showMorePremium, setShowMorePremium] = useState(false);
+
+  const { url, setUrl } = useContext(UrlContext);
 
   return (
     <>
       <div className="cbs__pricing gradient__bg" id="pricing">
         <h1 className="gradient__text">Choose a Plan for Your Website</h1>
         <div className="cbs__pricing-content">
-          <div className="_card-container">
+          <div className="_card-container _pt2">
             {/* Basic Card */}
             <div className="_card _basic">
               <div className="_card-head">
@@ -227,8 +233,13 @@ const Pricing = () => {
             </div>
           </div>
         </div>
-        <Link to="/pricing" href="" className="cbs__pricing-learn-more">
-          Learn more
+        <Link
+          to="/pricing"
+          href=""
+          className="cbs__pricing-learn-more"
+          onClick={() => setUrl("pricing")}
+        >
+          More Details
         </Link>
       </div>
     </>
