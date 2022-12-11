@@ -1,12 +1,11 @@
 import axios from "axios";
 
 const inquiryApi = axios.create({
-  baseURL: "https://corebuso.pythonanywhere.com/client/inquiry",
-  // baseURL: "http://127.0.0.1:8000/client/inquiry",
+  baseURL: "https://corebuso.pythonanywhere.com/client",
 });
 
 export const getInquiry = async (id) => {
-  const response = await inquiryApi.get(`/${id}`);
+  const response = await inquiryApi.get(`inquiry/${id}`);
   return response.data;
 };
 
@@ -15,7 +14,7 @@ export const getInquiries = async () => {
     ? JSON.parse(sessionStorage.getItem("jwt"))
     : null;
 
-  const response = await inquiryApi.get("/", {
+  const response = await inquiryApi.get("inquiries/", {
     headers: {
       Authorization: "Bearer " + String(token?.access),
     },
@@ -25,7 +24,7 @@ export const getInquiries = async () => {
 
 export const postInquiry = async (data) => {
   try {
-    await inquiryApi.post("/", data);
+    await inquiryApi.post("/inquiry/", data);
   } catch (err) {
     console.log(err.data?.status);
     console.log(err.data?.response);
