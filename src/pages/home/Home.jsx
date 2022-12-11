@@ -10,11 +10,14 @@ import {
 } from "../../containers";
 
 import { Brand, Cta, Navbar, Snackbar } from "../../components";
+import DocumentTitle from "../../helpers/DocumentTitle";
 
 import "./home.scss";
 import Search from "../../components/search/Search";
 
 const Home = ({ close, setClose }) => {
+  DocumentTitle("Corebuso | Your core business solution");
+
   const page = "home";
   return (
     <>
