@@ -24,7 +24,7 @@ export const getInquiries = async () => {
 
 export const postInquiry = async (data) => {
   try {
-    await inquiryApi.post("/inquiry/", data);
+    await inquiryApi.post("inquiry/", data);
   } catch (err) {
     console.log(err.data?.status);
     console.log(err.data?.response);
