@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Footer,
   Pricing,
@@ -15,6 +15,7 @@ import "./home.scss";
 import Search from "../../components/search/Search";
 
 const Home = ({ close, setClose }) => {
+  const page = "home";
   return (
     <>
       <Snackbar />
@@ -28,7 +29,7 @@ const Home = ({ close, setClose }) => {
           pwdId2="home"
         />
         <div className="gradient__bg">
-          <Navbar close={close} setClose={setClose} currentPage="home" />
+          <Navbar close={close} setClose={setClose} currentPage={page} />
           {/* <Search /> */}
           <Header />
         </div>

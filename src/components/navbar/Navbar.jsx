@@ -37,15 +37,19 @@ const Menu = ({ setToggleMenu, currentPage }) => {
         </a>
       </p>
       <div className="cbs__navbar-separator"></div>
-      <p>
-        <a
-          href="#pricing"
-          onClick={() => setToggleMenu(false)}
-          className="nav-link"
-        >
-          Pricing
-        </a>
-      </p>
+      {currentPage == "pricing" ? (
+        ""
+      ) : (
+        <p>
+          <a
+            href="#pricing"
+            onClick={() => setToggleMenu(false)}
+            className="nav-link"
+          >
+            Pricing
+          </a>
+        </p>
+      )}
       <p>
         <Link
           to="/404"
@@ -64,7 +68,6 @@ const Navbar = ({ setClose, close, currentPage }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [page, setPage] = useState(currentPage);
   const [urlList, setUrlList] = useState([]);
-  const [] = useState();
 
   const urls = {
     pricing_page: {
@@ -98,15 +101,6 @@ const Navbar = ({ setClose, close, currentPage }) => {
             <>
               <p>
                 <a
-                  href="/"
-                  onClick={() => setToggleMenu(false)}
-                  className="nav-link"
-                >
-                  Home
-                </a>
-              </p>
-              <p>
-                <a
                   onClick={() => setToggleMenu(false)}
                   href="#about"
                   className="nav-link"
@@ -124,15 +118,19 @@ const Navbar = ({ setClose, close, currentPage }) => {
                 </a>
               </p>
               <div className="cbs__navbar-separator"></div>
-              <p>
-                <a
-                  href="#pricing"
-                  onClick={() => setToggleMenu(false)}
-                  className="nav-link"
-                >
-                  Pricing
-                </a>
-              </p>
+              {page == "pricing" ? (
+                ""
+              ) : (
+                <p>
+                  <a
+                    href="#pricing"
+                    onClick={() => setToggleMenu(false)}
+                    className="nav-link"
+                  >
+                    Pricing
+                  </a>
+                </p>
+              )}
               <p>
                 <a
                   href="404"
@@ -173,15 +171,19 @@ const Navbar = ({ setClose, close, currentPage }) => {
                 </Link>
               </p>
               <div className="cbs__navbar-separator"></div>
-              <p>
-                <a
-                  href="#pricing"
-                  onClick={() => setToggleMenu(false)}
-                  className="nav-link"
-                >
-                  Pricing
-                </a>
-              </p>
+              {page == "pricing" ? (
+                ""
+              ) : (
+                <p>
+                  <a
+                    href="#pricing"
+                    onClick={() => setToggleMenu(false)}
+                    className="nav-link"
+                  >
+                    Pricing
+                  </a>
+                </p>
+              )}
               <p>
                 <Link
                   to="404"
