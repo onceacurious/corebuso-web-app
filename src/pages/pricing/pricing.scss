@@ -1,0 +1,25 @@
+.cbs__page-pricing__container {
+  min-height: 100vh;
+  padding-top: 20%;
+
+  position: relative;
+  z-index: 1;
+}
+.cbs__page-pricing__body {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+#brandLogo {
+  position: absolute;
+  transform: translate(-50%, 50%);
+
+  path {
+    // fill: var(--color-text) !important;
+    stroke: var(--color-text);
+    stroke-width: 2px;
+    fill: transparent;
+  }
+}

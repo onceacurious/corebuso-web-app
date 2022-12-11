@@ -1,10 +1,61 @@
-import React from "react";
-import "./header.css";
+import React, { useState, useEffect } from "react";
+import "./header.scss";
 import dev from "../../assets/dev_3.png";
 
 import { EmailForm } from "../../components";
+import AnimatedLetters from "../../components/animatedLetters/AnimatedLetters";
 
 const Header = () => {
+  const [letterClass, setLetterClass] = useState("text-animate");
+  const excerptArray = [
+    "w",
+    "e",
+    "b",
+    " ",
+    "d",
+    "e",
+    "v",
+    "e",
+    "l",
+    "o",
+    "p",
+    "m",
+    "e",
+    "n",
+    "t",
+    " ",
+    "a",
+    "n",
+    "d",
+    " ",
+    "a",
+    "c",
+    "c",
+    "o",
+    "u",
+    "n",
+    "t",
+    "i",
+    "n",
+    "g",
+    " ",
+    "s",
+    "e",
+    "r",
+    "v",
+    "i",
+    "c",
+    "e",
+    "s",
+  ];
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLetterClass("text-animate-hover");
+    }, 4000);
+  }, []);
+
+  // console.log(excerptArray);
   return (
     <div className="cbs__header section__padding" id="home">
       <div className="cbs__header-content">
@@ -15,13 +66,13 @@ const Header = () => {
           Build a MODERN, REACTIVE, RESPONSIVE website from scratch with an
           affordable price range.
         </p>
-        <div className="cbs__header-email__form">
-          <EmailForm name="emailInquiry" emailId="header" />
-        </div>
+        <EmailForm name="emailInquiry" emailId="header" emailClass="header" />
         <div className="cbs__header-excerpt">
-          <p className="focus-in-expand">
-            web development and accounting services
-          </p>
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={excerptArray}
+            idx={1}
+          />
         </div>
       </div>
       <div className="cbs__header-image">
