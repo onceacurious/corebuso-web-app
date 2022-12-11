@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
+import "../src/assets/animate.css";
 import App from "./App";
 import "./index.css";
 

@@ -18,21 +18,21 @@
   flex-direction: column;
   margin-right: 5rem;
   max-width: 50%;
-}
 
-.cbs__header-content h1 {
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 52px;
-  letter-spacing: -0.04em;
-  margin-bottom: 1rem;
-}
+  h1 {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+  }
 
-.cbs__header-content p {
-  font-size: 20px;
-  line-height: 27px;
+  p {
+    font-size: 20px;
+    line-height: 27px;
 
-  color: var(--color-accent);
+    color: var(--color-accent);
+  }
 }
 
 .cbs__header-excerpt {
@@ -44,27 +44,24 @@
   align-items: center;
   margin: auto;
   margin-top: 1rem;
+  p {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--color-accent);
+    text-align: center;
+  }
 }
-
-.cbs__header-excerpt p {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  color: var(--color-accent);
-  text-align: center;
-}
-
 .cbs__header-image {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.cbs__header-image img {
-  width: 80%;
-  height: 90%;
+  img {
+    width: 80%;
+    height: 90%;
+  }
 }
 
 .slide-right {
@@ -77,6 +74,11 @@
     both;
   animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation-delay: 500ms;
+}
+
+.flip-scale-up-hor {
+  -webkit-animation: flip-scale-up-hor 0.5s linear both;
+  animation: flip-scale-up-hor 0.5s linear both;
 }
 
 /* MEDIA QUERY */
@@ -120,9 +122,9 @@
 }
 
 @media screen and (max-width: 499px) {
-  .cbs__header-email__form {
-    transform: scale(0.75);
-  }
+  // .cbs__header-email__form {
+  //   transform: scale(0.75);
+  // }
 }
 
 /* KEYFRAME QUERY */
@@ -145,5 +147,34 @@
   100% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes flip-scale-up-hor {
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+    transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateX(-90deg);
+    transform: scale(2.5) rotateX(-90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-180deg);
+    transform: scale(1) rotateX(-180deg);
+  }
+}
+@keyframes flip-scale-up-hor {
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+    transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateX(-90deg);
+    transform: scale(2.5) rotateX(-90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-180deg);
+    transform: scale(1) rotateX(-180deg);
   }
 }
