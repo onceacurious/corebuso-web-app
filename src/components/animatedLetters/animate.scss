@@ -24,26 +24,8 @@
   }
 }
 
-// .letter-animation-container {
-//   overflow: visible;
-//   height: 70px;
-// }
-
-// .text-animate-hover {
-//   height: 70px;
-//   overflow: visible;
-//   line-height: 20px;
-//   font-size: 16px;
-//   transition: all 500ms forwards;
-//   &:hover {
-//     color: var(--color-text);
-//     line-height: 18px !important;
-//     font-size: 18px !important;
-//   }
-// }
-
 @for $i from 1 through 39 {
   .text-animate._#{$i} {
-    animation-delay: #{$i / 10}s;
+    animation-delay: #{calc($i / 10)}s;
   }
 }

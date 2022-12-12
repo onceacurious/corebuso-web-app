@@ -8,6 +8,7 @@ export const SnackbarProvider = ({ children }) => {
   const [title, setTitle] = useState(null);
   const [_status, set_Status] = useState("");
   const [duration, setDuration] = useState(5000);
+  const [modalAction, setModalAction] = useState('')
 
   const setSnackbarTimer = (time) => {};
 
@@ -22,6 +23,8 @@ export const SnackbarProvider = ({ children }) => {
     set_Status,
     duration,
     setDuration,
+    modalAction,
+    setModalAction,
   };
 
   return (
