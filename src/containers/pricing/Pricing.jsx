@@ -13,6 +13,16 @@ const Pricing = () => {
   const { url, setUrl } = useContext(UrlContext);
   const {setModalAction} = useContext(SnackbarContext)
 
+  const basicModal = ()=> {
+    setModalAction('pricing-modal-show');
+  }
+  const standardModal = ()=> {
+    setModalAction('pricing-modal-show');
+  }
+  const premiumModal = ()=> {
+    setModalAction('pricing-modal-show');
+  }
+
   return (
     <>
       <div className="cbs__pricing gradient__bg" id="pricing">
@@ -67,7 +77,7 @@ const Pricing = () => {
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
                
-                <input type="button" value="Continue" className="_card-btn" onClick={()=> setModalAction('pricing-modal-show')}/>
+                <input type="button" value="Continue" className="_card-btn" onClick={basicModal}/>
               </div>
             </div>
 
@@ -148,7 +158,7 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" />
+                <input type="button" value="Continue" className="_card-btn" onClick={standardModal} />
               </div>
             </div>
 
@@ -232,7 +242,7 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" />
+                <input type="button" value="Continue" className="_card-btn" onClick={premiumModal}/>
               </div>
             </div>
           </div>
