@@ -71,22 +71,40 @@
   position: relative !important;
   z-index: 1;
 }
-.pricing-modal-container {
-  position: fixed;
-  z-index: 9999999999;
-  top: 0;
-  right: 48%;
-  background-color: transparent;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  opacity: 0;
+.pricing-modal {
+  &-container {
+    position: fixed;
+    z-index: 9999999999;
+    top: 0;
+    right: 48%;
+    background-color: #fff;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    opacity: 0;
 
-  transition: all 500ms;
+    transition: all 500ms;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(225, 34, 34);
+    border: none;
+    outline: none;
+    background: transparent;
+
+    &:hover {
+      color: #555;
+    }
+  }
 }
 
 .pricing-modal-show {

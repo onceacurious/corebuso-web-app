@@ -270,7 +270,7 @@ export const PricingModal = ({pricingData}) => {
   return (
     <>
       <div className={`pricing-modal-container ${modalAction}`}>
-        <button onClick={()=> setModalAction('pricing-modal-hide')}>x</button>
+        <button className="pricing-modal-close-btn" onClick={()=> setModalAction('pricing-modal-hide')}>x</button>
       </div>
     </>
   )
