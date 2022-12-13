@@ -1,17 +1,17 @@
 import { createContext, useState, useEffect } from "react";
 
-export const SnackbarContext = createContext();
+export const MainContext = createContext();
 
-export const SnackbarProvider = ({ children }) => {
+export const MainProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   const [content, setContent] = useState(null);
   const [title, setTitle] = useState(null);
   const [_status, set_Status] = useState("");
   const [duration, setDuration] = useState(5000);
-  const [modalAction, setModalAction] = useState('');
+  const [modalAction, setModalAction] = useState("");
   const [scroll, setScroll] = useState(false);
 
-  const setSnackbarTimer = (time) => {};
+  const setMainTimer = (time) => {};
 
   const contextValue = {
     show,
@@ -31,10 +31,8 @@ export const SnackbarProvider = ({ children }) => {
   };
 
   return (
-    <SnackbarContext.Provider value={contextValue}>
-      {children}
-    </SnackbarContext.Provider>
+    <MainContext.Provider value={contextValue}>{children}</MainContext.Provider>
   );
 };
 
-export default SnackbarContext;
+export default MainContext;

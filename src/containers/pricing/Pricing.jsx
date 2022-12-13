@@ -1,27 +1,27 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { UrlContext, SnackbarContext } from "../../helpers/context";
+import { UrlContext, MainContext } from "../../helpers/context";
 
 import "./pricing.scss";
 
 const Pricing = () => {
   const [showMoreStandard, setShowMoreStandard] = useState(false);
   const [showMorePremium, setShowMorePremium] = useState(false);
-  const [pricingModal, setPricingModal] = useState('');
+  const [pricingModal, setPricingModal] = useState("");
 
   const { url, setUrl } = useContext(UrlContext);
-  const {setModalAction} = useContext(SnackbarContext)
+  const { setModalAction } = useContext(MainContext);
 
-  const basicModal = ()=> {
-    setModalAction('pricing-modal-show');
-  }
-  const standardModal = ()=> {
-    setModalAction('pricing-modal-show');
-  }
-  const premiumModal = ()=> {
-    setModalAction('pricing-modal-show');
-  }
+  const basicModal = () => {
+    setModalAction("pricing-modal-show");
+  };
+  const standardModal = () => {
+    setModalAction("pricing-modal-show");
+  };
+  const premiumModal = () => {
+    setModalAction("pricing-modal-show");
+  };
 
   return (
     <>
@@ -29,7 +29,7 @@ const Pricing = () => {
         <h1 className="gradient__text">Choose a Plan for Your Website</h1>
         <div className="cbs__pricing-content">
           <div className="_card-container _pt2">
-          <PricingModal pricingData={''}/>
+            <PricingModal pricingData={""} />
             {/* Basic Card */}
             <div className="_card _basic">
               <div className="_card-head">
@@ -76,8 +76,12 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-               
-                <input type="button" value="Continue" className="_card-btn" onClick={basicModal}/>
+                <input
+                  type="button"
+                  value="Continue"
+                  className="_card-btn"
+                  onClick={basicModal}
+                />
               </div>
             </div>
 
@@ -158,7 +162,12 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" onClick={standardModal} />
+                <input
+                  type="button"
+                  value="Continue"
+                  className="_card-btn"
+                  onClick={standardModal}
+                />
               </div>
             </div>
 
@@ -242,7 +251,12 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" onClick={premiumModal}/>
+                <input
+                  type="button"
+                  value="Continue"
+                  className="_card-btn"
+                  onClick={premiumModal}
+                />
               </div>
             </div>
           </div>
@@ -262,16 +276,19 @@ const Pricing = () => {
 
 export default Pricing;
 
+export const PricingModal = ({ pricingData }) => {
+  const { modalAction, setModalAction } = useContext(MainContext);
 
-export const PricingModal = ({pricingData}) => {
-
-  const {modalAction, setModalAction} = useContext(SnackbarContext);
-  
   return (
     <>
       <div className={`pricing-modal-container ${modalAction}`}>
-        <button className="pricing-modal-close-btn" onClick={()=> setModalAction('pricing-modal-hide')}>x</button>
+        <button
+          className="pricing-modal-close-btn"
+          onClick={() => setModalAction("pricing-modal-hide")}
+        >
+          x
+        </button>
       </div>
     </>
-  )
-}
+  );
+};

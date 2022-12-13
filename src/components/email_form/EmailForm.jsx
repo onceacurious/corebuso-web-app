@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 
 import InquiryContext from "../../helpers/context/InquiryContext";
-import SnackbarContext from "../../helpers/context/SnackbarContext";
+import MainContext from "../../helpers/context/MainContext";
 
 import "./emailForm.scss";
 
@@ -13,7 +13,7 @@ const EmailForm = ({ emailId, emailClass }) => {
 
   const { addInquiry } = useContext(InquiryContext);
   const { setShow, setTitle, setContent, set_Status, setDuration } =
-    useContext(SnackbarContext);
+    useContext(MainContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

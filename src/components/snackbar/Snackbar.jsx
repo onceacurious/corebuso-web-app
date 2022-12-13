@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { IoCloseCircle } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-import SnackbarContext from "../../helpers/context/SnackbarContext";
+import MainContext from "../../helpers/context/MainContext";
 import "./snackbar.scss";
 
 const Snackbar = () => {
@@ -12,7 +12,7 @@ const Snackbar = () => {
   const [status, setStatus] = useState("");
 
   const { show, setShow, content, title, _status, duration } =
-    useContext(SnackbarContext);
+    useContext(MainContext);
 
   const snackbarStatus = (status) => {
     switch (status) {
