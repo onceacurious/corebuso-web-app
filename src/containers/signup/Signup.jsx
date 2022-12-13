@@ -50,7 +50,7 @@ const Information = ({ target, show }) => {
 
   useEffect(() => {}, [show]);
   return (
-    <div id="infoContainer">
+    <div className="signup-form-instruction-container">
       <p className={data.message["0"] ? "" : "hide"}>{data.message["0"]}</p>
       <p className={data.message["1"] ? "" : "hide"}>1. {data.message["1"]}</p>
       <p className={data.message["2"] ? "" : "hide"}>2. {data.message["2"]}</p>
@@ -127,7 +127,7 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
         <div className="cbs__client-signup__body">
           <div className="cbs__client-signup__form">
             <h1 className="gradient__text">Sign Up</h1>
-            <form method="POST" onSubmit={handleSubmit}>
+            <form method="POST" onSubmit={handleSubmit} className="signup-form">
               <label
                 className="gradient__text"
                 htmlFor={`${usernameId}-client_username`}
@@ -147,7 +147,9 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   onChange={(e) => setUser(e.target.value)}
                   onFocus={() => setFocusUser(true)}
                   onBlur={() => setFocusUser(false)}
-                  className={!validUser && focusUser ? "invalid" : ""}
+                  className={
+                    !validUser && focusUser ? "invalid signup-input-focus" : ""
+                  }
                 />
               </div>
               <label

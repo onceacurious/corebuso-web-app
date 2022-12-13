@@ -12,8 +12,13 @@ const EmailForm = ({ emailId, emailClass }) => {
   const [isFocus, setIsFocus] = useState(false);
 
   const { addInquiry } = useContext(InquiryContext);
-  const { setShow, setTitle, setContent, set_Status, setDuration } =
-    useContext(MainContext);
+  const {
+    setSnackbarShow,
+    setSnackbarTitle,
+    setSnackbarContent,
+    setSnackbarContextStatus,
+    setSnackbarDuration,
+  } = useContext(MainContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,27 +35,26 @@ const EmailForm = ({ emailId, emailClass }) => {
       const res = await addInquiry({ email: email });
 
       if (res?.code == "ERR_NETWORK") {
-        setShow(true);
-        setTitle("Email Inquiry");
-        setContent(
+        setSnackbarShow(true);
+        setSnackbarTitle("Email Inquiry");
+        setSnackbarContent(
           "Error incurred during submission. Please check you internet connection."
         );
-        set_Status("warning");
-        setDuration(10000);
+        setSnackbarDuration(10000);
       } else if (res?.code == "ERR_BAD_REQUEST") {
-        setShow(true);
-        setTitle("Email Inquiry");
-        setContent(
+        setSnackbarShow(true);
+        setSnackbarTitle("Email Inquiry");
+        setSnackbarContent(
           "Bad request. Maybe you have been submitted a request previously."
         );
-        set_Status("alert");
-        setDuration(10000);
+        setSnackbarContextStatus("alert");
+        setSnackbarDuration(10000);
       } else {
-        setShow(true);
-        setTitle("Email Inquiry");
-        setContent("Email inquiry successfully submitted");
-        set_Status("success");
-        setDuration(5000);
+        setSnackbarShow(true);
+        setSnackbarTitle("Email Inquiry");
+        setSnackbarContent("Email inquiry successfully submitted");
+        setSnackbarContextStatus("success");
+        setSnackbarDuration(5000);
       }
     }
   };

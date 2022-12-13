@@ -11,8 +11,14 @@ const Snackbar = () => {
   const [snack, setSnack] = useState("snackbar-hide");
   const [status, setStatus] = useState("");
 
-  const { show, setShow, content, title, _status, duration } =
-    useContext(MainContext);
+  const {
+    snackbarShow,
+    setSnackbarShow,
+    snackbarContent,
+    snackbarTitle,
+    snackbarContextStatus,
+    snackbarDuration,
+  } = useContext(MainContext);
 
   const snackbarStatus = (status) => {
     switch (status) {
@@ -30,34 +36,36 @@ const Snackbar = () => {
   };
 
   useEffect(() => {
-    if (show) {
+    if (snackbarShow) {
       setSnack("snackbar-show");
-      setStatus(`snackbar-${snackbarStatus(_status)}`);
+      setStatus(`snackbar-${snackbarStatus(snackbarContextStatus)}`);
     } else {
       setSnack("snackbar-hide");
     }
-  }, [show]);
+  }, [snackbarShow]);
 
   useEffect(() => {
     setTimeout(() => {
-      setShow(false);
-    }, duration);
-  }, [show]);
+      setSnackbarShow(false);
+    }, snackbarDuration);
+  }, [snackbarShow]);
 
   return (
     <>
       <div className={`snackbar ${snack} ${status}`}>
         <div className="snackbar-title">
-          <p className="_heading3 _bold">{title ? title : "No title"}</p>
+          <p className="_heading3 _bold">
+            {snackbarTitle ? snackbarTitle : "No title"}
+          </p>
           <div className="snackbar-btn-close pointer">
-            <IoCloseCircle onClick={() => setShow(false)} />
+            <IoCloseCircle onClick={() => setSnackbarShow(false)} />
           </div>
         </div>
         <div className="snackbar-context">
           <p>
-            {content ? content : "No content to display"}
+            {snackbarContent ? snackbarContent : "No content to display"}
             {"...  "}
-            {_status != "success" ? (
+            {snackbarStatus != "success" ? (
               <Link>
                 <strong>Learn more</strong>
               </Link>
