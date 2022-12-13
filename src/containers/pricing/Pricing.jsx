@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { IoCloseCircle } from "react-icons/io5";
 
 import { UrlContext, MainContext } from "../../helpers/context";
 
@@ -295,7 +296,7 @@ export const PricingModal = ({ pricingData }) => {
           className="pricing-modal-close-btn"
           onClick={() => setPricingModalShow(false)}
         >
-          x
+          <IoCloseCircle />
         </button>
         <div className="pricing-modal-body">
           <div className="pricing-modal-title">

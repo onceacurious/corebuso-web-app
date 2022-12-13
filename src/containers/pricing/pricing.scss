@@ -92,8 +92,8 @@
   }
   &-close-btn {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 0.75rem;
+    right: 0.75rem;
     font-size: 1.5rem;
     font-weight: 600;
     color: rgb(225, 34, 34);
@@ -114,7 +114,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 1rem;
-    background: rgba(85, 85, 85, 0.2);
+    background: rgba(167, 165, 165, 0.2);
     border-radius: 2rem;
 
     div {

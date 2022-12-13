@@ -41,6 +41,7 @@ const EmailForm = ({ emailId, emailClass }) => {
           "Error incurred during submission. Please check you internet connection."
         );
         setSnackbarDuration(10000);
+        setSnackbarContextStatus("warning");
       } else if (res?.code == "ERR_BAD_REQUEST") {
         setSnackbarShow(true);
         setSnackbarTitle("Email Inquiry");

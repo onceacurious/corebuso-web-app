@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoCloseCircleOutline, IoCloseCircle } from "react-icons/io5";
+import { IoCloseCircle } from "react-icons/io5";
 
 import "./alert.scss";
 
