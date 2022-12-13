@@ -3,6 +3,9 @@ import { createContext, useState, useEffect } from "react";
 export const MainContext = createContext();
 
 export const MainProvider = ({ children }) => {
+  // App
+  const [scroll, setScroll] = useState(false);
+
   // Snackbar
   const [snackbarShow, setSnackbarShow] = useState(false);
   const [snackbarContent, setSnackbarContent] = useState(null);
@@ -11,15 +14,19 @@ export const MainProvider = ({ children }) => {
   const [snackbarDuration, setSnackbarDuration] = useState(5000);
 
   // Pricing Modal
-  // TODO: Need to rename
-  const [modalAction, setModalAction] = useState("");
+  const [pricingModalShow, setPricingModalShow] = useState(false);
 
-  // App
-  const [scroll, setScroll] = useState(false);
+  //  Signup
+  const [signupShow, setSignupShow] = useState(false);
 
   const setMainTimer = (time) => {};
 
   const contextValue = {
+    // App
+    scroll,
+    setScroll,
+
+    // Snackbar
     snackbarShow,
     setSnackbarShow,
     setSnackbarContent,
@@ -30,10 +37,14 @@ export const MainProvider = ({ children }) => {
     setSnackbarContextStatus,
     snackbarDuration,
     setSnackbarDuration,
-    modalAction,
-    setModalAction,
-    scroll,
-    setScroll,
+
+    // Pricing
+    pricingModalShow,
+    setPricingModalShow,
+
+    // Signup
+    signupShow,
+    setSignupShow,
   };
 
   return (

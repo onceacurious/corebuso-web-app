@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { UrlContext, MainContext } from "../../helpers/context";
@@ -11,23 +12,23 @@ const Pricing = () => {
   const [pricingModal, setPricingModal] = useState("");
 
   const { url, setUrl } = useContext(UrlContext);
-  const { setModalAction } = useContext(MainContext);
+  const { setPricingModalShow } = useContext(MainContext);
 
   const basicModal = () => {
-    setModalAction("pricing-modal-show");
+    setPricingModalShow(true);
   };
   const standardModal = () => {
-    setModalAction("pricing-modal-show");
+    setPricingModalShow("pricing-modal-show");
   };
   const premiumModal = () => {
-    setModalAction("pricing-modal-show");
+    setPricingModalShow("pricing-modal-show");
   };
 
   return (
     <>
-      <div className="cbs__pricing gradient__bg" id="pricing">
+      <div className="pricing gradient__bg" id="pricing">
         <h1 className="gradient__text">Choose a Plan for Your Website</h1>
-        <div className="cbs__pricing-content">
+        <div className="pricing-content">
           <div className="_card-container _pt2">
             <PricingModal pricingData={""} />
             {/* Basic Card */}
@@ -87,7 +88,7 @@ const Pricing = () => {
 
             {/* Standard Card */}
             <div className="_card _standard">
-              <h2 className="cbs__pricing-best-value">Best Value</h2>
+              <h2 className="pricing-best-value">Best Value</h2>
               <div className="_card-head">
                 <div className="_card-header">
                   <h4 className="_heading1 _bold _text-center">Standard</h4>
@@ -264,7 +265,7 @@ const Pricing = () => {
         <Link
           to="/pricing"
           href=""
-          className="cbs__pricing-learn-more"
+          className="pricing-learn-more"
           onClick={() => setUrl("pricing")}
         >
           More Details
@@ -277,14 +278,21 @@ const Pricing = () => {
 export default Pricing;
 
 export const PricingModal = ({ pricingData }) => {
-  const { modalAction, setModalAction } = useContext(MainContext);
+  const { pricingModalShow, setPricingModalShow } = useContext(MainContext);
+  const modalRef = useRef();
+
+  useEffect(() => {});
 
   return (
     <>
-      <div className={`pricing-modal-container ${modalAction}`}>
+      <div
+        className={`pricing-modal-container pointer ${
+          pricingModalShow ? "pricing-modal-show" : ""
+        }`}
+      >
         <button
           className="pricing-modal-close-btn"
-          onClick={() => setModalAction("pricing-modal-hide")}
+          onClick={() => setPricingModalShow(false)}
         >
           x
         </button>

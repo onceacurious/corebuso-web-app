@@ -70,7 +70,7 @@ const Navbar = ({ setClose, close, currentPage }) => {
   const [page, setPage] = useState(currentPage);
   const [urlList, setUrlList] = useState([]);
 
-  const { setScroll, scroll } = useContext(MainContext);
+  const { setScroll, scroll, setSignupShow } = useContext(MainContext);
 
   const urls = {
     pricing_page: {
@@ -84,6 +84,11 @@ const Navbar = ({ setClose, close, currentPage }) => {
     if (page == "pricing") {
       setUrlList(urls.pricing_page);
     }
+  };
+
+  const handleSignup = () => {
+    setClose(!close);
+    setScroll(true);
   };
 
   useEffect(() => {
@@ -222,7 +227,7 @@ const Navbar = ({ setClose, close, currentPage }) => {
             <button
               type="button"
               className="glow-on-hover"
-              onClick={() => setClose(!close, setScroll(true))}
+              onClick={handleSignup}
             >
               Sign up
             </button>
