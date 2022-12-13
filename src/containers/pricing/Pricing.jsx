@@ -12,10 +12,11 @@ const Pricing = () => {
   const [pricingModal, setPricingModal] = useState("");
 
   const { url, setUrl } = useContext(UrlContext);
-  const { setPricingModalShow } = useContext(MainContext);
+  const { setPricingModalShow, setScroll } = useContext(MainContext);
 
   const basicModal = () => {
     setPricingModalShow(true);
+    // setScroll(true);
   };
   const standardModal = () => {
     setPricingModalShow("pricing-modal-show");
@@ -286,7 +287,7 @@ export const PricingModal = ({ pricingData }) => {
   return (
     <>
       <div
-        className={`pricing-modal-container pointer ${
+        className={`pricing-modal-container ${
           pricingModalShow ? "pricing-modal-show" : ""
         }`}
       >
@@ -296,6 +297,49 @@ export const PricingModal = ({ pricingData }) => {
         >
           x
         </button>
+        <div className="pricing-modal-body">
+          <div className="pricing-modal-title">
+            <h2>Basic pricing plan</h2>
+            <p>
+              This plan is suitable for a personal website or small business
+              with 2 to 3 pages website.
+              <br />
+              <i>
+                Client must be the one to provide the slogans, marketing spiels,
+                and a likes.
+              </i>
+            </p>
+          </div>
+          <div className="pricing-modal-included">
+            <h2>What's included on this plan?</h2>
+            <dl>
+              <dt>Source Code</dt>
+              <dd>Source code will be provided.</dd>
+              <dt>Responsive Layout</dt>
+              <dd>Website supports mobile display.</dd>
+            </dl>
+          </div>
+          <div className="pricing-modal-scope">
+            <dl>
+              <dt>Delivery time</dt>
+              <dd>2 days</dd>
+              <dt>Number of revisions</dt>
+              <dd>2</dd>
+              <dt>Number of pages</dt>
+              <dd>3; compose of Home, About/FAQ, and Contact</dd>
+            </dl>
+          </div>
+          <div className="pricing-modal-upgrade">
+            <h2>Want to upgrade your oder?</h2>
+            <form method="post" className="pricing-modal-form">
+              <input type="checkbox" name="basic-delivery" id="basicDelivery" />
+              <label htmlFor="basicDelivery">Fast delivery: 1 day</label>
+              <input type="number" name="basic-revision" id="basicRevision" />
+              <label htmlFor="basicRevision">Revision: @$4 per revision</label>
+              <p>Extra services</p>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );

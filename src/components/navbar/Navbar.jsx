@@ -88,7 +88,7 @@ const Navbar = ({ setClose, close, currentPage }) => {
 
   const handleSignup = () => {
     setClose(!close);
-    setScroll(true);
+    // setScroll(true);
   };
 
   useEffect(() => {
