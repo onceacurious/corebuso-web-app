@@ -1,12 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useEffect } from "react";
 import { MdDoubleArrow } from "react-icons/md";
-import { TiInfoLarge } from "react-icons/ti";
+import {GoEyeClosed} from 'react-icons/go'
+import { SnackbarContext } from "../../helpers/context";
 
-import "./signup.css";
+import "./signup.scss";
 
 
 const Information = ({ target, show }) => {
+
+
   const info_target = [
     {
       name: "username",
@@ -69,7 +72,9 @@ const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_.]{6,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
+  
   const userRef = useRef();
+  const {setScroll} = useContext(SnackbarContext);
 
   const [user, setUser] = useState("");
   const [validUser, setValidUser] = useState(false);
@@ -123,7 +128,7 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
       <div id="signupContainer" className={close ? "show" : ""}>
         <div
           className="cbs__client-signup__close pointer"
-          onClick={() => setClose(!close)}
+          onClick={() => (setClose(!close), setScroll(false))}
         >
           <MdDoubleArrow />
         </div>
@@ -194,7 +199,7 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   onBlur = {()=> setFocusPwd(false)}
                   className={!validPwd && focusPwd ? "invalid":""}
                   />
-                <TiInfoLarge />
+                <GoEyeClosed />
               </div>
               <label
                 className="gradient__text"
@@ -216,7 +221,7 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   onBlur = {()=> setFocusPwd2(false)}
                   className={!validPwd2 && focusPwd2 ? "invalid":""}
                   />
-                <TiInfoLarge />
+                <GoEyeClosed />
               </div>
               <div className="cbs__client-signup__form-btn">
                 <button

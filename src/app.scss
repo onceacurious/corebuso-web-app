@@ -55,6 +55,13 @@ button:disabled {
 .pointer {
   cursor: pointer;
 }
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
 
 /* Animista.net */
 .scale-up-center {

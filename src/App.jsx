@@ -13,19 +13,20 @@ import PrivateRoute from "./helpers/PrivateRoute";
 import { AuthProvider } from "./helpers/context/AuthContext";
 import { InquiryProvider } from "./helpers/context/InquiryContext";
 import { UrlProvider } from "./helpers/context/UrlContext";
-import { SnackbarProvider } from "./helpers/context/SnackbarContext";
+import SnackbarContext from "./helpers/context/SnackbarContext";
 
 const App = () => {
   const [close, setClose] = useState(false);
 
+  const {scroll} = useContext(SnackbarContext);
+
   return (
-    <div className="app">
+    <div className={scroll ? 'app overflow-hidden' : 'app'}>
       {/* <Snackbar /> */}
       <Router>
         <AuthProvider>
           <InquiryProvider>
             <UrlProvider>
-              <SnackbarProvider>
                 <Routes>
                   <Route
                     index
@@ -54,7 +55,6 @@ const App = () => {
                   />
                   <Route path="/you-are-lost" element={<NotFound />} />
                 </Routes>
-              </SnackbarProvider>
             </UrlProvider>
           </InquiryProvider>
         </AuthProvider>

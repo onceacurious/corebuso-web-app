@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Signup from "../../containers/signup/Signup";
+import { SnackbarContext } from "../../helpers/context";
 import AuthContext from "../../helpers/context/AuthContext";
 import "./navbar.scss";
 
@@ -68,6 +69,8 @@ const Navbar = ({ setClose, close, currentPage }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [page, setPage] = useState(currentPage);
   const [urlList, setUrlList] = useState([]);
+
+  const {setScroll, scroll} = useContext(SnackbarContext)
 
   const urls = {
     pricing_page: {
@@ -219,7 +222,7 @@ const Navbar = ({ setClose, close, currentPage }) => {
             <button
               type="button"
               className="glow-on-hover"
-              onClick={() => setClose(!close)}
+              onClick={() => setClose(!close, setScroll(true))}
             >
               Sign up
             </button>
@@ -268,7 +271,7 @@ const Navbar = ({ setClose, close, currentPage }) => {
                       type="button"
                       className="glow-on-hover"
                       onClick={() => (
-                        setClose(!close), setToggleMenu(!toggleMenu)
+                        setClose(!close), setToggleMenu(!toggleMenu), setScroll(true)
                       )}
                     >
                       Sign up
