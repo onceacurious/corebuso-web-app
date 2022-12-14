@@ -3,6 +3,7 @@ import "./cta.css";
 import { FaFigma } from "react-icons/fa";
 import { DiDjango, DiPython, DiReact } from "react-icons/di";
 import { SiVite } from "react-icons/si";
+import { DiGithub } from "react-icons/di";
 
 const Cta = () => {
   return (
@@ -11,20 +12,23 @@ const Cta = () => {
         <div className="cbs__cta-frame">
           <p>Coming Soon!</p>
           <div className="cbs__cta-tools">
-            <p>
+            <p className="pointer" title="figma">
               <FaFigma />
             </p>
-            <p>
+            <p className="pointer" title="Django">
               <DiDjango />
             </p>
-            <p>
+            <p className="pointer" title="Python">
               <DiPython />
             </p>
-            <p>
-              <SiVite />
+            <p className="pointer">
+              <SiVite title="Vite"/>
             </p>
-            <p>
+            <p className="pointer" title="React">
               <DiReact />
+            </p>
+            <p className="pointer" title="Git">
+              <DiGithub />
             </p>
           </div>
           <div className="cbs__cta-container">
