@@ -13,17 +13,9 @@ const Pricing = ({ close, setClose }) => {
 
   return (
     <>
-      <div className="cbs__page-pricing__container">
-        <Signup
-          close={close}
-          setClose={setClose}
-          emailId="pricing"
-          usernameId="pricing"
-          pwdId="pricing"
-          pwdId2="pricing"
-        />
+      <div className="pricing-page">
         <Navbar close={close} setClose={setClose} currentPage={page} />
-        <div className="cbs__page-pricing__body"></div>
+        <div className="pricing-page-body"></div>
       </div>
     </>
   );

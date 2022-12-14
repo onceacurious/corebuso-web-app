@@ -11,7 +11,7 @@ const EmailForm = ({ emailId, emailClass }) => {
   const [start, setStart] = useState("start-show");
   const [isFocus, setIsFocus] = useState(false);
 
-  const { addInquiry } = useContext(InquiryContext);
+  const { addInquiry, setInquire } = useContext(InquiryContext);
   const {
     setSnackbarShow,
     setSnackbarTitle,
@@ -24,6 +24,7 @@ const EmailForm = ({ emailId, emailClass }) => {
     e.preventDefault();
     postData();
     setEmail("");
+    setInquire(true);
   };
 
   const handleChange = (e) => {

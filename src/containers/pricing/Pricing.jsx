@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-import { IoCloseCircle } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 
 import { UrlContext, MainContext } from "../../helpers/context";
 
@@ -10,15 +8,14 @@ import "./pricing.scss";
 const Pricing = () => {
   const [showMoreStandard, setShowMoreStandard] = useState(false);
   const [showMorePremium, setShowMorePremium] = useState(false);
-  const [pricingModalActive, setPricingModalActive] = useState(false)
 
   const { setUrl } = useContext(UrlContext);
   const { setPricingModalShow } = useContext(MainContext);
 
+  const nav = useNavigate();
 
-  const basicModal = () => {
-    setPricingModalShow(true);
-    // setPricingModalActive(true);
+  const goToPricing = () => {
+    nav("/pricing");
   };
   const standardModal = () => {
     setPricingModalShow("pricing-modal-show");
@@ -27,16 +24,14 @@ const Pricing = () => {
     setPricingModalShow("pricing-modal-show");
   };
 
-
   return (
     <>
       <div className="pricing gradient__bg" id="pricing">
         <h1 className="gradient__text">Choose a Plan for Your Website</h1>
-        <div className="pricing-content" >
-          <div className="_card-container _pt2">
-            <PricingModal pricingData={""} />
+        <div className="pricing-content">
+          <div className="_card-container _pt2 ">
             {/* Basic Card */}
-            <div className="_card _basic">
+            <div className="_card _basic focus">
               <div className="_card-head">
                 <div className="_card-header">
                   <h4 className="_heading1 _bold _text-center">Basic</h4>
@@ -85,7 +80,7 @@ const Pricing = () => {
                   type="button"
                   value="Continue"
                   className="_card-btn"
-                  onClick={basicModal}
+                  onClick={goToPricing}
                 />
               </div>
             </div>
@@ -171,7 +166,7 @@ const Pricing = () => {
                   type="button"
                   value="Continue"
                   className="_card-btn"
-                  onClick={standardModal}
+                  onClick={goToPricing}
                 />
               </div>
             </div>
@@ -260,7 +255,7 @@ const Pricing = () => {
                   type="button"
                   value="Continue"
                   className="_card-btn"
-                  onClick={premiumModal}
+                  onClick={goToPricing}
                 />
               </div>
             </div>
@@ -281,76 +276,10 @@ const Pricing = () => {
 
 export default Pricing;
 
-export const PricingModal = () => {
-  const { pricingModalShow, setPricingModalShow } = useContext(MainContext);
-  const modalRef = useRef();
-
-  useEffect(() => {
-    modalRef.current.focus()
-  });
-
-  useEffect(()=> {
-
-  }, [pricingModalShow])
-
+export const TestModal = () => {
   return (
-    <div className="pricing-modal">
-      <div
-      
-        className={`pricing-modal-container ${
-          pricingModalShow ? "pricing-modal-show" : ""
-        }`}
-      >
-        <button
-          className="pricing-modal-close-btn"
-          onClick={() => setPricingModalShow(false)}
-        >
-          <IoCloseCircle />
-        </button>
-        <div ref={modalRef} className="pricing-modal-body">
-          <div className="pricing-modal-title">
-            <h2>Basic pricing plan</h2>
-            <p>
-              This plan is suitable for a personal website or small business
-              with 2 to 3 pages website.
-              <br />
-              The client must be the one to provide the slogans, marketing spiels, images, videos and likes.
-            </p>
-          </div>
-          <div className="pricing-modal-included">
-            <h2>What's included in your plan?</h2>
-            <dl>
-              <dt>Source Code</dt>
-              <dd>Source code will be provided.</dd>
-              <dt>Responsive Layout</dt>
-              <dd>Website supports mobile display.</dd>
-            </dl>
-          </div>
-          <div className="pricing-modal-scope">
-            <h2>Project scope</h2>
-            <dl>
-              <dt>Delivery time</dt>
-              <dd>2 days</dd>
-              <dt>Number of revisions</dt>
-              <dd>2</dd>
-              <dt>Number of pages</dt>
-              <dd>2; compose of Home and About or FAQ or Contact.<br/>
-                3rd page; subject for provision.
-              </dd>
-            </dl>
-          </div>
-          <div className="pricing-modal-upgrade">
-            <h2>Want to upgrade your oder?</h2>
-            <form method="post" className="pricing-modal-form">
-              <input type="checkbox" name="basic-delivery" id="basicDelivery" />
-              <label htmlFor="basicDelivery">Fast delivery: 1 day</label>
-              <input type="number" name="basic-revision" id="basicRevision" />
-              <label htmlFor="basicRevision">Revision: @$4 per revision</label>
-              <p>Extra services</p>
-            </form>
-          </div>
-        </div>
-      </div>
+    <div className="test-modal">
+      <h1>Test Modal</h1>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import HtmlToReact from "html-to-react";
 
 export const MainContext = createContext();
 
@@ -20,6 +21,12 @@ export const MainProvider = ({ children }) => {
   const [signupShow, setSignupShow] = useState(false);
 
   const setMainTimer = (time) => {};
+
+  const strParser = (str) => {
+    const parser = new HtmlToReact.Parser();
+    const strElem = parser.parse(str);
+    return strElem;
+  };
 
   const contextValue = {
     // App
@@ -45,6 +52,9 @@ export const MainProvider = ({ children }) => {
     // Signup
     signupShow,
     setSignupShow,
+
+    // str to html elem
+    strParser,
   };
 
   return (

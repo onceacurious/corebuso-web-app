@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap");
+
+$basic-color: var(--color-subtext);
+$basic-bg: rgba(44, 186, 131, 0.2);
+$standard-color: var(--color-text);
+$premium-color: var(--color-accent);
+
+// PRICING MODAL
+
+.pricing-modal {
+  &-container {
+    position: fixed;
+    z-index: -1;
+    top: 8%;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    height: 95vh;
+    transform: scale(0.1);
+    transition: all 500ms;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #999;
+    padding: 2rem 3rem;
+  }
+  &-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(225, 34, 34);
+    border: none;
+    outline: none;
+    background: transparent;
+
+    &:hover {
+      color: #555;
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+
+  &-body {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+    background: #999;
+
+    div {
+      padding: 1rem;
+      background: #fff !important;
+      transition: all 200ms ease-in-out;
+
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.5);
+        transform: translateY(-2px) scale(1.02);
+      }
+
+      h2 {
+        color: $basic-color;
+        font-family: "Lobster Two", cursive;
+        margin-bottom: 0.5rem;
+        // color: $basic-color;
+        font-size: 32px;
+      }
+    }
+  }
+
+  &-title {
+    grid-column: 1/4;
+  }
+  &-included {
+    grid-column: 2/4;
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      padding-left: 1rem;
+    }
+  }
+
+  &-scope {
+    grid-column: 1;
+    grid-row: 2/4;
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      padding-left: 1rem;
+    }
+  }
+
+  &-upgrade {
+    grid-column: 2/4;
+    grid-row: 3;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+}
+
+.pricing-modal-show {
+  z-index: 999999;
+  transform: scale(1);
+  border-radius: 24px;
+  opacity: 1;
+}

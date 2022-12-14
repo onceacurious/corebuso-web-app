@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./header.scss";
-import dev from "../../assets/dev_3.png";
+import { useContext } from "react";
 
 import { Alert, EmailForm } from "../../components";
+import dev from "../../assets/dev_3.png";
 import AnimatedLetters from "../../components/animatedLetters/AnimatedLetters";
+
+import "./header.scss";
+import { MainContext } from "../../helpers/context";
 
 const Header = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
+
+  const { strParser } = useContext(MainContext);
 
   const excerptArray = [
     "w",
@@ -50,7 +55,7 @@ const Header = () => {
     "s",
   ];
   const _content =
-    "Welcome to Corebuso Development Site. This site is for testing only, to submit an inquiry please visit corebuso.com. Some layout/display isn't yet responsive.";
+    "Welcome to Corebuso Development Site. This site is for testing only, to submit an inquiry please visit <strong className='gradient__text'>corebuso.com</strong>. Some layout/display isn't yet responsive.";
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,7 +66,11 @@ const Header = () => {
   // console.log(excerptArray);
   return (
     <>
-      <Alert title="Information" content={_content} duration={15000} />
+      <Alert
+        title="Information"
+        content={strParser(_content)}
+        duration={15000}
+      />
       <div className="cbs__header section__padding" id="home">
         <div className="cbs__header-content">
           <h1 className="gradient__text">

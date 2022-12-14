@@ -9,6 +9,7 @@ export { default as InfoIcon } from "./info_icon/InfoIcon";
 export { default as Inquiry } from "./inquiry/Inquiry";
 export { default as Login } from "./login/Login";
 export { default as Navbar } from "./navbar/Navbar";
+export { default as PricingModal } from "./pricing_modal/PricingModal";
 export { default as Register } from "./register/Register";
 export { default as Search } from "./search/Search";
 export { default as Sidebar } from "./sidebar/Sidebar";

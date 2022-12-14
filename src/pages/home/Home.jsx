@@ -9,12 +9,10 @@ import {
   Signup,
 } from "../../containers";
 
-import { Brand, Cta, Navbar, Snackbar } from "../../components";
+import { Brand, Cta, Navbar, PricingModal, Snackbar } from "../../components";
 import DocumentTitle from "../../helpers/DocumentTitle";
 
 import "./home.scss";
-import Search from "../../components/search/Search";
-
 const Home = ({ close, setClose }) => {
   DocumentTitle("Corebuso | Your core business solution");
 

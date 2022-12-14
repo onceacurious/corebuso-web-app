@@ -7,6 +7,7 @@ import logo from "../../assets/corebuso_footer_logo.png";
 import "./admin.css";
 import AuthContext from "../../helpers/context/AuthContext";
 import InquiryContext from "../../helpers/context/InquiryContext";
+import { MainContext } from "../../helpers/context";
 
 const Admin = () => {
   DocumentTitle("Corebuso | Admin Panel");
@@ -16,9 +17,14 @@ const Admin = () => {
 
   const [inquiry, setInquiry] = useState([]);
   const { user, logoutUser } = useContext(AuthContext);
-  const { contextInquiries } = useContext(InquiryContext);
+  const { contextInquiries, inquire } = useContext(InquiryContext);
+  const { strParser } = useContext(MainContext);
+
+  const _content =
+    "Admin panel doesn't support mobile display, <strong>lower than 790px</strong>";
 
   const getData = async () => {
+    console.log("Client inquired");
     try {
       const data = await contextInquiries();
       setInquiry(data);
@@ -44,7 +50,7 @@ const Admin = () => {
       <div className="cbs__admin-container gradient__bg">
         <Alert
           title="Information"
-          content="Admin panel doesn't support mobile display, lower than 790px"
+          content={strParser(_content)}
           duration={10000}
         />
         <Sidebar />

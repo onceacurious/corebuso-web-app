@@ -13,15 +13,12 @@ import PrivateRoute from "./helpers/PrivateRoute";
 import { AuthProvider } from "./helpers/context/AuthContext";
 import { InquiryProvider } from "./helpers/context/InquiryContext";
 import { UrlProvider } from "./helpers/context/UrlContext";
-import MainContext from "./helpers/context/MainContext";
 
 const App = () => {
   const [close, setClose] = useState(false);
 
-  const { scroll } = useContext(MainContext);
-
   return (
-    <div className={scroll ? "app overflow-hidden" : "app"}>
+    <div className="app">
       {/* <Snackbar /> */}
       <Router>
         <AuthProvider>
