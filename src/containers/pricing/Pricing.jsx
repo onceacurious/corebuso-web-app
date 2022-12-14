@@ -10,14 +10,15 @@ import "./pricing.scss";
 const Pricing = () => {
   const [showMoreStandard, setShowMoreStandard] = useState(false);
   const [showMorePremium, setShowMorePremium] = useState(false);
-  const [pricingModal, setPricingModal] = useState("");
+  const [pricingModalActive, setPricingModalActive] = useState(false)
 
-  const { url, setUrl } = useContext(UrlContext);
-  const { setPricingModalShow, setScroll } = useContext(MainContext);
+  const { setUrl } = useContext(UrlContext);
+  const { setPricingModalShow } = useContext(MainContext);
+
 
   const basicModal = () => {
     setPricingModalShow(true);
-    // setScroll(true);
+    // setPricingModalActive(true);
   };
   const standardModal = () => {
     setPricingModalShow("pricing-modal-show");
@@ -26,11 +27,12 @@ const Pricing = () => {
     setPricingModalShow("pricing-modal-show");
   };
 
+
   return (
     <>
       <div className="pricing gradient__bg" id="pricing">
         <h1 className="gradient__text">Choose a Plan for Your Website</h1>
-        <div className="pricing-content">
+        <div className="pricing-content" >
           <div className="_card-container _pt2">
             <PricingModal pricingData={""} />
             {/* Basic Card */}
@@ -279,15 +281,22 @@ const Pricing = () => {
 
 export default Pricing;
 
-export const PricingModal = ({ pricingData }) => {
+export const PricingModal = () => {
   const { pricingModalShow, setPricingModalShow } = useContext(MainContext);
   const modalRef = useRef();
 
-  useEffect(() => {});
+  useEffect(() => {
+    modalRef.current.focus()
+  });
+
+  useEffect(()=> {
+
+  }, [pricingModalShow])
 
   return (
-    <>
+    <div className="pricing-modal">
       <div
+      
         className={`pricing-modal-container ${
           pricingModalShow ? "pricing-modal-show" : ""
         }`}
@@ -298,7 +307,7 @@ export const PricingModal = ({ pricingData }) => {
         >
           <IoCloseCircle />
         </button>
-        <div className="pricing-modal-body">
+        <div ref={modalRef} className="pricing-modal-body">
           <div className="pricing-modal-title">
             <h2>Basic pricing plan</h2>
             <p>
@@ -312,7 +321,7 @@ export const PricingModal = ({ pricingData }) => {
             </p>
           </div>
           <div className="pricing-modal-included">
-            <h2>What's included on this plan?</h2>
+            <h2>What's included in your plan?</h2>
             <dl>
               <dt>Source Code</dt>
               <dd>Source code will be provided.</dd>
@@ -342,6 +351,6 @@ export const PricingModal = ({ pricingData }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

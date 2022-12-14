@@ -1,16 +1,40 @@
-$width: 450px;
+$width: 100%;
 
-.alert-container {
-  position: absolute;
-  z-index: 999999;
-  top: 2rem;
+.alert {
+  &-container {
+    position: fixed;
+    z-index: 999999;
+    top: 74px;
+    right: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    opacity: 0.9;
+    background: var(--color-bg-2);
 
-  background: var(--color-subtext);
-  padding: 1rem;
-  border-radius: 8px;
-  max-width: $width;
+    color: #fff !important;
 
-  color: #fff !important;
+    transition: all 500ms;
+  }
+
+  &-body {
+    padding-inline: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    a {
+      font-size: 14px;
+      text-align: end;
+      text-decoration: underline;
+      padding-right: 1rem;
+
+      &:hover {
+        color: var(--color-text);
+      }
+    }
+  }
 }
 
 .alert-show {
@@ -18,7 +42,8 @@ $width: 450px;
 }
 
 .alert-hide {
-  animation: slideOut 500ms forwards;
+  opacity: 0;
+  display: none;
 }
 
 .alert-close-btn {
@@ -36,7 +61,7 @@ $width: 450px;
 }
 
 .alert-close-btn svg:hover {
-  color: rgba(102, 102, 102, 0.5);
+  color: rgba(239, 12, 12, 0.9);
 }
 
 .alert-title p {
@@ -45,7 +70,7 @@ $width: 450px;
 }
 
 .alert-body p {
-  font-size: 14px;
+  font-size: 12px;
   user-select: text;
 }
 
@@ -68,5 +93,15 @@ $width: 450px;
   to {
     right: -450px;
     opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
   }
 }

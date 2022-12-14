@@ -50,7 +50,7 @@ const Header = () => {
     "s",
   ];
   const _content =
-    "Welcome to Corebuso Development Site. You can't submit any form here. Please use official site corebuso.com. Pricing plan modal mobile display isn't yet available";
+    "Welcome to Corebuso Development Site. This site is for testing only, to submit an inquiry please visit corebuso.com. Some layout/display isn't yet responsive.";
 
   useEffect(() => {
     setTimeout(() => {

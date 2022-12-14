@@ -1,12 +1,14 @@
 import React from "react";
-import "./footer.scss";
-import footer_logo from "../../assets/corebuso_footer_logo.png";
-import { EmailForm } from "../../components";
 import { Link } from "react-router-dom";
 
 import { SiFiverr, SiUpwork } from "react-icons/si";
+import { DiGithub } from "react-icons/di";
 import { BsLinkedin } from "react-icons/bs";
 import { ImFacebook2 } from "react-icons/im";
+
+import footer_logo from "../../assets/corebuso_footer_logo.png";
+import { EmailForm } from "../../components";
+import "./footer.scss";
 
 const Footer = () => {
   return (
@@ -146,6 +148,15 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <SiFiverr />
+              </a>
+            </span>
+            <span className="footer-social-icon pointer" title="GitHub">
+              <a
+                href="https://github.com/onceacurious?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DiGithub />
               </a>
             </span>
           </div>
