@@ -1,7 +1,8 @@
 import React from "react";
-import "./features.css";
-import { Feature } from "../../components";
 import { Link } from "react-router-dom";
+
+import { Feature } from "../../components";
+import "./features.css";
 
 const featuresData = [
   { 
@@ -14,11 +15,11 @@ const featuresData = [
   },
   {
     title: "Minimalist",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, illum!",
+    text: "A simple yet elegant design structure brings color and flavor to a website. Choose the right design and necessary elements to be used. Meeting the balanced approach, starting from the planning to the building phase, helps the developer decide and implement proper workflow resulting in a rich minimalist website.",
   },
   {
     title: "Consistent Typography",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, illum!",
+    text: "Choosing the right font, size, and color palette for a website isn't easy. Strategically planning what typography to use will make your user enjoy their stay on your website while browsing and finding the information they were looking for.",
   },
 ];
 

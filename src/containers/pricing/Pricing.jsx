@@ -47,7 +47,7 @@ const Pricing = () => {
               </div>
               <div className="_card-body">
                 <p className="_card-excerpt _text-center _py1">
-                  1 page with 4 section of your choice
+                  2 pages; 2nd page at your choice
                 </p>
 
                 <ul className="_px1 _sub-para">
@@ -103,7 +103,7 @@ const Pricing = () => {
               </div>
               <div className="_card-body">
                 <p className="_card-excerpt _text-center _py1">
-                  2 pages; 2nd page at your choice
+                  3 pages; 2nd and 3rd page at your choice
                 </p>
 
                 <ul
@@ -188,7 +188,7 @@ const Pricing = () => {
               </div>
               <div className="_card-body">
                 <p className="_card-excerpt _text-center _py1">
-                  3 pages; 2nd and 3rd page at your choice
+                  5 pages; 2nd to 5th page at your choice
                 </p>
 
                 <ul
@@ -314,10 +314,7 @@ export const PricingModal = () => {
               This plan is suitable for a personal website or small business
               with 2 to 3 pages website.
               <br />
-              <i>
-                Client must be the one to provide the slogans, marketing spiels,
-                and a likes.
-              </i>
+              The client must be the one to provide the slogans, marketing spiels, images, videos and likes.
             </p>
           </div>
           <div className="pricing-modal-included">
@@ -330,13 +327,16 @@ export const PricingModal = () => {
             </dl>
           </div>
           <div className="pricing-modal-scope">
+            <h2>Project scope</h2>
             <dl>
               <dt>Delivery time</dt>
               <dd>2 days</dd>
               <dt>Number of revisions</dt>
               <dd>2</dd>
               <dt>Number of pages</dt>
-              <dd>3; compose of Home, About/FAQ, and Contact</dd>
+              <dd>2; compose of Home and About or FAQ or Contact.<br/>
+                3rd page; subject for provision.
+              </dd>
             </dl>
           </div>
           <div className="pricing-modal-upgrade">

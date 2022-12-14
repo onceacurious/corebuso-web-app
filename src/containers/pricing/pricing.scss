@@ -137,13 +137,19 @@ $premium-color: var(--color-accent);
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     padding: 2rem;
-    // // background: $basic-bg;
-    // background: rgba(167, 165, 165, 0.2);
+    background: #999;
 
     div {
-      border-radius: 2rem;
-      padding: 2rem;
-      border: 2px solid #555;
+      padding: 1rem;
+      background: #fff !important;
+      transition: all 200ms ease-in-out;
+
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.5);
+        transform: translate(-2px, -2px);
+      }
 
       h2 {
         color: $basic-color;
@@ -157,8 +163,6 @@ $premium-color: var(--color-accent);
 
   &-title {
     grid-column: 1/4;
-    h2 {
-    }
   }
   &-included {
     grid-column: 2/4;

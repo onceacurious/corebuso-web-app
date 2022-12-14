@@ -227,6 +227,19 @@
   width: 100%;
 }
 
+/* Dev Site Only */
+.navbar-logo {
+  position: relative;
+  z-index: 1;
+  p {
+    position: absolute !important;
+    bottom: -8px;
+    left: -25px;
+    z-index: 2;
+    font-size: 12px;
+  }
+}
+
 .rotate-scale-up {
   -webkit-animation: rotate-scale-up 0.65s linear both;
   animation: rotate-scale-up 0.65s linear both;

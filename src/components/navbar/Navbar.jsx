@@ -100,8 +100,9 @@ const Navbar = ({ setClose, close, currentPage }) => {
       <Signup />
       <div className="cbs__navbar-links">
         <div className="cbs__navbar-links_logo">
-          <h1 className="rotate-scale-up">
+          <h1 className="rotate-scale-up navbar-logo">
             <Link to="/">COREBUSO</Link>
+            <p className="gradient__text">dev.</p>
           </h1>
         </div>
         <div className="cbs__navbar-links_container">
