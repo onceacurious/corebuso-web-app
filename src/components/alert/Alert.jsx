@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { IoCloseCircleOutline, IoCloseCircle } from "react-icons/io5";
+import { IoCloseCircle } from "react-icons/io5";
 
 import "./alert.scss";
 
 const Alert = ({ title, content, duration }) => {
-  const [alert, setAlert] = useState("alert-container alert-show");
-  // const {inquiries, }
-
-  useEffect(() => {
-    setTimeout(
-      () => {
-        setAlert("alert-container alert-hide");
-      },
-      duration ? duration : 5000
-    );
-  }, [alert]);
+  const [alert, setAlert] = useState("alert-container");
 
   return (
     <>
@@ -24,11 +14,9 @@ const Alert = ({ title, content, duration }) => {
             onClick={() => setAlert("alert-container alert-hide")}
           />
         </div>
-        <div className="alert-title">
-          <p>{title ? title : "No title"}</p>
-        </div>
         <div className="alert-body">
           <p>{content ? content : "No content"}</p>
+          <a href="">Learn more</a>
         </div>
       </div>
     </>

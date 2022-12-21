@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
-import { useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
+
 import InquiryContext from "../../helpers/context/InquiryContext";
+import MainContext from "../../helpers/context/MainContext";
 
 import "./emailForm.scss";
 
@@ -10,12 +11,20 @@ const EmailForm = ({ emailId, emailClass }) => {
   const [start, setStart] = useState("start-show");
   const [isFocus, setIsFocus] = useState(false);
 
-  const { addInquiry } = useContext(InquiryContext);
+  const { addInquiry, setInquire } = useContext(InquiryContext);
+  const {
+    setSnackbarShow,
+    setSnackbarTitle,
+    setSnackbarContent,
+    setSnackbarContextStatus,
+    setSnackbarDuration,
+  } = useContext(MainContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     postData();
     setEmail("");
+    setInquire(true);
   };
 
   const handleChange = (e) => {
@@ -24,10 +33,30 @@ const EmailForm = ({ emailId, emailClass }) => {
 
   const postData = async () => {
     if (email) {
-      try {
-        await addInquiry({ email: email });
-      } catch (err) {
-        console.log(err?.status);
+      const res = await addInquiry({ email: email });
+
+      if (res?.code == "ERR_NETWORK") {
+        setSnackbarShow(true);
+        setSnackbarTitle("Email Inquiry");
+        setSnackbarContent(
+          "Error incurred during submission. Please check you internet connection."
+        );
+        setSnackbarDuration(10000);
+        setSnackbarContextStatus("warning");
+      } else if (res?.code == "ERR_BAD_REQUEST") {
+        setSnackbarShow(true);
+        setSnackbarTitle("Email Inquiry");
+        setSnackbarContent(
+          "Bad request. Maybe you have been submitted a request previously."
+        );
+        setSnackbarContextStatus("alert");
+        setSnackbarDuration(10000);
+      } else {
+        setSnackbarShow(true);
+        setSnackbarTitle("Email Inquiry");
+        setSnackbarContent("Email inquiry successfully submitted");
+        setSnackbarContextStatus("success");
+        setSnackbarDuration(5000);
       }
     }
   };

@@ -1,12 +1,14 @@
 import React from "react";
-import "./footer.scss";
-import footer_logo from "../../assets/corebuso_footer_logo.png";
-import { EmailForm } from "../../components";
 import { Link } from "react-router-dom";
 
 import { SiFiverr, SiUpwork } from "react-icons/si";
+import { DiGithub } from "react-icons/di";
 import { BsLinkedin } from "react-icons/bs";
 import { ImFacebook2 } from "react-icons/im";
+
+import footer_logo from "../../assets/corebuso_footer_logo.png";
+import { EmailForm } from "../../components";
+import "./footer.scss";
 
 const Footer = () => {
   return (
@@ -113,16 +115,49 @@ const Footer = () => {
           </div>
           <div className="footer-social-container">
             <span className="footer-social-icon pointer" title="Facebook">
-              <ImFacebook2 />
+              <a
+                href="https://www.facebook.com/corebuso.ph"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImFacebook2 />
+              </a>
             </span>
             <span className="footer-social-icon pointer" title="Linked In">
-              <BsLinkedin />
+              <a
+                href="https://www.linkedin.com/in/francis-deo-aurelio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsLinkedin />
+              </a>
             </span>
             <span className="footer-social-icon pointer" title="Upwork">
-              <SiUpwork />
+              <a
+                href="https://www.upwork.com/freelancers/~01c5fe47e7ae957d80"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiUpwork />
+              </a>
             </span>
             <span className="footer-social-icon pointer" title="Fiverr">
-              <SiFiverr />
+              <a
+                href="https://www.fiverr.com/francisdeoa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiFiverr />
+              </a>
+            </span>
+            <span className="footer-social-icon pointer" title="GitHub">
+              <a
+                href="https://github.com/onceacurious?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DiGithub />
+              </a>
             </span>
           </div>
         </div>

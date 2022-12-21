@@ -1,3 +1,25 @@
+.signup-form {
+  &-instruction-container {
+    position: absolute;
+    z-index: 3;
+
+    background: rgb(118, 116, 116);
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+
+    transform: scale(0);
+    border-radius: 50px;
+    opacity: 0;
+
+    transition: transform 600ms ease-in-out;
+  }
+}
+
 #signupContainer {
   position: fixed;
   z-index: 9999999;
@@ -152,28 +174,6 @@
   z-index: 1;
 }
 
-#infoContainer {
-  position: absolute;
-  z-index: 3;
-  bottom: 0;
-  right: 0;
-
-  background: rgb(118, 116, 116);
-  border-radius: 4px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: justify;
-
-  transform: scale(0);
-  border-radius: 50px;
-  opacity: 0;
-
-  transition: transform 600ms ease-in-out;
-}
-
 #infoContainer p {
   width: 100%;
   font-size: 12px;
@@ -187,18 +187,19 @@
   color: var(--color-subtext);
   cursor: pointer;
   top: 5px;
-  right: 5px;
+  right: 10px;
 }
 
-.cbs__input-container:hover #infoContainer {
+.signup-input-focus {
   transform: scale(1) !important;
   opacity: 0.9;
-  width: 350px;
+  width: 100%;
   height: fit-content;
   bottom: 3rem;
-  right: -2rem;
-  padding: 0.5rem;
-  border-radius: 0 !important;
+  // right: -2rem;
+  // transform: translate(-50%);
+  padding: 0.5rem 1rem;
+  border-radius: 16px !important;
 }
 
 .cbs__client-signup__form .cbs__input-container input[type="text"],
@@ -208,7 +209,7 @@
 }
 
 .invalid {
-  outline: 1px solid rgba(255, 0, 0 0.5) !important;
+  outline: 1px solid rgba(255, 0, 0, 0.5) !important;
   box-shadow: inset 0 0 4px 2px rgba(223, 47, 47, 0.5) !important;
 }
 

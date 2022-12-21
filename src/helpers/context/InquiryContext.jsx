@@ -6,7 +6,7 @@ const InquiryContext = createContext({});
 export default InquiryContext;
 
 export const InquiryProvider = ({ children }) => {
-  const [inquire, setInquire] = useState([]);
+  const [inquire, setInquire] = useState(false);
 
   const contextInquiries = async () => {
     const res = await getInquiries();
@@ -21,8 +21,10 @@ export const InquiryProvider = ({ children }) => {
   };
 
   const contextData = {
-    contextInquiries: contextInquiries,
-    addInquiry: addInquiry,
+    contextInquiries,
+    addInquiry,
+    inquire,
+    setInquire,
   };
 
   useEffect(() => {}, []);

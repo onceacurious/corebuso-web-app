@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useEffect } from "react";
 import { MdDoubleArrow } from "react-icons/md";
-import { TiInfoLarge } from "react-icons/ti";
+import { GoEyeClosed } from "react-icons/go";
+import { MainContext } from "../../helpers/context";
 
-import "./signup.css";
-
+import "./signup.scss";
 
 const Information = ({ target, show }) => {
   const info_target = [
@@ -50,7 +50,7 @@ const Information = ({ target, show }) => {
 
   useEffect(() => {}, [show]);
   return (
-    <div id="infoContainer">
+    <div className="signup-form-instruction-container">
       <p className={data.message["0"] ? "" : "hide"}>{data.message["0"]}</p>
       <p className={data.message["1"] ? "" : "hide"}>1. {data.message["1"]}</p>
       <p className={data.message["2"] ? "" : "hide"}>2. {data.message["2"]}</p>
@@ -60,9 +60,6 @@ const Information = ({ target, show }) => {
   );
 };
 
-
-
-
 const EMAIL_REGEX =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_.]{6,23}$/;
@@ -70,6 +67,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
   const userRef = useRef();
+  const { setScroll } = useContext(MainContext);
 
   const [user, setUser] = useState("");
   const [validUser, setValidUser] = useState(false);
@@ -97,22 +95,21 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
     setPwd2("");
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     const result = USER_REGEX.test(user);
     setValidUser(result);
-  }, [user])
+  }, [user]);
 
+  useEffect(() => {
+    const result = EMAIL_REGEX.test(email);
+    setValidEmail(result);
+  }, [email]);
 
-  useEffect(()=> {
-    const result = EMAIL_REGEX.test(email)
-    setValidEmail(result)
-  },[email])
-
-  useEffect(()=> {
-    const result = PWD_REGEX.test(pwd)
-    setValidPwd(result)
-    setValidPwd2(validPwd && pwd2 === pwd)
-  },[pwd, pwd2] )
+  useEffect(() => {
+    const result = PWD_REGEX.test(pwd);
+    setValidPwd(result);
+    setValidPwd2(validPwd && pwd2 === pwd);
+  }, [pwd, pwd2]);
 
   useEffect(() => {
     userRef.current.focus();
@@ -123,14 +120,14 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
       <div id="signupContainer" className={close ? "show" : ""}>
         <div
           className="cbs__client-signup__close pointer"
-          onClick={() => setClose(!close)}
+          onClick={() => (setClose(!close), setScroll(false))}
         >
           <MdDoubleArrow />
         </div>
         <div className="cbs__client-signup__body">
           <div className="cbs__client-signup__form">
             <h1 className="gradient__text">Sign Up</h1>
-            <form method="POST" onSubmit={handleSubmit}>
+            <form method="POST" onSubmit={handleSubmit} className="signup-form">
               <label
                 className="gradient__text"
                 htmlFor={`${usernameId}-client_username`}
@@ -148,9 +145,11 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={user}
                   onChange={(e) => setUser(e.target.value)}
-                  onFocus={()=>setFocusUser(true)}
-                  onBlur = {()=> setFocusUser(false)}
-                  className={!validUser && focusUser ? "invalid":""}
+                  onFocus={() => setFocusUser(true)}
+                  onBlur={() => setFocusUser(false)}
+                  className={
+                    !validUser && focusUser ? "invalid signup-input-focus" : ""
+                  }
                 />
               </div>
               <label
@@ -169,9 +168,9 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  onFocus={()=>setFocusEmail(true)}
-                  onBlur = {()=> setFocusEmail(false)}
-                  className={!validEmail && focusEmail ? "invalid":""}
+                  onFocus={() => setFocusEmail(true)}
+                  onBlur={() => setFocusEmail(false)}
+                  className={!validEmail && focusEmail ? "invalid" : ""}
                 />
               </div>
               <label
@@ -190,11 +189,11 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={pwd}
                   onChange={(e) => setPwd(e.target.value)}
-                  onFocus={()=>setFocusPwd(true)}
-                  onBlur = {()=> setFocusPwd(false)}
-                  className={!validPwd && focusPwd ? "invalid":""}
-                  />
-                <TiInfoLarge />
+                  onFocus={() => setFocusPwd(true)}
+                  onBlur={() => setFocusPwd(false)}
+                  className={!validPwd && focusPwd ? "invalid" : ""}
+                />
+                <GoEyeClosed />
               </div>
               <label
                 className="gradient__text"
@@ -212,11 +211,11 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                   required
                   value={pwd2}
                   onChange={(e) => setPwd2(e.target.value)}
-                  onFocus={()=>setFocusPwd2(true)}
-                  onBlur = {()=> setFocusPwd2(false)}
-                  className={!validPwd2 && focusPwd2 ? "invalid":""}
-                  />
-                <TiInfoLarge />
+                  onFocus={() => setFocusPwd2(true)}
+                  onBlur={() => setFocusPwd2(false)}
+                  className={!validPwd2 && focusPwd2 ? "invalid" : ""}
+                />
+                <GoEyeClosed />
               </div>
               <div className="cbs__client-signup__form-btn">
                 <button
@@ -230,7 +229,11 @@ const Signup = ({ close, setClose, emailId, usernameId, pwdId, pwdId2 }) => {
                 <button
                   type="submit"
                   className="_btn _btn-rounded _btn-primary"
-                  disabled={validUser && validEmail && validPwd && validPwd2 ? false : true}
+                  disabled={
+                    validUser && validEmail && validPwd && validPwd2
+                      ? false
+                      : true
+                  }
                 >
                   Submit
                 </button>

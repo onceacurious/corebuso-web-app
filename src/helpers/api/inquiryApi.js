@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const inquiryApi = axios.create({
-  baseURL: "https://corebuso.pythonanywhere.com/client/",
+  baseURL: "http://127.0.0.1:8000/client/",
 });
 
 export const getInquiry = async (id) => {
@@ -24,10 +24,12 @@ export const getInquiries = async () => {
 
 export const postInquiry = async (data) => {
   try {
-    await inquiryApi.post("/inquiry/", data);
+    await inquiryApi.post("inquiry/", data);
   } catch (err) {
-    console.log(err.data?.status);
-    console.log(err.data?.response);
+    // console.error(err);
+    return err;
+
+    // console.log(err.data);
   }
 };
 

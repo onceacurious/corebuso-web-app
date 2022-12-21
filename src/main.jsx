@@ -6,6 +6,7 @@ import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 import "../src/assets/animate.css";
 import App from "./App";
 import "./index.css";
+import { MainProvider } from "./helpers/context/MainContext";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,9 @@ if (process.env.NODE_ENV === "production") {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <MainProvider>
+        <App />
+      </MainProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

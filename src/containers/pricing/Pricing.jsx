@@ -1,18 +1,37 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./pricing.css";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { UrlContext, MainContext } from "../../helpers/context";
+
+import "./pricing.scss";
+
 const Pricing = () => {
   const [showMoreStandard, setShowMoreStandard] = useState(false);
   const [showMorePremium, setShowMorePremium] = useState(false);
 
+  const { setUrl } = useContext(UrlContext);
+  const { setPricingModalShow } = useContext(MainContext);
+
+  const nav = useNavigate();
+
+  const goToPricing = () => {
+    nav("/pricing");
+  };
+  const standardModal = () => {
+    setPricingModalShow("pricing-modal-show");
+  };
+  const premiumModal = () => {
+    setPricingModalShow("pricing-modal-show");
+  };
+
   return (
     <>
-      <div className="cbs__pricing gradient__bg" id="pricing">
+      <div className="pricing gradient__bg" id="pricing">
         <h1 className="gradient__text">Choose a Plan for Your Website</h1>
-        <div className="cbs__pricing-content">
-          <div className="_card-container">
+        <div className="pricing-content">
+          <div className="_card-container _pt2 ">
             {/* Basic Card */}
-            <div className="_card _basic">
+            <div className="_card _basic focus">
               <div className="_card-head">
                 <div className="_card-header">
                   <h4 className="_heading1 _bold _text-center">Basic</h4>
@@ -23,7 +42,7 @@ const Pricing = () => {
               </div>
               <div className="_card-body">
                 <p className="_card-excerpt _text-center _py1">
-                  1 page with 4 section of your choice
+                  2 pages; 2nd page at your choice
                 </p>
 
                 <ul className="_px1 _sub-para">
@@ -57,13 +76,18 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" />
+                <input
+                  type="button"
+                  value="Continue"
+                  className="_card-btn"
+                  onClick={goToPricing}
+                />
               </div>
             </div>
 
             {/* Standard Card */}
             <div className="_card _standard">
-              <h2 className="cbs__pricing-best-value">Best Value</h2>
+              <h2 className="pricing-best-value">Best Value</h2>
               <div className="_card-head">
                 <div className="_card-header">
                   <h4 className="_heading1 _bold _text-center">Standard</h4>
@@ -74,7 +98,7 @@ const Pricing = () => {
               </div>
               <div className="_card-body">
                 <p className="_card-excerpt _text-center _py1">
-                  2 pages; 2nd page at your choice
+                  3 pages; 2nd and 3rd page at your choice
                 </p>
 
                 <ul
@@ -138,7 +162,12 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" />
+                <input
+                  type="button"
+                  value="Continue"
+                  className="_card-btn"
+                  onClick={goToPricing}
+                />
               </div>
             </div>
 
@@ -154,7 +183,7 @@ const Pricing = () => {
               </div>
               <div className="_card-body">
                 <p className="_card-excerpt _text-center _py1">
-                  3 pages; 2nd and 3rd page at your choice
+                  5 pages; 2nd to 5th page at your choice
                 </p>
 
                 <ul
@@ -222,13 +251,23 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="_card-footer _text-center _flex _flex-column">
-                <input type="button" value="Continue" className="_card-btn" />
+                <input
+                  type="button"
+                  value="Continue"
+                  className="_card-btn"
+                  onClick={goToPricing}
+                />
               </div>
             </div>
           </div>
         </div>
-        <Link to="/pricing" href="" className="cbs__pricing-learn-more">
-          Learn more
+        <Link
+          to="/pricing"
+          href=""
+          className="pricing-learn-more"
+          onClick={() => setUrl("pricing")}
+        >
+          More Details
         </Link>
       </div>
     </>
@@ -236,3 +275,11 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
+export const TestModal = () => {
+  return (
+    <div className="test-modal">
+      <h1>Test Modal</h1>
+    </div>
+  );
+};
