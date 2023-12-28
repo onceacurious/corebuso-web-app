@@ -113,16 +113,40 @@ const Footer = () => {
           </div>
           <div className="footer-social-container">
             <span className="footer-social-icon pointer" title="Facebook">
-              <ImFacebook2 />
+              <a
+                href="https://www.facebook.com/corebuso.ph"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImFacebook2 />
+              </a>
             </span>
             <span className="footer-social-icon pointer" title="Linked In">
-              <BsLinkedin />
+              <a
+                href="https://www.linkedin.com/in/francis-deo-aurelio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsLinkedin />
+              </a>
             </span>
             <span className="footer-social-icon pointer" title="Upwork">
-              <SiUpwork />
+              <a
+                href="https://www.upwork.com/freelancers/~01c5fe47e7ae957d80"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiUpwork />
+              </a>
             </span>
             <span className="footer-social-icon pointer" title="Fiverr">
-              <SiFiverr />
+              <a
+                href="https://www.fiverr.com/francisdeoa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiFiverr />
+              </a>
             </span>
           </div>
         </div>

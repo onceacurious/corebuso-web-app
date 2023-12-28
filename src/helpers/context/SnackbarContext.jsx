@@ -1,29 +1,34 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-export const CBSContext = createContext({
-  getSnackbarStatus: () => {},
-  getSnackbarMessage: () => {},
-  getSnackbarPosition: () => {},
-  setSnackbarTimer: () => {},
-});
+export const SnackbarContext = createContext();
 
-export const CBSProvider = ({ children }) => {
-  const [snackbarStatus, setSnackbarStatus] = useState(false);
+export const SnackbarProvider = ({ children }) => {
+  const [show, setShow] = useState(false);
+  const [content, setContent] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [_status, set_Status] = useState("");
+  const [duration, setDuration] = useState(5000);
 
-  function getSnackbarStatus(status) {
-    if (status) return true;
-    return false;
-  }
-
-  function setSnackbarTimer(time) {}
+  const setSnackbarTimer = (time) => {};
 
   const contextValue = {
-    getSnackbarStatus,
+    show,
+    setShow,
+    setContent,
+    setTitle,
+    title,
+    content,
+    _status,
+    set_Status,
+    duration,
+    setDuration,
   };
 
   return (
-    <CBSContext.Provider value={contextValue}>{children}</CBSContext.Provider>
+    <SnackbarContext.Provider value={contextValue}>
+      {children}
+    </SnackbarContext.Provider>
   );
 };
 
-export default CBSProvider;
+export default SnackbarContext;

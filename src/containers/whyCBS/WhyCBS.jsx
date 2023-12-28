@@ -5,7 +5,7 @@ import "./whyCBS.css";
 
 const WhatCBS = () => {
   return (
-    <div className="cbs__whyCBS section__margin" id="wCBS">
+    <div className="cbs__whyCBS section__margin" id="about">
       <div className="cbs__whyCBS-feature">
         <Feature
           title="What is COREBUSO"
